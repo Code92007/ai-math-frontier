@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 1;
+const SEED_VERSION = 3;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -68,6 +68,26 @@ const SEED_EVENTS = [
     featured: true,
     sources: [
       { title: "An OpenAI model has disproved a central conjecture in discrete geometry", url: "https://openai.com/index/model-disproves-discrete-geometry-conjecture/", type: "官方发布 + 证明" },
+    ],
+  },
+  {
+    id: "math-2026-jacobian-counterexample",
+    domain: "math",
+    date: "2026-07-20",
+    title: "Claude Fable 5 给出 Jacobian 猜想的三维反例",
+    status: "solved",
+    evidenceLevel: "verified",
+    actor: "Levent Alpöge / Anthropic / 独立验证者",
+    model: "Claude Fable 5",
+    summary: "Claude Fable 5 找到一个显式多项式映射 F: C³ → C³：它的 Jacobian 行列式恒为 -2，却把三个不同点映到同一点，因此不可逆。这反驳了三维 Jacobian 猜想，并可通过添加恒等坐标推广到所有 n ≥ 3；二维情形仍然开放。",
+    impact: "这一结果终结了 Keller 于 1939 年提出的猜想在三维及以上的版本，也把 AI 生成反例从实验性线索推进到可由精确算术独立复核的数学成果。",
+    before: "1939 年提出，n ≥ 3 未决",
+    after: "C³ 显式反例；n = 2 仍开放",
+    featured: true,
+    sources: [
+      { title: "Discovering cryptographic weaknesses with Claude", url: "https://www.anthropic.com/research/discovering-cryptographic-weaknesses", type: "Anthropic 官方回顾" },
+      { title: "Counterexamples to the Jacobian conjecture in dimensions greater than two", url: "https://arxiv.org/abs/2608.00222", type: "后续论文" },
+      { title: "The Alpöge-Fable counterexample to the Jacobian conjecture", url: "https://zenodo.org/records/21461572", type: "独立精确算术核验" },
     ],
   },
   {
@@ -324,7 +344,32 @@ const SEED_EVENTS = [
       { title: "QOJ 汇总与公开题解入口", url: "https://qoj.ac/blog/qingyu/blog/4412", type: "社区题解" },
     ],
   },
+  {
+    id: "math-2026-prime-gaps-186",
+    domain: "math",
+    date: "2026-09-03",
+    title: "GPT-6 Astra 将有界素数间隙纪录推进到 186",
+    status: "progress",
+    evidenceLevel: "reported",
+    actor: "OpenAI",
+    model: "GPT-6 Astra",
+    summary: "OpenAI 的预印本证明 lim inf(pₙ₊₁ - pₙ) ≤ 186，即存在无穷多对相邻素数的间隔不超过 186。这推进了与孪生素数猜想相关的无条件纪录，但没有证明孪生素数猜想；后者要求把 186 降到 2。",
+    impact: "此前的 246 纪录保持约 12 年。新证明把等分布估计、Selberg 筛与数值优化结合起来，并附带 Lean 形式化和 Python/FLINT 数值证书，展示了 AI 参与前沿解析数论的完整工作流。",
+    before: "246（保持约 12 年）",
+    after: "186（孪生素数目标为 2）",
+    featured: true,
+    sources: [
+      { title: "GPT-6 Astra: A new generation of intelligence", url: "https://openai.com/index/gpt-6-astra/", type: "官方发布" },
+      { title: "Improved short gaps between primes", url: "https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf", type: "证明预印本" },
+      { title: "Prime Gaps at Most 186", url: "https://github.com/openai/PrimeGaps186", type: "Lean + 数值证书" },
+    ],
+  },
 ];
+
+const SEED_MIGRATIONS = {
+  2: ["math-2026-jacobian-counterexample"],
+  3: ["math-2026-prime-gaps-186"],
+};
 
 const state = {
   events: [],
@@ -418,11 +463,24 @@ function transactionPromise(transaction) {
 async function ensureSeedData() {
   const readTransaction = database.transaction("meta", "readonly");
   const marker = await requestPromise(readTransaction.objectStore("meta").get("seed-version"));
-  if (marker) return;
+  const currentVersion = Number(marker?.value || 0);
+  if (currentVersion >= SEED_VERSION) return;
 
   const transaction = database.transaction(["milestones", "meta"], "readwrite");
   const store = transaction.objectStore("milestones");
-  SEED_EVENTS.forEach((event) => store.put({ ...event, origin: "seed" }));
+  if (currentVersion === 0) {
+    SEED_EVENTS.forEach((event) => store.put({ ...event, origin: "seed" }));
+  } else {
+    const migrationIds = new Set(Object.entries(SEED_MIGRATIONS)
+      .filter(([version]) => Number(version) > currentVersion && Number(version) <= SEED_VERSION)
+      .flatMap(([, ids]) => ids));
+    SEED_EVENTS.filter((event) => migrationIds.has(event.id)).forEach((event) => {
+      const request = store.get(event.id);
+      request.onsuccess = () => {
+        if (!request.result) store.put({ ...event, origin: "seed" });
+      };
+    });
+  }
   transaction.objectStore("meta").put({ key: "seed-version", value: SEED_VERSION });
   await transactionPromise(transaction);
 }
