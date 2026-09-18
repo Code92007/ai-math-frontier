@@ -128,16 +128,6 @@ a { color: inherit; }
 .danger-button { border-color: #b84838; color: #a63e31; }
 .danger-button:hover { background: #fae4de; }
 
-.hero {
-  min-height: 430px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.03fr) minmax(420px, .97fr);
-  gap: 80px;
-  align-items: center;
-  padding-block: 54px 48px;
-}
-
-.kicker,
 .section-index {
   margin: 0 0 12px;
   color: var(--gold);
@@ -146,63 +136,7 @@ a { color: inherit; }
   font-weight: 700;
 }
 
-.hero h1 {
-  margin: 0;
-  max-width: 690px;
-  font-family: Georgia, "Songti SC", "Noto Serif CJK SC", serif;
-  font-size: clamp(48px, 6vw, 78px);
-  line-height: 1.06;
-  font-weight: 500;
-}
-
-.deck {
-  max-width: 660px;
-  margin: 24px 0 0;
-  color: #c3c6c0;
-  font-size: 18px;
-  line-height: 1.75;
-}
-
-.evidence-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 28px; }
-.evidence-note p { margin: 0; max-width: 590px; color: #8f948e; font-size: 13px; }
-.evidence-line { width: 26px; height: 1px; margin-top: 10px; flex: 0 0 auto; background: var(--gold); }
-
-.signal-map {
-  position: relative;
-  height: 330px;
-  border: 1px solid #3d413d;
-  overflow: hidden;
-  background: #1a1d1b;
-}
-
-.signal-map::before,
-.signal-map::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-.signal-map::before { inset: 0 50% 0 auto; border-left: 1px solid #292d29; }
-.signal-map::after { inset: 50% 0 auto 0; border-top: 1px solid #292d29; }
-.signal-axis { position: absolute; left: 44px; right: 36px; top: 185px; border-top: 1px solid #5b605a; }
-.signal-link { position: absolute; height: 1px; transform-origin: left center; background: #6e736c; }
-.signal-link-a { width: 210px; left: 76px; top: 187px; transform: rotate(-31deg); }
-.signal-link-b { width: 202px; left: 262px; top: 79px; transform: rotate(34deg); }
-
-.signal-node { position: absolute; display: grid; gap: 1px; min-width: 126px; }
-.signal-node .node-dot { position: absolute; width: 10px; height: 10px; border: 2px solid var(--dark); outline: 1px solid currentColor; background: currentColor; }
-.signal-node .node-year { color: #8d928b; font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: 11px; }
-.signal-node strong { font-size: 15px; font-weight: 650; }
-.signal-node small { color: #92978f; font-size: 12px; }
-.node-2025 { left: 32px; top: 210px; color: var(--cp); }
-.node-2025 .node-dot { left: 11px; top: -30px; }
-.node-math { left: 205px; top: 34px; color: var(--math); }
-.node-math .node-dot { left: 48px; top: 38px; }
-.node-cp { left: 250px; top: 210px; color: #5eb7b0; }
-.node-cp .node-dot { left: 36px; top: -30px; }
-.node-now { right: 18px; top: 80px; color: var(--gold); }
-.node-now .node-dot { left: 38px; top: 93px; }
-
-.stat-strip { border-top: 1px solid #383b38; background: #111312; }
+.stat-strip { background: #111312; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stats > div { min-height: 86px; display: flex; align-items: baseline; gap: 10px; padding: 22px 22px; border-left: 1px solid #333633; }
 .stats > div:last-child { border-right: 1px solid #333633; }
@@ -329,10 +263,6 @@ dialog::backdrop { background: rgba(17, 19, 18, .72); backdrop-filter: blur(3px)
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; gap: 38px; padding-block: 44px; }
-  .signal-map { height: 270px; }
-  .signal-link-b { width: 185px; }
-  .node-now { right: 8%; }
   .stats > div { flex-direction: column; justify-content: center; gap: 0; padding: 16px; }
   .controls { flex-wrap: wrap; padding-block: 12px; }
   .search-field { flex: 1 1 230px; }
@@ -348,17 +278,6 @@ dialog::backdrop { background: rgba(17, 19, 18, .72); backdrop-filter: blur(3px)
   .top-actions { gap: 5px; }
   .masthead .quiet-button, .masthead .file-button { padding-inline: 8px; font-size: 12px; }
   .primary-button { padding-inline: 10px; font-size: 12px; }
-  .hero { min-height: auto; padding-block: 40px 28px; }
-  .hero h1 { font-size: 48px; }
-  .deck { font-size: 16px; }
-  .signal-map { height: 300px; }
-  .signal-axis { left: 30px; right: 20px; }
-  .signal-link-a { width: 150px; left: 56px; top: 187px; }
-  .signal-link-b { width: 140px; left: 185px; top: 108px; transform: rotate(32deg); }
-  .node-2025 { left: 18px; }
-  .node-math { left: 116px; top: 56px; }
-  .node-cp { left: 168px; }
-  .node-now { right: 4px; top: 94px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .stats > div:nth-child(3) { border-top: 1px solid #333633; }
   .stats > div:nth-child(4) { border-top: 1px solid #333633; border-right: 1px solid #333633; }
