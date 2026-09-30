@@ -7,14 +7,14 @@ const STATUS = {
   review: "待审阅",
 };
 
-const DOMAIN = { math: "数学界", cp: "算法竞赛界" };
+const DOMAIN = { math: "数学界", cp: "算法竞赛界", physics: "物理界", biology: "生物界" };
 const EVIDENCE = {
   verified: "已核验 / 可机检",
   reported: "机构或作者发布",
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 3;
+const SEED_VERSION = 4;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -364,11 +364,267 @@ const SEED_EVENTS = [
       { title: "Prime Gaps at Most 186", url: "https://github.com/openai/PrimeGaps186", type: "Lean + 数值证书" },
     ],
   },
+  {
+    "id": "math-2026-frontiermath-erdos",
+    "domain": "math",
+    "date": "2026-09-01",
+    "title": "独立测评：Astra 在 68 道 Erdős 开放问题中解出 2 道",
+    "status": "benchmark",
+    "evidenceLevel": "verified",
+    "actor": "Epoch AI",
+    "model": "GPT-6 Astra 预发布版",
+    "summary": "Epoch 的固定预算测评中，Astra 反驳 #74、证明 #126，获得 2/68（约 3%）。另在更大预算与不同配置的追加尝试中解决 #1、#548、#571；合计五题不是正式测评分数。",
+    "impact": "开放问题开始有透明预算与 Lean 终检，研究能力可以独立复核。",
+    "before": "其他四个受测模型：0%",
+    "after": "固定测评 3%；追加尝试合计五题",
+    "featured": false,
+    "sources": [
+      {
+        "title": "Announcing FrontierMath Erdős",
+        "url": "https://epoch.ai/latest/announcing-frontiermath-erdos",
+        "type": "独立测评 + 公开方法"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-erdos-sos",
+    "domain": "math",
+    "date": "2026-09-15",
+    "title": "Astra 找到 Erdős–Sós 猜想的简短计数证明",
+    "status": "solved",
+    "evidenceLevel": "verified",
+    "actor": "Epoch AI / David R. Wood / Jay Cummings",
+    "model": "GPT-6 Astra",
+    "summary": "David R. Wood 发布证明讲解：平均度大于 t−2 的图包含每一棵 t 顶点树。Astra 预发布版在 8 月的追加搜索中发现证明，9 月公开传播，随后 Jay Cummings 给出图解。公开 Lean 仓库通过 Comparator；其对照端点在一个奇偶边界上略弱于经典表述，内部计数引理给出锐界。",
+    "impact": "从 1962 年的极值图论名题到可读证明与机器产物，数学家继续把模型生成的论证整理成人类可理解的结构。",
+    "before": "1962 年提出的一般情形",
+    "after": "计数证明 + Lean + 人类讲解",
+    "featured": true,
+    "sources": [
+      {
+        "title": "The Erdős–Sós Theorem",
+        "url": "https://arxiv.org/abs/2609.17877",
+        "type": "证明预印本"
+      },
+      {
+        "title": "Erdős #548：Lean 证明与端点范围说明",
+        "url": "https://github.com/tadamcz/erdos548",
+        "type": "Lean + Comparator"
+      },
+      {
+        "title": "Jay Cummings：图解证明",
+        "url": "https://arxiv.org/abs/2609.32011",
+        "type": "证明预印本"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-amp-low-degree",
+    "domain": "math",
+    "date": "2026-09-07",
+    "title": "Astra 参与解决增长次数 AMP 等价问题的 Bernoulli 特例",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Zhangsong Li",
+    "model": "GPT-6 Astra",
+    "summary": "Zhangsong Li 的预印本给出 Gaussian planted-submatrix 模型中增长次数多项式估计的锐下界：固定 λ>0、ρ∈(0,1)，次数 D(n)=o(n^(1/60))。作者称多数论证由 Astra 生成；结论限定在 Bernoulli 秩一模型及该次数范围。",
+    "impact": "AI 开始参与统计计算复杂性中的研究证明；人类的战略选择和作者责任仍明确保留。",
+    "before": "已有常数次数等价结果",
+    "after": "受限增长次数下的精确低次数 MMSE",
+    "featured": false,
+    "sources": [
+      {
+        "title": "Almost Sharp Equivalence between Approximate Message Passing and Low-Degree Polynomials",
+        "url": "https://arxiv.org/abs/2609.06988",
+        "type": "证明预印本"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-planar-universal-points",
+    "domain": "math",
+    "date": "2026-09-10",
+    "title": "平面图通用点集从二次规模推进到几乎线性",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Taylor Gordon",
+    "model": "GPT-6 Astra",
+    "summary": "Taylor Gordon 构造 n^(1+o(1)) 大小的点集，使每个 n 顶点平面图都能在其上作无交叉直线绘制，改进此前二次上界。论文明确称 Astra 协助开发构造和证明；所链接的 Lean 产物覆盖早期构造。",
+    "impact": "计算几何中的长期规模界被推进，同时留下可检查的排列超模式构造。",
+    "before": "二次规模上界",
+    "after": "n^(1+o(1))",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Almost Linear Universal Point Sets for Planar Graphs",
+        "url": "https://arxiv.org/abs/2609.10916",
+        "type": "证明预印本"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-erdos-sos-digraphs",
+    "domain": "math",
+    "date": "2026-09-10",
+    "title": "Astra 给出 Erdős–Sós 的 Eulerian 有向图版本",
+    "status": "solved",
+    "evidenceLevel": "reported",
+    "actor": "Dhruv Mubayi / Jacques Verstraete",
+    "model": "GPT-6 Astra",
+    "summary": "Dhruv Mubayi 与 Jacques Verstraete 报告：n 顶点 Eulerian 有向图若有多于 (t−1)n 条弧，就包含每一种 t 边定向树，且界对每棵树都锐。图无自环、无重复弧，但允许反向弧。作者明确将证明归于 Astra。",
+    "impact": "连有向路径此前也没有这类锐界；新结果把树嵌入推进到受限有向图类。",
+    "before": "缺少相应锐界",
+    "after": "Eulerian 有向图中的锐树嵌入界",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Erdős–Sós for digraphs",
+        "url": "https://arxiv.org/abs/2609.10987",
+        "type": "证明预印本"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-liouville-goldbach",
+    "domain": "math",
+    "date": "2026-09-16",
+    "title": "哥德巴赫的 Liouville 类比获得无条件证明",
+    "status": "solved",
+    "evidenceLevel": "verified",
+    "actor": "Captain Sude / 独立审计者",
+    "model": "GPT-6 Astra",
+    "summary": "公开项目证明每个偶数 N>2 都可写成 a+b，a、b 为正整数且 λ(a)=λ(b)=−1，即两者含有奇数个质因子（计重数）。发布者 Captain Sude 将证明发现归于 Astra；Lean 产物已有独立重编译和公理审计，模型与人类的详细贡献轨迹未完整公开。",
+    "impact": "去掉既有结果的 GRH 与“充分大”限制。经典哥德巴赫要求两个加数均为素数，仍然开放。",
+    "before": "GRH + 充分大偶数",
+    "after": "无条件覆盖所有偶数 N>2",
+    "featured": true,
+    "sources": [
+      {
+        "title": "A Goldbach theorem for the Liouville function",
+        "url": "https://github.com/CaptainSude/Liouville-Goldbach",
+        "type": "论文 + Lean"
+      },
+      {
+        "title": "Independent Audit Bundle",
+        "url": "https://github.com/sunnyspot114514/Liouville-Goldbach-audit",
+        "type": "独立技术复现"
+      },
+      {
+        "title": "2024 年前置结果",
+        "url": "https://arxiv.org/abs/2412.17199",
+        "type": "证明预印本"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-poincare-formalization",
+    "domain": "math",
+    "date": "2026-09-27",
+    "title": "人类与 AI 完成庞加莱猜想的 Lean 形式化",
+    "status": "formalized",
+    "evidenceLevel": "verified",
+    "actor": "Ziyang Qin / Yuan Liao / Ayush Khaitan / Bennett Chow",
+    "model": "自动化与 AI 辅助（论文未细分模型贡献）",
+    "summary": "Qin、Liao、Khaitan、Chow 发布光滑三维庞加莱定理及 Moise 光滑化的形式化，由此得到拓扑版本。论文固定 v0.1.3 源码，报告端点匹配 Mathlib 陈述且公理闭包仅含标准三公理。自动化辅助用于证明和文字，作者承担数学责任。",
+    "impact": "把 Hamilton–Perelman 已有证明及大量前置几何分析转成可机检产物。媒体报道约 470 万行；代码行数是工程规模，结论应依据定理端点、定义与公理审计判断。",
+    "before": "已有人类证明，形式化工程庞大",
+    "after": "光滑与拓扑版本的 Lean 端点",
+    "featured": true,
+    "sources": [
+      {
+        "title": "A Lean Formalization of the Hamilton–Perelman Proof",
+        "url": "https://arxiv.org/abs/2609.33842",
+        "type": "证明预印本"
+      },
+      {
+        "title": "冻结的 v0.1.3 代码",
+        "url": "https://github.com/qinz1yang/differential-geometry/tree/7a48598d35109aa99d1cc678e2724c213cdf4ff3",
+        "type": "形式化源码"
+      },
+      {
+        "title": "470 万行报道（用户提供线索）",
+        "url": "https://zhuanlan.zhihu.com/p/2087931088555488096",
+        "type": "媒体报道"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-openai-hundred-problems",
+    "domain": "math",
+    "date": "2026-09-21",
+    "title": "OpenAI 声称内部模型已解决 100 多项长期开放问题",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "未公开内部模型（非公开版 GPT-6 Astra）",
+    "summary": "OpenAI 公告称，8 月 28 日开始训练的新内部模型在 NS 成果之外已解决横跨数学多数领域的 100 多项长期开放问题，并介绍独立数学与 AI 顾问组。公告未给出完整题单和逐题证明，因此此处记录汇总声明，等待公开材料与独立审阅。",
+    "impact": "候选成果规模上升，使审查、数学意义评估和成果公开成为研究流程的核心。内部模型的成果不能直接归到公开 GPT-6 Astra。",
+    "before": "单项公开成果",
+    "after": "100+ 项机构声明；完整清单未公布",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Advisory Group on Mathematics and Artificial Intelligence",
+        "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+        "type": "官方公告"
+      }
+    ]
+  },
+  {
+    "id": "physics-2026-nine-loop-amplitude",
+    "domain": "physics",
+    "date": "2026-09-25",
+    "title": "Claude 完成 N=4 超杨–米尔斯九圈六点散射振幅计算",
+    "status": "progress",
+    "evidenceLevel": "verified",
+    "actor": "Anthropic / Liam Fitzpatrick / Siddharth Mishra-Sharma / Lance Dixon",
+    "model": "Claude Fable 5.1 / Claude Science",
+    "summary": "Anthropic 公布 Claude Fable 5.1 在 Claude Science 中计算平面 N=4 超杨–米尔斯理论的九圈六粒子 MHV 振幅，采用直接 bootstrap 与 form-factor 路线，Lance Dixon 检查结果。公开数据提供 symbol 与函数；函数层结果仅计算一次，附有额外假设。",
+    "impact": "将长期复杂计算推进一个圈阶，展示通用代理组织符号运算与算力完成前沿理论物理工作。该结论限定于平面 N=4 理论和 MHV 六点振幅。",
+    "before": "八圈六点振幅",
+    "after": "九圈 MHV 六点振幅",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Yes, Claude can do Nine Loops",
+        "url": "https://www.anthropic.com/research/yes-claude-can-do-nine-loops",
+        "type": "官方研究 + 专家回顾"
+      },
+      {
+        "title": "Cosmic9：结果数据及验证范围",
+        "url": "https://smsharma.io/cosmic-nine-loops/",
+        "type": "计算产物与检查记录"
+      }
+    ]
+  },
+  {
+    "id": "biology-2026-art-enzyme",
+    "domain": "biology",
+    "date": "2026-09-23",
+    "title": "Claude 发现具有 CRISPR 式重复阵列的 ART 酶系统",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Anthropic 生命科学团队",
+    "model": "Claude 多代理（官方未披露具体版本）",
+    "summary": "Anthropic 报告约 950 个代理在 21 小时内使用 2.1 亿 token 搜索 DNA 数据，识别噬菌体中与重复序列阵列相关的逆转录酶系统 ART。人类进行实验，初步观察到阵列被表达为不同短 RNA；其主要功能及可编程性尚未确定。",
+    "impact": "从序列挖掘和异常发现到实验研究，AI 提出具有新颖性的生物学候选。底层 RT 已见于此前研究，新的发现是系统的关联阵列及辅助蛋白特征。",
+    "before": "未表征的基因组关联特征",
+    "after": "ART 系统识别 + 初步实验",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
+        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+        "type": "官方研究 + 技术报告入口"
+      }
+    ]
+  },
 ];
 
 const SEED_MIGRATIONS = {
   2: ["math-2026-jacobian-counterexample"],
   3: ["math-2026-prime-gaps-186"],
+  4: ["math-2026-frontiermath-erdos", "math-2026-erdos-sos", "math-2026-amp-low-degree", "math-2026-planar-universal-points", "math-2026-erdos-sos-digraphs", "math-2026-liouville-goldbach", "math-2026-poincare-formalization", "math-2026-openai-hundred-problems", "physics-2026-nine-loop-amplitude", "biology-2026-art-enzyme"],
 };
 
 const state = {
@@ -588,6 +844,9 @@ function render() {
   document.querySelector("#stat-total").textContent = state.events.length;
   document.querySelector("#stat-math").textContent = state.events.filter((event) => event.domain === "math").length;
   document.querySelector("#stat-cp").textContent = state.events.filter((event) => event.domain === "cp").length;
+  for (const domain of ["physics", "biology"]) {
+    document.querySelector(`#stat-${domain}`).textContent = state.events.filter((event) => event.domain === domain).length;
+  }
   document.querySelector("#stat-sources").textContent = hosts.size;
 }
 
@@ -682,7 +941,7 @@ function exportData() {
 async function importData(file) {
   const payload = JSON.parse(await file.text());
   if (!Array.isArray(payload.milestones)) throw new Error("文件中没有 milestones 数组");
-  const valid = payload.milestones.every((event) => event.id && event.date && event.title && ["math", "cp"].includes(event.domain));
+  const valid = payload.milestones.every((event) => event.id && event.date && event.title && Object.hasOwn(DOMAIN, event.domain));
   if (!valid) throw new Error("里程碑数据格式不完整");
   if (!confirm(`将用备份中的 ${payload.milestones.length} 条记录覆盖当前本地数据，继续吗？`)) return;
   await replaceEvents(payload.milestones);

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="记录生成式 AI 改变数学研究与算法竞赛的关键里程碑。">
+  <meta name="description" content="记录生成式 AI 改变数学、物理、生物研究与算法竞赛的关键里程碑。">
   <meta name="theme-color" content="#151716">
-  <title>边界迁移 | AI 数学与算法竞赛里程碑</title>
+  <title>边界迁移 | AI 科学与算法竞赛里程碑</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
@@ -31,6 +31,8 @@
         <div><strong id="stat-total">0</strong><span>条里程碑</span></div>
         <div><strong id="stat-math">0</strong><span>数学研究</span></div>
         <div><strong id="stat-cp">0</strong><span>算法竞赛</span></div>
+        <div><strong id="stat-physics">0</strong><span>物理研究</span></div>
+        <div><strong id="stat-biology">0</strong><span>生物研究</span></div>
         <div><strong id="stat-sources">0</strong><span>独立来源</span></div>
       </div>
     </div>
@@ -43,6 +45,8 @@
           <button type="button" data-domain="all" aria-pressed="true">全部</button>
           <button type="button" data-domain="math" aria-pressed="false"><span class="swatch swatch-math" aria-hidden="true"></span>数学界</button>
           <button type="button" data-domain="cp" aria-pressed="false"><span class="swatch swatch-cp" aria-hidden="true"></span>算法竞赛界</button>
+          <button type="button" data-domain="physics" aria-pressed="false"><span class="swatch swatch-physics" aria-hidden="true"></span>物理界</button>
+          <button type="button" data-domain="biology" aria-pressed="false"><span class="swatch swatch-biology" aria-hidden="true"></span>生物界</button>
         </div>
         <label class="search-field">
           <span class="visually-hidden">搜索事件</span>
@@ -87,6 +91,14 @@
       </div>
     </section>
 
+    <section class="research-note shell" aria-labelledby="hodge-question">
+      <p class="section-index">核对更新 · 2026-10-01</p>
+      <h2 id="hodge-question">霍奇猜想被 AI 解决了吗？</h2>
+      <p><strong>目前没有公开证据足以确认，仍按未解决看待。</strong>克雷数学研究所的官方页面仍标为 Unsolved。OpenAI 的“100 多项开放问题”公告没有点名霍奇猜想，也没有给出对应的完整证明。“接近解决”的消息与可公开核验的证明是不同阶段。</p>
+      <p>粗略地说，霍奇猜想问：在光滑复射影代数簇中，某类由拓扑与复结构识别出的有理上同调类，是否都能由代数子簇的类作有理线性组合得到。它有已知特例，千禧年问题要求一般结论。</p>
+      <p><a href="https://www.claymath.org/millennium/hodge-conjecture/" target="_blank" rel="noopener noreferrer">克雷官方状态</a> · <a href="https://openai.com/index/advisory-group-on-mathematics-and-ai/" target="_blank" rel="noopener noreferrer">OpenAI 的 100+ 公告</a></p>
+    </section>
+
     <section class="method-band">
       <div class="shell method-grid">
         <div>
@@ -104,7 +116,7 @@
 
   <footer class="footer shell">
     <p>边界迁移 · 一个本地优先的开放档案</p>
-    <p>种子资料更新至 2026-09-19 · 手动补充仅保存在当前浏览器</p>
+    <p>种子资料更新至 2026-09-30 · 手动补充仅保存在当前浏览器</p>
   </footer>
 
   <dialog class="detail-dialog" id="detail-dialog">
@@ -128,7 +140,7 @@
       </div>
       <input type="hidden" name="id">
       <div class="form-grid">
-        <label><span>领域</span><select name="domain" required><option value="math">数学界</option><option value="cp">算法竞赛界</option></select></label>
+        <label><span>领域</span><select name="domain" required><option value="math">数学界</option><option value="cp">算法竞赛界</option><option value="physics">物理界</option><option value="biology">生物界</option></select></label>
         <label><span>日期</span><input name="date" type="date" required></label>
         <label class="wide"><span>标题</span><input name="title" maxlength="100" required placeholder="发生了什么"></label>
         <label><span>类型</span><select name="status" required><option value="solved">已解决</option><option value="progress">实质推进</option><option value="formalized">形式化</option><option value="benchmark">基准跨越</option><option value="community">社区复现</option><option value="review">待审阅</option></select></label>
