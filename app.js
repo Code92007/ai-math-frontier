@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 11;
+const SEED_VERSION = 12;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -2008,9 +2008,545 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "math-2026-erdos-728",
+  "domain": "math",
+  "date": "2026-01-12",
+  "title": "GPT-5.2 与 Aristotle 解决 Erdős #728 的阶乘整除问题",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Kevin Barreto / Nat Sothanaphan / 社区参与者",
+  "model": "GPT-5.2 Pro / Harmonic Aristotle",
+  "summary": "模型组合生成 Lean 证明，人类整理为论文：在排除退化取值后，阶乘整除条件存在无限多组具有指定对数级间隙的解。日期采用解释论文首投日，社区在此前已公布产物。",
+  "impact": "论文称近乎自主解决，但过程包含问题解释反馈、运行组织与人类审阅；不将所有 Erdős 问题的 AI 解答都视为新结果，也不声称排除了所有既有文献。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "Erdős #728 未决表述",
+  "after": "Lean 证明 + 人类解释论文",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始解释论文",
+      "url": "https://arxiv.org/abs/2601.07421",
+      "type": "预印本"
+    },
+    {
+      "title": "操作者的过程回顾",
+      "url": "https://www.erdosproblems.com/forum/thread/blog%3A2",
+      "type": "作者说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-gauss-sphere-packing",
+  "domain": "math",
+  "date": "2026-04-25",
+  "title": "Gauss 协助完成八维球堆积定理的 Lean 形式化",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "球堆积形式化团队 / Math, Inc.",
+  "model": "Gauss",
+  "summary": "团队论文报告八维结果于 2 月完成形式验证，Gauss 承担最后阶段；Math, Inc. 另报告二十四维 Leech 格情形的自动形式化。卡片日期采用团队论文首投日，完成月份与公开论文日期分开。",
+  "impact": "这是 Viazovska 及合作者既有定理的形式化，不是 AI 首次解决球堆积。二十四维依据公司及代码发布，不能说团队八维论文独立覆盖全部二十四维工作；项目仍有后续目标。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "2016 年人类定理",
+  "after": "AI 辅助形式化",
+  "featured": false,
+  "sources": [
+    {
+      "title": "团队论文（修订标题为 Progress）",
+      "url": "https://arxiv.org/abs/2604.23468",
+      "type": "预印本"
+    },
+    {
+      "title": "公司发布与范围",
+      "url": "https://www.math.inc/sphere-packing",
+      "type": "机构发布"
+    },
+    {
+      "title": "形式化源码",
+      "url": "https://github.com/math-inc/Sphere-Packing-Lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-anderson-quasi-complete",
+  "domain": "math",
+  "date": "2026-04-04",
+  "title": "Rethlas / Archon 给出 Anderson 弱拟完备环问题的反例",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Haocheng Ju、Guoxiong Gao 等 / 北京大学与合作者",
+  "model": "Rethlas / Archon",
+  "summary": "论文报告非形式推理与 Lean 代理协作，构造弱拟完备但不拟完备的 Noether 局部环，否定 2014 年 Problem 8a。",
+  "impact": "保留具体交换代数问题，避免与物理 Anderson 模型混淆。作者报告极少人工干预和自动形式化；可信陈述、定义与原问题的对应仍应单独审阅。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "弱拟完备是否推出拟完备",
+  "after": "反例 + Lean 形式化",
+  "featured": false,
+  "sources": [
+    {
+      "title": "框架及结果原始论文",
+      "url": "https://arxiv.org/abs/2604.03789",
+      "type": "预印本"
+    },
+    {
+      "title": "作者形式化仓库",
+      "url": "https://github.com/frenzymath/Anderson-Conjecture",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-alphaproof-nexus-research",
+  "domain": "math",
+  "date": "2026-05-21",
+  "title": "AlphaProof Nexus 报告解决 9 个 Erdős 开放问题",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Google DeepMind / George Tsoukalas、Swarat Chaudhuri 等",
+  "model": "Gemini 3.1 Pro / AlphaProof Nexus / AlphaProof",
+  "summary": "原始论文报告在 353 个形式化 Erdős 开放问题中解决 9 个，并证明 492 个 OEIS 猜想中的 44 个；团队说明逐项审查形式陈述是否忠实对应问题。",
+  "impact": "这是研究开放问题评估，不是算法竞赛成绩。分母来自特定时点的形式化题集，不代表任意研究问题的成功率；不能把 44 个序列猜想全部视为同等级重大难题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "研究级形式证明搜索",
+  "after": "开放问题机检产物集",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文及方法",
+      "url": "https://arxiv.org/abs/2605.22763",
+      "type": "预印本"
+    },
+    {
+      "title": "公开结果",
+      "url": "https://github.com/google-deepmind/alphaproof-nexus-results",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-cycle-double-cover",
+  "domain": "math",
+  "date": "2026-07-17",
+  "title": "OpenAI 的循环双覆盖证明获得专家解释论文",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI / Sang-il Oum",
+  "model": "GPT-5.6（据解释论文归属）",
+  "summary": "OpenAI 公布每个无桥图都存在循环双覆盖的证明，即每条边恰被所选循环覆盖两次；Sang-il Oum 随后给出修改和解释。日期采用解释论文首投日，不冒充 OpenAI 首次宣布日。",
+  "impact": "已有领域专家的具体解释文献，证据比单一模型输出更充分；不据此声称所有更强循环覆盖或图嵌入猜想一并解决，也未核实本条的独立 Lean 产物。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "循环双覆盖猜想",
+  "after": "模型证明 + 专家解释",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 原始证明",
+      "url": "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "Sang-il Oum 解释论文",
+      "url": "https://arxiv.org/abs/2607.16356",
+      "type": "预印本"
+    }
+  ]
+},
+{
+  "id": "math-2026-sendov-conjecture",
+  "domain": "math",
+  "date": "2026-08-05",
+  "title": "AI 辅助 Sendov 猜想发布全次数证明及 Lean 包",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Lech Mazur / ProofAtlas",
+  "model": "GPT-5.6 Pro",
+  "summary": "公开包声称复多项式次数至少为 2、所有根在闭单位圆盘时，每个根距某个导数零点不超过 1，覆盖全部次数。",
+  "impact": "发布页记录 Lean 通过；后续 9 月状态说明援引 Tao 的解释将数学目标记为 resolved，但原包 accepted-result 仍待完成，且 Lean 不是手稿和补充 Python 的逐行核验。保留不同审阅层次。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "Sendov 猜想全次数情形",
+  "after": "论文与 Lean 发布",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 5 日原始包及后续状态",
+      "url": "https://www.proofatlas.ai/formalizations/sendov-conjecture/",
+      "type": "作者授权发布"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-zero-order-oracle-bound",
+  "domain": "algorithms",
+  "date": "2026-07-14",
+  "title": "AI 辅助将确定性零阶凸优化查询下界推至近二次",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Phillip Kerger",
+  "model": "GPT-5.6 Sol Pro",
+  "summary": "只允许查询精确函数值时，对 d 维球上凸 Lipschitz 优化，在精度 Θ(d^(−1/2)) 证明 Ω(d²/log(d+1)) 查询下界，缩小与既有上界的差距。",
+  "impact": "这是确定性、精确值预言机模型的查询复杂度，不是所有优化算法运行时间下界。论文明确 Lean 只覆盖较早 d^(−3) 精度版本，最终 d^(−1/2) 加强版未形式化。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "线性下界与近二次上界之差",
+  "after": "近二次查询下界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文及 AI / Lean 范围",
+      "url": "https://arxiv.org/html/2607.13335v1",
+      "type": "预印本"
+    },
+    {
+      "title": "早期版本形式化",
+      "url": "https://github.com/PhillipKerger/zero-order-bounds-lean-verification",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-goemans-cost-counterexample",
+  "domain": "algorithms",
+  "date": "2026-07-22",
+  "title": "GPT-5.6 Pro 找到不可拆分流的 Goemans 成本猜想反例",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Dmitry Rybin / Jason Hickey 等验证者",
+  "model": "GPT-5.6 Pro（发现）/ Claude（后续形式化）",
+  "summary": "公开核验仓库归属 7 月 22 日的模型会话反例：一个七顶点网络分数流成本为 58，而满足指定附加容量限制的不可拆分流成本至少 60。",
+  "impact": "反驳成本增强猜想，不否定 Dinitz–Garg–Goemans 已有无成本定理。当前链接的核验覆盖文献 Conjecture 1.3 表述；平面性不在其 Lean 证明范围，两份使用 Claude 的形式化也不意味着陈述选择完全独立。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "不可拆分流成本增强猜想",
+  "after": "小规模精确反例及形式核验",
+  "featured": false,
+  "sources": [
+    {
+      "title": "核验者原始源码、归属与范围",
+      "url": "https://github.com/jyh/dinitz-verify",
+      "type": "形式化产物"
+    },
+    {
+      "title": "发现者公开会话",
+      "url": "https://chatgpt.com/share/6a60b2eb-0b64-83ee-9c76-7931ca1de063",
+      "type": "原始会话"
+    }
+  ]
+},
+{
+  "id": "physics-2026-single-minus-gluon",
+  "domain": "physics",
+  "date": "2026-02-12",
+  "title": "GPT-5.2 协助推导单负螺旋度胶子树振幅非零公式",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Alfredo Guevara / Alex Lupsasca / David Skinner / Andrew Strominger / OpenAI",
+  "model": "GPT-5.2 Pro / 内部 scaffolded GPT-5.2",
+  "summary": "作者给出特定半共线运动学下任意粒子数的单负螺旋度树级胶子振幅公式；官方说明模型提出通式，内部模型推导证明，人类作者做解析一致性检查。",
+  "impact": "条件是 Klein 空间或复化动量中的特定构型，不推翻一般运动学下的零振幅结论，更不是实验发现新粒子。官方所谓 formal proof 未提供 Lean 核验依据，本条不标机器形式化。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "特定运动学下振幅问题",
+  "after": "闭式公式与解析证明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者原始论文",
+      "url": "https://arxiv.org/abs/2602.12176",
+      "type": "预印本"
+    },
+    {
+      "title": "模型分工官方说明（2 月 13 日）",
+      "url": "https://openai.com/index/new-result-theoretical-physics/",
+      "type": "机构发布"
+    }
+  ]
+},
+{
+  "id": "physics-2026-maxwell-counterexample",
+  "domain": "physics",
+  "date": "2026-07-29",
+  "title": "AI 提议的五电荷构造反驳 Maxwell 平衡点计数猜想",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Philip Arathoon / Gavin Ball / Matthew D. Kvalheim",
+  "model": "GPT-5.6 Sol",
+  "summary": "论文构造五个正点电荷的静电势，具有至少 24 个非退化临界点，超过猜测的 (n−1)² = 16 上界。作者明确模型建议构造思路，人类核实细节并撰写证明。",
+  "impact": "这是经典静电学的平衡点计数猜想，不是 Maxwell 方程错误；小扰动用于保证全部临界点非退化。论文使用计算机代数，无据可称 Lean 形式化或全自主发现。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "五电荷猜测至多 16 个平衡点",
+  "after": "至少 24 个非退化临界点",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者论文及工具披露",
+      "url": "https://arxiv.org/html/2607.27197v1",
+      "type": "预印本"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-high-dimensional-packing",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布高维球堆积密度上界成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "高维密度上界达到 Cohn–Elkies 阈值。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "高维球堆积上界",
+  "after": "改进渐近上界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/SpherePacking.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-metric-code-bounds",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布二元码与球面码的新上界成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "对指定最小距离的二元码给出指数级更强上界，并给出球面码对应结果。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "编码容量上界",
+  "after": "改进码规模上界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/MetricCodes.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-nonsofic-group",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布非 sofic 群构造成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称构造非 sofic 群，否定所有群都可用有限置换近似的猜测。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "是否所有群均 sofic",
+  "after": "非 sofic 构造声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/NonSoficGroup.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-connes-rigidity",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布Connes 刚性猜想反例成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称给出指定群由其群 von Neumann 代数唯一确定这一猜想的反例。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "群与其算子代数的刚性",
+  "after": "刚性反例声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/ConnesRigidity.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-august-permanent-formula-bound",
+  "domain": "algorithms",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布Permanent 算术公式下界成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称 permanent 的算术公式下界达到 n⁴/log n 量级。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "算术公式复杂度下界",
+  "after": "改进公式下界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/Permanent.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-august-quantum-parallel-repetition",
+  "domain": "algorithms",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布双人量子博弈指数平行重复成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称对任意有限双人量子博弈建立指数平行重复定理。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "量子博弈平行重复",
+  "after": "指数衰减声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/QuantumParallelRepetition.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-august-gap-cvp-hardness",
+  "domain": "algorithms",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布最近向量问题多项式因子近似困难性成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称 CVP 的多项式因子近似困难性，并涉及格问题和译码。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "格问题近似困难性",
+  "after": "多项式因子困难性声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/GapCVP.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-ehrhart-volume",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布Ehrhart 体积猜想成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称确定每个维数中重心为唯一内部格点的凸体最大体积。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "指定凸体的体积猜想",
+  "after": "锐体积上界声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/EhrhartVolumeInequality.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-multicolor-triangle-ramsey",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布多色三角形 Ramsey 数超指数下界成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称给出多色三角形 Ramsey 数超指数下界，解决 Erdős #183。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "多色 Ramsey 增长速度",
+  "after": "超指数下界声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/MulticolorTriangleRamsey.lean",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-august-extremal-compactness-degeneracy",
+  "domain": "math",
+  "date": "2026-08-01",
+  "title": "OpenAI 发布极值图紧致性与退化性猜想反例成果声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "Astra 内部版本",
+  "summary": "声称反驳极值图论两项猜想，对应 Erdős #146、#180。 属于 8 月 1 日十项成果，原有总览之外单列检索。",
+  "impact": "官方提供论文及同名 Lean 模块；本条不把模块名称或发布说明等同于独立核验，也不将具体结论推广到更一般问题。 本站核对公开来源，未独立复核完整证明或编译 Lean。",
+  "before": "极值图猜想",
+  "after": "两项反例声明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "8 月 1 日官方发布",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "机构发布"
+    },
+    {
+      "title": "对应形式化模块",
+      "url": "https://github.com/openai/ten-proofs/blob/main/CompactnessAndDegeneracy.lean",
+      "type": "原始产物"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  12: ["math-2026-erdos-728", "math-2026-gauss-sphere-packing", "math-2026-anderson-quasi-complete", "math-2026-alphaproof-nexus-research", "math-2026-cycle-double-cover", "math-2026-sendov-conjecture", "algorithms-2026-zero-order-oracle-bound", "algorithms-2026-goemans-cost-counterexample", "physics-2026-single-minus-gluon", "physics-2026-maxwell-counterexample", "math-2026-august-high-dimensional-packing", "math-2026-august-metric-code-bounds", "math-2026-august-nonsofic-group", "math-2026-august-connes-rigidity", "algorithms-2026-august-permanent-formula-bound", "algorithms-2026-august-quantum-parallel-repetition", "algorithms-2026-august-gap-cvp-hardness", "math-2026-august-ehrhart-volume", "math-2026-august-multicolor-triangle-ramsey", "math-2026-august-extremal-compactness-degeneracy"],
   11: ["math-2026-koethe-counterexample", "math-2026-smale-mean-value", "math-2026-critical-percolation", "math-2026-gromov-volume-growth", "algorithms-2026-strong-pr", "physics-2026-smooth-forced-euler", "physics-2026-smooth-forced-ipm", "physics-2026-pinn-euler-profile"],
   9: ["math-2026-openai-falconer", "math-2026-openai-hilbert-sixteenth", "math-2026-openai-plane-coloring", "math-2026-openai-erdos-reciprocal", "math-2026-openai-sidorenko", "cp-2026-openai-integer-multiplication", "cp-2026-openai-general-matching", "cp-2026-openai-edit-distance", "cp-2026-openai-three-machine-scheduling", "cp-2026-openai-shortest-superstring", "cp-2026-openai-finite-field-factorization", "physics-2026-openai-kerr-censorship", "physics-2026-openai-bose-condensation", "physics-2026-openai-bfss-bound-state"],
   8: ["physics-2026-openai-diluted-spin-glass", "physics-2026-openai-anderson", "physics-2026-openai-area-law", "physics-2026-openai-haldane-gap", "physics-2026-openai-laughlin-gap", "physics-2026-openai-heisenberg-magnetization", "physics-2026-openai-entropy-photon-number", "physics-2026-openai-vlasov-maxwell"],
