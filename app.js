@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 10;
+const SEED_VERSION = 11;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -1807,9 +1807,211 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "math-2026-koethe-counterexample",
+  "domain": "math",
+  "date": "2026-09-07",
+  "title": "GPT-6 Astra 给出 Köthe 猜想反例，作者公布论文与 Lean 产物",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Tom Adamczewski / Bernhard Böhmler / Rene Marczinzik / Epoch AI",
+  "model": "GPT-6 Astra（预发布）",
+  "summary": "Epoch AI 评估中的模型自主找到幂零环相关反例；三位作者随后发表反驳 Köthe 猜想及 Rowen 问题的论文。日期采用 arXiv 首次提交日，不主张发现或公开优先权。",
+  "impact": "仓库机检覆盖 Krempa 矩阵形式的否定；从原始猜想到矩阵形式的标准归约没有在该仓库形式化。作者论文处理原始表述，需分别审阅。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "1930 年提出的环论猜想",
+  "after": "反例论文 + 形式化产物",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者论文",
+      "url": "https://arxiv.org/abs/2609.07996",
+      "type": "预印本"
+    },
+    {
+      "title": "作者仓库与核验边界",
+      "url": "https://github.com/tadamcz/koethe",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-smale-mean-value",
+  "domain": "math",
+  "date": "2026-10-07",
+  "title": "GPT-6 Astra 公布 Smale 均值猜想 K = 1 的形式化反例声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Tom Adamczewski / Epoch AI",
+  "model": "GPT-6 Astra（预发布）",
+  "summary": "作者仓库报告模型在 2026 年 9 月自主找到复多项式反例，使常数 K = 1 的均值不等式对所有临界点均失败。当前未核实首次公开的具体日，卡片日期为本次核对日。",
+  "impact": "仓库报告 Comparator 和 CI 通过，仅用标准公理；同时明确尚无人类专家深入数学审阅。反例不否定已知 K = 4 定理，也不否定已核验的低次数情形。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "Smale 均值猜想 K = 1",
+  "after": "机检反例声明，专家审阅待完成",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者仓库",
+      "url": "https://github.com/tadamcz/mean-value-problem",
+      "type": "原始产物"
+    },
+    {
+      "title": "来源与审阅元数据",
+      "url": "https://github.com/tadamcz/mean-value-problem/blob/main/formalization.yaml",
+      "type": "作者说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-critical-percolation",
+  "domain": "math",
+  "date": "2026-10-07",
+  "title": "Anthropic 公布全维格点临界键渗流无无限簇的候选证明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic / Justin Leder",
+  "model": "Claude（公开说明未指定版本）",
+  "summary": "保留的公开源码声称最近邻 Bernoulli 键渗流在 Z^d、d ≥ 2 满足 θ(p_c) = 0，补足此前未决维度。采用固定提交链接；卡片日期为本次核对日，不把提交时间等同公开时间。",
+  "impact": "作者说明报告 Lean / Comparator 检查，并明确尚无独立专家审稿。限于指定格点的键渗流，不能直接扩展到站点渗流、任意图或定量临界指数；形式化陈述与经典问题的对应仍需审查。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "格点临界渗流剩余维度",
+  "after": "全维无无限簇（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "固定版本原始源码及说明",
+      "url": "https://github.com/anthropics/formal-math/tree/795efb86f191735c5481675763537cfb4ff37e55/percolation",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "math-2026-gromov-volume-growth",
+  "domain": "math",
+  "date": "2026-08-14",
+  "title": "AI 辅助证明 Gromov 正标量曲率体积增长问题",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Gioacchino Antonelli",
+  "model": "GPT-5.6 Sol / Ultra",
+  "summary": "作者论文在 Ric ≥ 0、Scal ≥ 1 的完备 n 维黎曼流形上证明 Vol B_R(p) ≤ C(n) R^(n−2)，回答 Gromov 的体积增长问题，并推广至正中间曲率。",
+  "impact": "论文披露模型提出中心归纳策略，作者指导研究并改造证明；中间曲率推广是作者贡献。同一问题另有 Jian Ge 独立方法，不能称为 AI 独占或首次解决。此条没有公开 Lean 核验依据。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "Gromov 体积增长问题",
+  "after": "带明确曲率假设的体积上界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文及 AI 工具披露",
+      "url": "https://arxiv.org/html/2608.14507v1",
+      "type": "预印本"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-strong-pr",
+  "domain": "algorithms",
+  "date": "2026-09-09",
+  "title": "强 Papadimitriou–Ratajczak 猜想发布 Lean 候选证明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Lech Mazur / ProofAtlas",
+  "model": "OpenAI Codex / GPT-6 Pro",
+  "summary": "公开论文与形式化产物声称每个有限简单三连通平面图都存在保持指定嵌入与外面的凸贪心直线绘图，可用于几何路由理论。",
+  "impact": "发布页记录 Lean 构建通过，同时明确未获 ProofAtlas accepted-result 状态，独立陈述对应审阅、专家评议和无关团队复现尚缺。存在性结论不自动给出多项式时间构造算法。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "凸贪心绘图存在性猜想",
+  "after": "论文 + Lean 存在性候选证明",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者授权发布、陈述及检查记录",
+      "url": "https://www.proofatlas.ai/formalizations/strong-papadimitriou-ratajczak-conjecture/",
+      "type": "原始发布"
+    }
+  ]
+},
+{
+  "id": "physics-2026-smooth-forced-euler",
+  "domain": "physics",
+  "date": "2026-09-07",
+  "title": "AI 辅助构造光滑外力下三维 Euler 有限时爆破",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Levent Alpöge / Tristan Buckmaster",
+  "model": "Claude（Lean 代码，作者指导）",
+  "summary": "NYU 报告团队于 9 月 7 日公布光滑有限能量初值与时空光滑外力下的三维不可压 Euler 爆破解；伴随工作处理平面无黏 Boussinesq 系统。",
+  "impact": "Euler 仓库报告标准公理下完整形式化，Lean 代码及可信陈述文件由 Claude 在 Alpöge 指导下编写，作者阅读陈述核对。保留光滑外力这一条件，不能写成无外力 Euler 或 Navier–Stokes 千禧难题已解决。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "外力正则性限制下的流体爆破",
+  "after": "时空光滑外力爆破构造",
+  "featured": false,
+  "sources": [
+    {
+      "title": "NYU 官方报道（9 月 14 日）",
+      "url": "https://cims.nyu.edu/dynamic/news/1528/",
+      "type": "机构发布"
+    },
+    {
+      "title": "Euler 形式化与作者分工",
+      "url": "https://github.com/tristanbuckmaster/fluid_lean/tree/main/euler-blowup",
+      "type": "原始产物"
+    },
+    {
+      "title": "Boussinesq 伴随形式化",
+      "url": "https://github.com/tristanbuckmaster/fluid_lean/tree/main/boussinesq-blowup",
+      "type": "原始产物"
+    }
+  ]
+},
+{
+  "id": "physics-2026-smooth-forced-ipm",
+  "domain": "physics",
+  "date": "2026-09-15",
+  "title": "AI 辅助将 IPM 爆破推进到一致时空光滑外力",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Levent Alpöge / Tristan Buckmaster / Matei P. Coiculescu",
+  "model": "LLM（本条原始摘要未指定型号）",
+  "summary": "论文在二维环面 IPM 方程中构造光滑奇初始密度及一致时空光滑奇外力，使密度梯度、速度空间梯度在有限时间发散；摘要注明 LLM 辅助及 Lean 形式化。",
+  "impact": "密度本身仍在每个 C^η（0 ≤ η < 1）中收敛。此条是指定带外力 IPM 的正则性结果；不将 Euler/Boussinesq 仓库当作本条 IPM 定理的独立形式化证据。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "空间光滑外力下的 IPM 爆破",
+  "after": "一致时空光滑外力爆破",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者原始论文",
+      "url": "https://arxiv.org/abs/2609.16470",
+      "type": "预印本"
+    }
+  ]
+},
+{
+  "id": "physics-2026-pinn-euler-profile",
+  "domain": "physics",
+  "date": "2026-09-09",
+  "title": "Caltech 用 PINN 寻找无外力 Euler 候选奇异剖面",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Adarsh Ganeshram / Valentin Duruisseaux / Anima Anandkumar",
+  "model": "物理信息神经网络（PINN）",
+  "summary": "论文用 PINN 找到三维全空间 Euler 的近似自相似奇异剖面，配合样条认证与非线性稳定性分析框架；9 月 24 日修订版摘要仍将其称为奇异性的证据。",
+  "impact": "非线性稳定性分析仍归结到一组需要验证的显式估计与常数。这是候选剖面和证明框架的实质推进，不能据此宣称无外力 Euler 有限时爆破已经证明。 本次核对公开材料，未独立验证数学证明或编译 Lean。",
+  "before": "神经网络数值候选",
+  "after": "近似剖面认证 + 稳定性框架",
+  "featured": false,
+  "sources": [
+    {
+      "title": "作者论文（含修订历史）",
+      "url": "https://arxiv.org/abs/2609.10867",
+      "type": "预印本"
+    },
+    {
+      "title": "伴随稳定性框架",
+      "url": "https://arxiv.org/abs/2609.10860",
+      "type": "预印本"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  11: ["math-2026-koethe-counterexample", "math-2026-smale-mean-value", "math-2026-critical-percolation", "math-2026-gromov-volume-growth", "algorithms-2026-strong-pr", "physics-2026-smooth-forced-euler", "physics-2026-smooth-forced-ipm", "physics-2026-pinn-euler-profile"],
   9: ["math-2026-openai-falconer", "math-2026-openai-hilbert-sixteenth", "math-2026-openai-plane-coloring", "math-2026-openai-erdos-reciprocal", "math-2026-openai-sidorenko", "cp-2026-openai-integer-multiplication", "cp-2026-openai-general-matching", "cp-2026-openai-edit-distance", "cp-2026-openai-three-machine-scheduling", "cp-2026-openai-shortest-superstring", "cp-2026-openai-finite-field-factorization", "physics-2026-openai-kerr-censorship", "physics-2026-openai-bose-condensation", "physics-2026-openai-bfss-bound-state"],
   8: ["physics-2026-openai-diluted-spin-glass", "physics-2026-openai-anderson", "physics-2026-openai-area-law", "physics-2026-openai-haldane-gap", "physics-2026-openai-laughlin-gap", "physics-2026-openai-heisenberg-magnetization", "physics-2026-openai-entropy-photon-number", "physics-2026-openai-vlasov-maxwell"],
   7: ["math-2026-openai-collection", "math-2026-openai-quasi-riemann", "math-2026-openai-hilbert-tenth-rationals", "math-2026-openai-bsd-low-corank", "math-2026-openai-hodge-cm-k3", "math-2026-openai-pi-exponent", "math-2026-openai-catalan", "math-2026-openai-chowla-two-point", "math-2026-openai-kakeya-3d-4d"],
