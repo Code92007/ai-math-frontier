@@ -7,14 +7,14 @@ const STATUS = {
   review: "待审阅",
 };
 
-const DOMAIN = { math: "数学界", cp: "算法竞赛界", physics: "物理界", biology: "生物界" };
+const DOMAIN = { math: "数学界", algorithms: "算法界", cp: "算法竞赛界", physics: "物理界", biology: "生物界" };
 const EVIDENCE = {
   verified: "已核验 / 可机检",
   reported: "机构或作者发布",
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 9;
+const SEED_VERSION = 10;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -92,7 +92,7 @@ const SEED_EVENTS = [
   },
   {
     id: "math-2026-claude-cryptanalysis",
-    domain: "math",
+    domain: "algorithms",
     date: "2026-07-28",
     title: "Claude 提出 HAWK 与约化轮 AES 的新攻击",
     status: "progress",
@@ -420,7 +420,7 @@ const SEED_EVENTS = [
   },
   {
     "id": "math-2026-amp-low-degree",
-    "domain": "math",
+    "domain": "algorithms",
     "date": "2026-09-07",
     "title": "Astra 参与解决增长次数 AMP 等价问题的 Bernoulli 特例",
     "status": "progress",
@@ -621,7 +621,7 @@ const SEED_EVENTS = [
   },
   {
     "id": "cp-2026-truly-subquadratic-3sum",
-    "domain": "cp",
+    "domain": "algorithms",
     "date": "2026-10-05",
     "title": "Claude 发现真正次二次 3SUM 算法",
     "status": "progress",
@@ -648,7 +648,7 @@ const SEED_EVENTS = [
   },
   {
     "id": "cp-2026-minplus-convolution",
-    "domain": "cp",
+    "domain": "algorithms",
     "date": "2026-10-05",
     "title": "min-plus 卷积获得真正次二次复杂度",
     "status": "progress",
@@ -675,7 +675,7 @@ const SEED_EVENTS = [
   },
   {
     "id": "cp-2026-truly-subcubic-apsp",
-    "domain": "cp",
+    "domain": "algorithms",
     "date": "2026-10-05",
     "title": "APSP 与 min-plus 矩阵乘法突破真正次三次界",
     "status": "progress",
@@ -702,7 +702,7 @@ const SEED_EVENTS = [
   },
 {
   "id": "cp-2026-openai-ugc",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布 UGC 证明声明与近似困难性结果",
   "status": "review",
@@ -739,7 +739,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-logspace",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 声称证明 L = RL = BPL",
   "status": "review",
@@ -771,7 +771,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-matrix-nine-fourths",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 声称复数矩阵乘法指数 ω ≤ 2.25",
   "status": "review",
@@ -808,7 +808,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-dft",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 声称精确 DFT 突破 n log n 运算界",
   "status": "review",
@@ -845,7 +845,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-subset-sum",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 声称最坏情形 Subset Sum 达到 O(2^0.49n)",
   "status": "review",
@@ -1546,7 +1546,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-integer-multiplication",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布整数乘法突破 n log n 位复杂度证明声明",
   "status": "review",
@@ -1573,7 +1573,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-general-matching",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布一般图的近线性精确最大匹配证明声明",
   "status": "review",
@@ -1600,7 +1600,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-edit-distance",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布编辑距离的近线性近似方案证明声明",
   "status": "review",
@@ -1632,7 +1632,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-three-machine-scheduling",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布三台相同机器上的单位任务最优调度证明声明",
   "status": "review",
@@ -1664,7 +1664,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-shortest-superstring",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布最短公共超串的二倍近似证明声明",
   "status": "review",
@@ -1696,7 +1696,7 @@ const SEED_EVENTS = [
 },
 {
   "id": "cp-2026-openai-finite-field-factorization",
-  "domain": "cp",
+  "domain": "algorithms",
   "date": "2026-10-06",
   "title": "OpenAI 发布素数有限域多项式的确定性分解证明声明",
   "status": "review",
@@ -1820,6 +1820,19 @@ const SEED_MIGRATIONS = {
   4: ["math-2026-frontiermath-erdos", "math-2026-erdos-sos", "math-2026-amp-low-degree", "math-2026-planar-universal-points", "math-2026-erdos-sos-digraphs", "math-2026-liouville-goldbach", "math-2026-poincare-formalization", "math-2026-openai-hundred-problems", "physics-2026-nine-loop-amplitude", "biology-2026-art-enzyme"],
 };
 
+// Stable IDs retain compatibility with existing browser records and backups.
+const LEGACY_ALGORITHM_DOMAINS = new Map(
+  SEED_EVENTS.filter((event) => event.domain === "algorithms")
+    .map((event) => [event.id, event.id.startsWith("cp-") ? "cp" : "math"])
+);
+
+function migrateAlgorithmDomain(event) {
+  const previousDomain = LEGACY_ALGORITHM_DOMAINS.get(event.id);
+  return previousDomain && event.domain === previousDomain
+    ? { ...event, domain: "algorithms" }
+    : event;
+}
+
 const state = {
   events: [],
   domain: "all",
@@ -1930,6 +1943,16 @@ async function ensureSeedData() {
       };
     });
   }
+  if (currentVersion > 0 && currentVersion < 10) {
+    for (const id of LEGACY_ALGORITHM_DOMAINS.keys()) {
+      const request = store.get(id);
+      request.onsuccess = () => {
+        if (!request.result) return;
+        const migrated = migrateAlgorithmDomain(request.result);
+        if (migrated !== request.result) store.put(migrated);
+      };
+    }
+  }
   transaction.objectStore("meta").put({ key: "seed-version", value: SEED_VERSION });
   await transactionPromise(transaction);
 }
@@ -2037,7 +2060,7 @@ function render() {
   document.querySelector("#stat-total").textContent = state.events.length;
   document.querySelector("#stat-math").textContent = state.events.filter((event) => event.domain === "math").length;
   document.querySelector("#stat-cp").textContent = state.events.filter((event) => event.domain === "cp").length;
-  for (const domain of ["physics", "biology"]) {
+  for (const domain of ["algorithms", "physics", "biology"]) {
     document.querySelector(`#stat-${domain}`).textContent = state.events.filter((event) => event.domain === domain).length;
   }
   document.querySelector("#stat-sources").textContent = hosts.size;
@@ -2137,7 +2160,7 @@ async function importData(file) {
   const valid = payload.milestones.every((event) => event.id && event.date && event.title && Object.hasOwn(DOMAIN, event.domain));
   if (!valid) throw new Error("里程碑数据格式不完整");
   if (!confirm(`将用备份中的 ${payload.milestones.length} 条记录覆盖当前本地数据，继续吗？`)) return;
-  await replaceEvents(payload.milestones);
+  await replaceEvents(payload.milestones.map(migrateAlgorithmDomain));
   state.events = await getEvents();
   render();
   showToast("本地档案已恢复");

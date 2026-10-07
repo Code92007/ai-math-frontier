@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="记录生成式 AI 改变数学、物理、生物研究与算法竞赛的关键里程碑。">
+  <meta name="description" content="记录生成式 AI 改变数学、算法、物理、生物研究与算法竞赛的关键里程碑。">
   <meta name="theme-color" content="#151716">
-  <title>边界迁移 | AI 科学与算法竞赛里程碑</title>
+  <title>边界迁移 | AI 科学、算法与竞赛里程碑</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
@@ -30,6 +30,7 @@
       <div class="shell stats" aria-label="档案统计">
         <div><strong id="stat-total">0</strong><span>条里程碑</span></div>
         <div><strong id="stat-math">0</strong><span>数学研究</span></div>
+        <div><strong id="stat-algorithms">0</strong><span>算法研究</span></div>
         <div><strong id="stat-cp">0</strong><span>算法竞赛</span></div>
         <div><strong id="stat-physics">0</strong><span>物理研究</span></div>
         <div><strong id="stat-biology">0</strong><span>生物研究</span></div>
@@ -44,6 +45,7 @@
         <div class="segment" role="group" aria-label="领域">
           <button type="button" data-domain="all" aria-pressed="true">全部</button>
           <button type="button" data-domain="math" aria-pressed="false"><span class="swatch swatch-math" aria-hidden="true"></span>数学界</button>
+          <button type="button" data-domain="algorithms" aria-pressed="false"><span class="swatch swatch-algorithms" aria-hidden="true"></span>算法界</button>
           <button type="button" data-domain="cp" aria-pressed="false"><span class="swatch swatch-cp" aria-hidden="true"></span>算法竞赛界</button>
           <button type="button" data-domain="physics" aria-pressed="false"><span class="swatch swatch-physics" aria-hidden="true"></span>物理界</button>
           <button type="button" data-domain="biology" aria-pressed="false"><span class="swatch swatch-biology" aria-hidden="true"></span>生物界</button>
@@ -106,6 +108,7 @@
           <h2>什么值得成为里程碑</h2>
         </div>
         <ol>
+          <li><strong>分清成果领域</strong><span>算法界记录通用算法、复杂度与密码分析；算法竞赛界记录赛事表现、竞赛题突破与社区题解。</span></li>
           <li><strong>越过既有边界</strong><span>不是答对已知题，而是刷新复杂度、推进开放问题或改变验证方式。</span></li>
           <li><strong>能够追溯</strong><span>至少有论文、官方发布、形式化代码或公开题解之一。</span></li>
           <li><strong>保留不确定性</strong><span>“机构宣布”“专家核验”“社区接受”不是同一件事。</span></li>
@@ -140,7 +143,7 @@
       </div>
       <input type="hidden" name="id">
       <div class="form-grid">
-        <label><span>领域</span><select name="domain" required><option value="math">数学界</option><option value="cp">算法竞赛界</option><option value="physics">物理界</option><option value="biology">生物界</option></select></label>
+        <label><span>领域</span><select name="domain" required><option value="math">数学界</option><option value="algorithms">算法界</option><option value="cp">算法竞赛界</option><option value="physics">物理界</option><option value="biology">生物界</option></select></label>
         <label><span>日期</span><input name="date" type="date" required></label>
         <label class="wide"><span>标题</span><input name="title" maxlength="100" required placeholder="发生了什么"></label>
         <label><span>类型</span><select name="status" required><option value="solved">已解决</option><option value="progress">实质推进</option><option value="formalized">形式化</option><option value="benchmark">基准跨越</option><option value="community">社区复现</option><option value="review">待审阅</option></select></label>

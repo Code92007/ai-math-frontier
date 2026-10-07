@@ -11,6 +11,7 @@
   --white: #f9f8f3;
   --math: #e05b43;
   --math-soft: #f6d9d1;
+  --algorithms: #a36a20;
   --cp: #167a78;
   --cp-soft: #cce4e0;
   --physics: #6655aa;
@@ -139,7 +140,7 @@ a { color: inherit; }
 }
 
 .stat-strip { background: #111312; }
-.stats { display: grid; grid-template-columns: repeat(6, 1fr); }
+.stats { display: grid; grid-template-columns: repeat(7, 1fr); }
 .stats > div { min-height: 86px; display: flex; align-items: baseline; gap: 10px; padding: 22px 22px; border-left: 1px solid #333633; }
 .stats > div:last-child { border-right: 1px solid #333633; }
 .stats strong { font-family: Georgia, serif; font-size: 29px; font-weight: 500; color: var(--white); }
@@ -155,12 +156,13 @@ a { color: inherit; }
 }
 
 .controls { flex-wrap: wrap; padding-block: 12px; min-height: 68px; display: flex; align-items: center; gap: 10px; }
-.segment { flex-shrink: 0; display: flex; align-items: center; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; background: var(--surface); }
+.segment { max-width: 100%; overflow-x: auto; flex-shrink: 0; display: flex; align-items: center; border: 1px solid var(--line); border-radius: 5px; overflow-x: auto; background: var(--surface); }
 .segment button { min-height: 38px; padding: 7px 13px; border: 0; border-right: 1px solid var(--line); background: transparent; cursor: pointer; white-space: nowrap; }
 .segment button:last-child { border-right: 0; }
 .segment button[aria-pressed="true"] { background: var(--ink); color: var(--white); }
 .swatch { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; }
 .swatch-math { background: var(--math); }
+.swatch-algorithms { background: var(--algorithms); }
 .swatch-cp { background: var(--cp); }
 .swatch-physics { background: var(--physics); }
 .swatch-biology { background: var(--biology); }
@@ -192,6 +194,7 @@ a { color: inherit; }
 .event-card:last-child { margin-bottom: 0; }
 .event-card::before { content: ""; position: absolute; left: -40px; top: 28px; width: 10px; height: 10px; border: 3px solid var(--paper); border-radius: 50%; background: var(--domain-color); outline: 1px solid var(--domain-color); }
 .event-card.math { --domain-color: var(--math); }
+.event-card.algorithms { --domain-color: var(--algorithms); }
 .event-card.cp { --domain-color: var(--cp); }
 .event-card.physics { --domain-color: var(--physics); }
 .event-card.biology { --domain-color: var(--biology); }
@@ -200,6 +203,7 @@ a { color: inherit; }
 .event-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 7px; color: var(--muted); font-size: 12px; }
 .domain-tag, .status-tag { display: inline-flex; align-items: center; min-height: 22px; padding: 1px 7px; border: 1px solid currentColor; border-radius: 3px; font-size: 11px; }
 .domain-tag.math { color: #b94735; background: #fff8f6; }
+.domain-tag.algorithms { color: #865416; background: #fff5e4; }
 .domain-tag.cp { color: #126d6c; background: #f3fbf9; }
 .domain-tag.physics { color: #6655aa; background: #f7f5ff; }
 .domain-tag.biology { color: #4c783b; background: #f5faef; }

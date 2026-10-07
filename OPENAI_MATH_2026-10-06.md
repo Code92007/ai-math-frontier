@@ -100,7 +100,7 @@
 | 159 | [Erdős 倒数和猜想与等差数列界](https://github.com/openai/math/blob/main/preprints/Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026/paper.pdf) | 声称每个倒数和发散的正整数集合，都含任意有限长度的非平凡等差数列；论文还给出无等差数列子集规模的定量上界。 Lean 文档覆盖倒数和推论，不覆盖论文的定量 Szemerédi 上界。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/159.md)。 |
 | 161 | [Sidorenko 猜想的反例](https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf) | 声称一个 35 顶点、66 边的连通二部图 H，在某有限宿主图 G 中满足 t(H,G)<t(K₂,G)^66，反驳 Sidorenko 猜想。 这里是同态密度，不是诱导子图频率。Lean 文档覆盖该有限图反例，未覆盖同族 forcing 猜想推论。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/161.md)。 |
 
-### 算法竞赛界
+### 算法界
 
 | 家族 | 结果 | 声明及范围 |
 | --- | --- | --- |
@@ -118,3 +118,5 @@
 | 264 | [Kerr 附近的局部强宇宙监督](https://github.com/openai/math/blob/main/preprints/Generic-Future-Inextendibility-with-Square-Integrable-Connection-Near-a-Fixed-Kerr-Spacetime-September-23-2026/paper.pdf) | 声称在固定旋转次极端 Kerr 桥的加权光滑邻域内，一稠密 Gδ 类真空初值的最大整体双曲发展，不能向未来作连续非退化且弱联络局部平方可积的延拓。 限于双端渐近平坦初值、近 Kerr 邻域和指定延拓正则性；不是所有时空上的一般强宇宙监督。本次未取得对应 Lean 范围文档。 |
 | 267 | [稀薄硬球气体的正温度玻色凝聚](https://github.com/openai/math/blob/main/preprints/Bose-Einstein-condensation-at-positive-temperature-in-the-dilute-hard-sphere-gas-October-5-2026/positive-temperature-hard-spheres.pdf) | 声称三维硬球气体在固定排斥距离和足够低固定密度下，存在与体积无关的正温度，使精确正则 Gibbs 态在热力学极限具有正凝聚比例；同族还有零温量子耗尽结果。 热力学极限与稀薄极限顺序重要。Lean 文档仅覆盖稀薄硬球气体的基态凝聚，不覆盖正温度凝聚或量子耗尽主张。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/267.md)。 |
 | 270 | [BFSS 模型的唯一阈值束缚态](https://github.com/openai/math/blob/main/preprints/The-unique-threshold-bound-state-of-the-SU-N-BFSS-model-September-24-2026/paper.pdf) | 声称未形变相对 SU(N) BFSS 模型对每个有限 N≥2 恰有一个可归一化零能态；另有 SU(2) 无穷多个正能束缚态的伴随声明。 这是指定 BFSS Hamiltonian 的谱理论声明，不是 M 理论的实验验证，也不自动处理大 N 极限。本次未取得对应 Lean 范围文档。 |
+
+分类更新：公开集合中的通用算法与复杂性结果现归“算法界”；“算法竞赛界”单独保留赛事与竞赛题记录。
