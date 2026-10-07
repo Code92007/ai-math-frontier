@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 13;
+const SEED_VERSION = 14;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -2858,9 +2858,335 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "math-2026-openai-goldfeld",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Goldfeld 二次扭曲秩分布证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 006 族。声称对每条有理数域椭圆曲线，其二次扭曲中解析秩 0 和 1 各占密度 1/2，平均解析秩趋于 1/2。",
+  "impact": "计数采用有符号无平方因子扭曲参数，按绝对值排序；是密度与平均结果，不表示每个扭曲都只有秩 0 或 1。与已有低 Selmer 余秩 BSD 条目相关但不是同一陈述。本次未取得第 006 族 Lean 范围文档。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文 1",
+      "url": "https://github.com/openai/math/blob/main/preprints/Goldfelds-analytic-density-conjecture-and-the-2-converse-for-elliptic-curves-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "原始论文 2",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-mean-analytic-rank-of-quadratic-twists-of-elliptic-curves-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-artin-primitive-roots",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Artin 原根猜想的逐底数无穷性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 029 族。声称对每个既非 −1 也非平方数的整数 a，都有无穷多个素数以 a 为原根；每个充分大的区间 (x,2x) 中数量至少 c_a x/(log x)²。",
+  "impact": "这里证明声明是逐底数无穷性及下界，不能改写成完整 Artin 预期密度渐近；同族“同时原根”的结果另带条件。本次未取得第 029 族 Lean 范围文档。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Primitive-roots-for-every-admissible-integer-base-October-4-2026/primitive-roots-all-integer-bases.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-mahler-volume-product",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布对称与非对称 Mahler 体积积猜想证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 087 族。声称在全部维数建立对称和一般凸体的锐体积积下界，并分类等号情形：分别为 Hanner 体和单纯形的相应线性 / 仿射形式。",
+  "impact": "官方 Lean 说明分别列出对称结论、一般凸体结论及极体积辛宽度。文档中较早的“不含非对称”一句仅对应前述对称陈述，后面另列一般结论；函数版不在所选陈述内，容量恰为 4 的辛嵌入也未断言。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文 1",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-symmetric-Mahler-conjecture-and-its-equality-cases-September-22-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "原始论文 2",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Mahler-Conjecture-for-General-Convex-Bodies-September-22-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/087.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-hadwiger-counterexample",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Hadwiger 与 Colin de Verdière 着色猜想反例证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 157 族。声称构造独立数至多 2 的有限简单图，使分数色数大于最大团 minor 阶数，从而反驳 Hadwiger 猜想；同族另反驳分数 Colin de Verdière 色数界，并给出线性列表着色上界。",
+  "impact": "χ_f(G) > h(G) 蕴含普通色数版本也失败，但不改变四色定理。第 157 族 Lean 文档只覆盖 χ_list(G) ≤ C h(G) 的正面结果，没有覆盖这两项反例，不能称反例已经由该文档机检。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文 1",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Hadwigers-conjecture-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "原始论文 2",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-the-Colin-de-Verdiere-chromatic-conjecture-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/157.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-kaplansky-zero-divisors",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Kaplansky 零因子猜想反例证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 196 族。声称构造有限表示无挠群 G，使 F₂[G] 中存在非零 α、β 而 αβ = 0；该群还有有限二维分类空间。",
+  "impact": "Lean 说明覆盖该特征二群代数反例及分类空间性质。特征二反例足以否定全称猜想，但不能写成特征零或所有底域都已有反例。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Torsion-Free-Group-Algebra-with-Zero-Divisors-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/196.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-thompson-nonamenable",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Thompson 群 F 的非可和性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 248 族。声称标准 Thompson 群 F，即区间上的二进有理分段线性同胚群，不存在正的归一化左不变均值，因而非 amenable（不可和）。",
+  "impact": "官方 Lean 说明覆盖该标准群的非可和性，不给出显式边界常数或指定生成集。非可和性不自动等于存在非阿贝尔自由子群，不能据此扩大群结构结论。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Thompsons-group-F-is-nonamenable-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/248.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-hilbert-smith",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布全部有限维的 Hilbert–Smith 猜想证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 304 族。声称局部紧、第二可数 Hausdorff 群若忠实且联合连续地作用于连通有限维拓扑流形，则必为 Lie 群。",
+  "impact": "保留流形 Hausdorff、第二可数、无边界及作用忠实等假设；结论是群作用的结构，不是希尔伯特第五问题任意表述的全新解决。本次未取得第 304 族 Lean 范围文档。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Hilbert-Smith-conjecture-in-every-finite-dimension-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-spacetime-penrose",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布时空 Penrose 不等式及刚性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 260 族。声称对空间维数 n ≥ 3 的指定光滑单端渐近平坦初始数据，以最小包围面积给出不变 ADM 质量的锐下界，并处理带电及其他伴随情形。",
+  "impact": "保留主导能量、弱未来俘获、正包围面积和衰减假设；等号刚性另有视界条件。Lean 文档仅覆盖三维 CKS 类端替换与 Schwarzschild 等号例子，不覆盖一般 Bondi–Penrose 主不等式，也不能替代全部时空 Penrose 论文。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Spacetime-Penrose-inequalities-enclosing-area-charge-and-rigidity-October-5-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/260.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-coulomb-ionization",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布电离与广义电离猜想证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 263 族。在非相对论、两种电子自旋的完整 Coulomb 模型中，声称 M 个固定核、总核电荷 Z 的分子至多严格束缚 Z + CM 个电子；并给出中性原子电离能、外电子半径及 Thomas–Fermi 渐近。",
+  "impact": "Lean 说明覆盖 m → ∞ 且 Z/m → ∞ 的电离能渐近和先取 Z → ∞ 的半径渐近，不覆盖固定 m 收敛，也不单独断言基态存在。不能把所列机检范围当作 Z + CM 束缚数主张的形式证明。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文 1",
+      "url": "https://github.com/openai/math/blob/main/preprints/Uniform-excess-charge-for-Coulomb-molecules-and-the-outer-radius-of-neutral-atoms-September-24-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "原始论文 2",
+      "url": "https://github.com/openai/math/blob/main/preprints/Generalized-ionization-energies-for-full-Coulomb-atoms-September-24-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/263.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-mub-dimension-six",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布六维互无偏基最大数为 3证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 266 族。声称 C⁶ 中存在三组互无偏正交基，却不存在四组，确定 N(6) = 3；排除四组依赖认证计算及指定 binary64 算术、编译器条件。",
+  "impact": "关键区别：官方 Lean 说明只给出较弱的至多五组界和若干 Fourier / Hadamard 消去陈述，并明确没有建立论文的三组上界或排除任意四组的计算。因此保留论文与计算声明，不标“3 组上界已机检”。 本站核对完整概览及公开范围，未独立复核证明或编译 Lean。",
+  "before": "长期开放问题 / 猜想",
+  "after": "论文声明，待审阅",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-maximum-number-of-mutually-unbiased-bases-in-dimension-six-September-24-2026/The-maximum-number-of-mutually-unbiased-bases-in-dimension-six-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方完整说明 PDF",
+      "url": "https://github.com/openai/math/blob/main/overview.pdf",
+      "type": "官方概览"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/266.md",
+      "type": "形式化说明"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  14: ["math-2026-openai-goldfeld", "math-2026-openai-artin-primitive-roots", "math-2026-openai-mahler-volume-product", "math-2026-openai-hadwiger-counterexample", "math-2026-openai-kaplansky-zero-divisors", "math-2026-openai-thompson-nonamenable", "math-2026-openai-hilbert-smith", "physics-2026-openai-spacetime-penrose", "physics-2026-openai-coulomb-ionization", "physics-2026-openai-mub-dimension-six"],
   13: ["algorithms-2026-openai-perfect-two-to-one", "algorithms-2026-openai-three-colorable-hardness", "algorithms-2026-openai-permanent-border-cubic", "algorithms-2026-openai-perfect-matching-fpras", "algorithms-2026-openai-noncommutative-pit", "algorithms-2026-openai-uniform-sparsest-cut", "algorithms-2026-openai-bin-packing-mirup", "algorithms-2026-openai-metric-kmedian-threshold", "algorithms-2026-openai-sensitivity-superquadratic", "algorithms-2026-openai-etr-counting-hierarchy"],
   12: ["math-2026-erdos-728", "math-2026-gauss-sphere-packing", "math-2026-anderson-quasi-complete", "math-2026-alphaproof-nexus-research", "math-2026-cycle-double-cover", "math-2026-sendov-conjecture", "algorithms-2026-zero-order-oracle-bound", "algorithms-2026-goemans-cost-counterexample", "physics-2026-single-minus-gluon", "physics-2026-maxwell-counterexample", "math-2026-august-high-dimensional-packing", "math-2026-august-metric-code-bounds", "math-2026-august-nonsofic-group", "math-2026-august-connes-rigidity", "algorithms-2026-august-permanent-formula-bound", "algorithms-2026-august-quantum-parallel-repetition", "algorithms-2026-august-gap-cvp-hardness", "math-2026-august-ehrhart-volume", "math-2026-august-multicolor-triangle-ramsey", "math-2026-august-extremal-compactness-degeneracy"],
   11: ["math-2026-koethe-counterexample", "math-2026-smale-mean-value", "math-2026-critical-percolation", "math-2026-gromov-volume-growth", "algorithms-2026-strong-pr", "physics-2026-smooth-forced-euler", "physics-2026-smooth-forced-ipm", "physics-2026-pinn-euler-profile"],
