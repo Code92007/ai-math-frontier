@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 5;
+const SEED_VERSION = 7;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -700,9 +700,449 @@ const SEED_EVENTS = [
       }
     ]
   },
+{
+  "id": "cp-2026-openai-ugc",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布 UGC 证明声明与近似困难性结果",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 102 族声称证明唯一博弈猜想：对固定 ε、δ∈(0,1/2)，将 3SAT 多项式时间归约到固定字母表的 Unique Games，区分价值至少 1−ε 与至多 δ 的实例。",
+  "impact": "若成立，将重要近似困难性结论从条件性推进为无条件归约。仓库提供 UGC gap 归约的 Lean 范围说明；本次未独立编译或审计证明，按待审阅记录。",
+  "before": "唯一博弈猜想（UGC）长期作为近似困难性结论的条件。",
+  "after": "声称证明 UGC",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 2026-10-06 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "成果目录与发布说明",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/102.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-logspace",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 声称证明 L = RL = BPL",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 103 族声称，将多项式时间、对数空间且具有单侧或双侧有界错误的随机判定机，编译为确定性对数空间判定机，并给出显式多项式时间界。",
+  "impact": "结果涉及对数空间复杂性类，并非 P = BPP 的证明。当前目录未为该族列出 Lean 链接，本次只核对官方声明，尚未独立验证证明。",
+  "before": "随机对数空间计算的一般去随机化是开放问题。",
+  "after": "声称 L = RL = BPL",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 2026-10-06 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Exact-Derandomization-of-Logarithmic-Space-L-equals-RL-equals-BPL-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "成果目录与发布说明",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-matrix-nine-fourths",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 声称复数矩阵乘法指数 ω ≤ 2.25",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 107 族声称复数域上的矩阵乘法指数 ω≤9/4，即对每个 ε>0，可用 Oε(n^(9/4+ε)) 次算术运算完成方阵乘法。",
+  "impact": "不能直接把 2.25 界推广到任意有限域或位复杂度，也不代表已有竞赛实用实现。Lean 范围说明包含复数域 9/4 界；本次未独立编译或审计。",
+  "before": "降低一般矩阵乘法的渐近算术指数是长期研究目标。",
+  "after": "复数域 ω ≤ 9/4（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 2026-10-06 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "成果目录与发布说明",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/107.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-dft",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 声称精确 DFT 突破 n log n 运算界",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 130 族声称对所有长度 n，确定性精确 DFT 可用 O(n(log n)^(1−δ)) 次运算，δ=10^−13。模型允许精确复数运算、不受限系数和给定单位根，并计入标量准备与对数长度索引。",
+  "impact": "这是特定算术模型的渐近结果，不能直接等同于浮点 FFT、NTT 或位运算加速。Lean 范围仅覆盖无界长度子序列上的任意小归一化电路成本，不覆盖所有长度的显式幂次节省；未独立验证。",
+  "before": "经典 FFT 在常见模型中使用 O(n log n) 次运算。",
+  "after": "O(n(log n)^(1−10^−13))（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 2026-10-06 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "成果目录与发布说明",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/130.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-subset-sum",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 声称最坏情形 Subset Sum 达到 O(2^0.49n)",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 138 族声称在多项式位长输入的 word-RAM 模型中，存在统一经典随机算法，以最坏情形 O(2^0.49n) 时间求解 Subset Sum；每次执行满足时间界，每个输入成功率至少 2/3。",
+  "impact": "n 是输入整数个数，允许正整数重复，字长为 O(n+b)，b 为最大输入位长。若成立是指数常数改进；当前目录未为该族列出 Lean 链接，本次未独立验证证明。",
+  "before": "经典折半搜索的主指数为 2^(n/2)；多项式因子改进不等于降低指数常数。",
+  "after": "随机化 O(2^0.49n)（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 2026-10-06 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Subset-Sum-in-Time-2-power-0-49n-October-4-2026/subset-sum.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "成果目录与发布说明",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-collection",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 公开 722 份手稿、372 个结果家族",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "公开集合按 372 个家族组织 722 份手稿，同一家族可含主结果、伴随论证、推论或替代证明，因此不能等同于 722 个独立难题。",
+  "impact": "官方披露约尝试 4,000 个问题，绝大多数成果采用同一流程，平均每项约相当于三小时 ChatGPT Pro 思考计算量。仓库明确各结果核验阶段不同，部分未形式化结果可能有问题；模型归属不推断为已发布型号。",
+  "before": "汇总性成果预告",
+  "after": "逐项手稿与部分证明产物公开",
+  "featured": false,
+  "sources": [
+    {
+      "title": "OpenAI 官方发布",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "type": "官方发布"
+    },
+    {
+      "title": "仓库说明与生成流程",
+      "url": "https://github.com/openai/math",
+      "type": "官方仓库"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-quasi-riemann",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布准黎曼假设：固定无零半平面证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 003 族。声称 ζ 与所有 Dirichlet L 函数在 Re(s)>7/8 无零（排除 s=1 的极点）。",
+  "impact": "涉及素数分布的核心解析工具；未达到黎曼猜想所要求的临界线 1/2。Lean 范围覆盖 7/8 界，论文后续应用不在该范围。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "固定 θ<1 的无零半平面",
+  "after": "Re(s)>7/8（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 003 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/003.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-hilbert-tenth-rationals",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布有理数域上的希尔伯特第十问题证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 004 族。声称不存在通用算法，能判定任意整系数多元多项式是否有有理数零点，变量个数属于输入。",
+  "impact": "把丢番图方程的算法不可判定性推进到有理数域；不能把已知整数域结论直接当作此结果。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "有理数解的可判定性问题",
+  "after": "声称不可判定",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Hilberts-tenth-problem-over-the-rational-numbers-September-24-2026/main.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 004 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-bsd-low-corank",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布BSD：低 Selmer 余秩下的完整公式证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 002 族。声称对有理数域上、某个素数 q 的 q 幂 Selmer 群余秩为 0 或 1 的椭圆曲线，证明完整 BSD 首项公式及 Tate–Shafarevich 群有限性。",
+  "impact": "这是千禧年问题的重要范围，不能称为一般 BSD 已解决。与第 006 族 Goldfeld 声明结合，目录还声称覆盖每条曲线二次扭曲中的密度一集合。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "低余秩下完整 BSD 公式",
+  "after": "余秩 0/1 的完整公式（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Exact-Birch-Swinnerton-Dyer-Formula-from-Low-Selmer-Corank-October-3-2026/exact-bsd-low-selmer-corank.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 002 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-hodge-cm-k3",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布霍奇猜想：CM 阿贝尔簇与 K3 乘积特例证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 032 族。声称证明所有复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想；同族另有射影复 K3 曲面任意有限乘积的证明声明。",
+  "impact": "一般光滑复射影代数簇上的霍奇猜想不由这些特例解决。官方说明 CM 结果的生成流程属于常规评估流程的例外。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "霍奇猜想的重要特殊类别",
+  "after": "CM / K3 乘积特例（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-September-30-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 032 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-pi-exponent",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布π 的无理性指数恰为 2证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 017 族。声称 π 的无理性指数为 2：任意 ε>0，在充分大的分母 q 下，每个有理数 p/q 与 π 的距离至少为 q^(−2−ε)。",
+  "impact": "回答 π 能被有理数逼近到何种程度。论文还声称 Flint–Hills 级数收敛；Lean 范围覆盖指数结论，不包含该级数推论。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "π 的有理逼近精度界",
+  "after": "无理性指数 2（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 017 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/017.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-catalan",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Catalan 常数的无理性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 005 族。声称 Catalan 常数 G=Σ(j≥0)(−1)^j/(2j+1)^2 为无理数。",
+  "impact": "表述易懂、结论明确的常数算术代表。Lean 范围说明覆盖无理性主结论；该声明不涉及超越性。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "经典常数的无理性问题",
+  "after": "声称 G 为无理数",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Catalans-constant-is-irrational-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 005 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/005.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-chowla-two-point",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布二点 Chowla：普通平均下的消去证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 007 族。声称 Liouville 函数在固定非成比例仿射形式对上的相关和为 O(X/(log X)^c)，c>0 为绝对常数；并给出带明确非伪装性条件的修正二元 Elliott 结论。",
+  "impact": "普通平均与对数加权平均是不同结论；这里也不是所有阶数的 Chowla 猜想。Lean 范围说明包含二点相关与带条件的 Elliott 消去。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "乘法函数的二点相关问题",
+  "after": "普通平均二点消去（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/final.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 007 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/007.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-kakeya-3d-4d",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Kakeya：三维极大函数与四维维数证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 074 族。声称证明三维 Kakeya 极大函数猜想，以及四维 Kakeya 集的 Hausdorff 维数为 4。",
+  "impact": "每个方向都包含单位线段的集合可以有多小，是调和分析与几何的核心问题。三维极大估计与四维维数结论应分开理解，不能推广为所有维数已解决。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "before": "三维极大估计 / 四维维数问题",
+  "after": "三维极大 / 四维满维（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Kakeya-maximal-conjecture-in-three-dimensions-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 074 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  7: ["math-2026-openai-collection", "math-2026-openai-quasi-riemann", "math-2026-openai-hilbert-tenth-rationals", "math-2026-openai-bsd-low-corank", "math-2026-openai-hodge-cm-k3", "math-2026-openai-pi-exponent", "math-2026-openai-catalan", "math-2026-openai-chowla-two-point", "math-2026-openai-kakeya-3d-4d"],
+  6: ["cp-2026-openai-ugc", "cp-2026-openai-logspace", "cp-2026-openai-matrix-nine-fourths", "cp-2026-openai-dft", "cp-2026-openai-subset-sum"],
   5: ["cp-2026-truly-subquadratic-3sum", "cp-2026-minplus-convolution", "cp-2026-truly-subcubic-apsp"],
   2: ["math-2026-jacobian-counterexample"],
   3: ["math-2026-prime-gaps-186"],
