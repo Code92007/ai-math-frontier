@@ -11,7 +11,7 @@
   --white: #f9f8f3;
   --math: #e05b43;
   --math-soft: #f6d9d1;
-  --algorithms: #a36a20;
+  --algorithms: #2864c7;
   --cp: #167a78;
   --cp-soft: #cce4e0;
   --physics: #6655aa;
@@ -203,7 +203,7 @@ a { color: inherit; }
 .event-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 7px; color: var(--muted); font-size: 12px; }
 .domain-tag, .status-tag { display: inline-flex; align-items: center; min-height: 22px; padding: 1px 7px; border: 1px solid currentColor; border-radius: 3px; font-size: 11px; }
 .domain-tag.math { color: #b94735; background: #fff8f6; }
-.domain-tag.algorithms { color: #865416; background: #fff5e4; }
+.domain-tag.algorithms { color: #2457a6; background: #edf3ff; }
 .domain-tag.cp { color: #126d6c; background: #f3fbf9; }
 .domain-tag.physics { color: #6655aa; background: #f7f5ff; }
 .domain-tag.biology { color: #4c783b; background: #f5faef; }
