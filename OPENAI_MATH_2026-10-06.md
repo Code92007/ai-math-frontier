@@ -85,3 +85,36 @@
 | 362 | [三维相对论 Vlasov–Maxwell 方程的大数据全局光滑性](https://github.com/openai/math/blob/main/preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/paper.pdf) | 声称三维单物种相对论 Vlasov–Maxwell 系统对允许的大初值具有全局存在唯一性，解在每个有限时间区间保持光滑。 描述带电粒子分布与电磁场的耦合。初始粒子密度要求紧支撑，场要求有限能量和各阶导数有界；不能推广为任意物种或任意初值。本次未找到对应 Lean 范围文档。 |
 
 已列 Lean 文档：[221](https://github.com/openai/math/blob/main/lean/docs/221.md)、[261](https://github.com/openai/math/blob/main/lean/docs/261.md)、[269](https://github.com/openai/math/blob/main/lean/docs/269.md)、[271](https://github.com/openai/math/blob/main/lean/docs/271.md)、[273](https://github.com/openai/math/blob/main/lean/docs/273.md)。未独立编译或审计，不将局部形式化扩写为整篇论文已验证。
+
+## 第二轮补充精选（2026-10-07）
+
+补入 14 个未重复收录的家族：数学 5 项、算法 6 项、物理 3 项。日期采用公开集合发布日期；全部是待审阅的证明声明。未取得某族 Lean 文档不等于断言仓库任何位置均不存在形式化。
+
+### 数学界
+
+| 家族 | 结果 | 声明及范围 |
+| --- | --- | --- |
+| 073 | [所有维数的 Falconer 距离猜想](https://github.com/openai/math/blob/main/preprints/The-Falconer-distance-conjecture-in-all-dimensions-September-23-2026/paper.pdf) | 对 d≥2，声称 Hausdorff 维数大于 d/2 的紧集，其距离集具有正 Lebesgue 测度。 将分形维数与距离集大小联系起来。Lean 范围文档列出全维数结论。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/073.md)。 |
+| 143 | [希尔伯特第十六问题的极限环统一界](https://github.com/openai/math/blob/main/preprints/uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026/uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026.pdf) | 声称实平面多项式向量场的孤立周期轨道数，有仅依赖次数的有限上界；五次 Liénard 系统的精确最大值为 2。 这里只涉及极限环统一有界部分，不称整个希尔伯特第十六问题已解决。Lean 文档仅覆盖五次 Liénard 系统的精确两环结论，不覆盖一般次数的统一界。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/143.md)。 |
+| 158 | [欧氏平面不能用五种颜色正确着色](https://github.com/openai/math/blob/main/preprints/The-Euclidean-plane-is-not-five-colorable-September-23-2026/paper.pdf) | 声称任意五色平面着色都存在距离为 1 的同色点对，无需可测性或连续性假设；结合七色上界，色数只能为 6 或 7。 推进 Hadwiger–Nelson 问题，但没有确定色数究竟是 6 还是 7。Lean 文档列出五色不可能与七色可行两端结论。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/158.md)。 |
+| 159 | [Erdős 倒数和猜想与等差数列界](https://github.com/openai/math/blob/main/preprints/Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026/paper.pdf) | 声称每个倒数和发散的正整数集合，都含任意有限长度的非平凡等差数列；论文还给出无等差数列子集规模的定量上界。 Lean 文档覆盖倒数和推论，不覆盖论文的定量 Szemerédi 上界。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/159.md)。 |
+| 161 | [Sidorenko 猜想的反例](https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf) | 声称一个 35 顶点、66 边的连通二部图 H，在某有限宿主图 G 中满足 t(H,G)<t(K₂,G)^66，反驳 Sidorenko 猜想。 这里是同态密度，不是诱导子图频率。Lean 文档覆盖该有限图反例，未覆盖同族 forcing 猜想推论。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/161.md)。 |
+
+### 算法竞赛界
+
+| 家族 | 结果 | 声明及范围 |
+| --- | --- | --- |
+| 109 | [整数乘法突破 n log n 位复杂度](https://github.com/openai/math/blob/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026/paper.pdf) | 声称在固定有限字母表、多带图灵机模型中，对所有长度 n，两个 n 位整数可用确定性最坏时间 O(n(log n)^(1−κ)) 相乘，κ=2^−182。 与此前精确复数 DFT 的算术模型不同，这是位复杂度声明；指数节省极小，不意味着实用速度改进。本次未取得对应 Lean 范围文档。 |
+| 120 | [一般图的近线性精确最大匹配](https://github.com/openai/math/blob/main/preprints/Almost-Linear-Time-Maximum-Cardinality-Matching-in-Sparse-General-Graphs-September-24-2026/main.pdf) | 声称对任意简单无向图，以 (n+m)^(1+o(1)) word 时间找到最大基数匹配，成功率至少 2/3，时间界在每条计算路径成立。 是精确基数目标，算法仍随机；不能扩写成任意加权匹配或确定性近线性算法。本次未取得对应 Lean 范围文档。 |
+| 121 | [编辑距离的近线性近似方案](https://github.com/openai/math/blob/main/preprints/An-Almost-Linear-Approximation-Scheme-for-Edit-Distance-September-24-2026/paper.pdf) | 声称对固定有理 ε∈(0,1)，单位代价编辑距离可在期望 N^(1+o(1)) 时间内取得 (1+ε) 近似，成功率至少 2/3，N 为两串总长。 字母用多项式有界整数表示；不是近线性精确编辑距离，时间为期望界。Lean 文档列出该近似比、成功率与期望工作量范围。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/121.md)。 |
+| 124 | [三台相同机器上的单位任务最优调度](https://github.com/openai/math/blob/main/preprints/A-polynomial-time-algorithm-for-three-machine-unit-job-scheduling-September-24-2026/paper.pdf) | 声称在三台相同并行机器上，任意无环前置约束的不可抢占单位长度任务，可以确定性多项式时间最小化完工时间并构造最优调度。 限制为三台机器和单位任务，不能推广至任意机器数、任务时长或带权调度。Lean 文档覆盖最优构造及截止时间可行性。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/124.md)。 |
+| 128 | [最短公共超串的二倍近似](https://github.com/openai/math/blob/main/preprints/A-Polynomial-Time-2-Approximation-for-Shortest-Common-Superstring-September-24-2026/paper.pdf) | 声称对显式编码的有限字符串族，存在确定性多项式时间算法，构造包含每条输入为连续子串的公共超串，长度至多最优值的两倍。 超串要求连续子串，不能与最短公共超序列混淆。运行时间按完整输入位长计，近似比按符号长度计；Lean 文档列出该结论。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/128.md)。 |
+| 142 | [素数有限域多项式的确定性分解](https://github.com/openai/math/blob/main/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/Deterministic-Polynomial-Factorization-over-Prime-Fields.pdf) | 声称对二进制给定素数 p 上的任意非零稠密 n 次多项式，能以关于 (n+1)log p 的多项式位复杂度完成含重数的因式分解。 声明无需随机性、GRH、整数分解或原根 oracle；讨论的是素数域多项式分解，不是整数因数分解。本次未取得对应 Lean 范围文档。 |
+
+### 物理界
+
+| 家族 | 结果 | 声明及范围 |
+| --- | --- | --- |
+| 264 | [Kerr 附近的局部强宇宙监督](https://github.com/openai/math/blob/main/preprints/Generic-Future-Inextendibility-with-Square-Integrable-Connection-Near-a-Fixed-Kerr-Spacetime-September-23-2026/paper.pdf) | 声称在固定旋转次极端 Kerr 桥的加权光滑邻域内，一稠密 Gδ 类真空初值的最大整体双曲发展，不能向未来作连续非退化且弱联络局部平方可积的延拓。 限于双端渐近平坦初值、近 Kerr 邻域和指定延拓正则性；不是所有时空上的一般强宇宙监督。本次未取得对应 Lean 范围文档。 |
+| 267 | [稀薄硬球气体的正温度玻色凝聚](https://github.com/openai/math/blob/main/preprints/Bose-Einstein-condensation-at-positive-temperature-in-the-dilute-hard-sphere-gas-October-5-2026/positive-temperature-hard-spheres.pdf) | 声称三维硬球气体在固定排斥距离和足够低固定密度下，存在与体积无关的正温度，使精确正则 Gibbs 态在热力学极限具有正凝聚比例；同族还有零温量子耗尽结果。 热力学极限与稀薄极限顺序重要。Lean 文档仅覆盖稀薄硬球气体的基态凝聚，不覆盖正温度凝聚或量子耗尽主张。 [形式化范围](https://github.com/openai/math/blob/main/lean/docs/267.md)。 |
+| 270 | [BFSS 模型的唯一阈值束缚态](https://github.com/openai/math/blob/main/preprints/The-unique-threshold-bound-state-of-the-SU-N-BFSS-model-September-24-2026/paper.pdf) | 声称未形变相对 SU(N) BFSS 模型对每个有限 N≥2 恰有一个可归一化零能态；另有 SU(2) 无穷多个正能束缚态的伴随声明。 这是指定 BFSS Hamiltonian 的谱理论声明，不是 M 理论的实验验证，也不自动处理大 N 极限。本次未取得对应 Lean 范围文档。 |

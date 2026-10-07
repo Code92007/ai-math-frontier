@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 8;
+const SEED_VERSION = 9;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -1384,9 +1384,433 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "math-2026-openai-falconer",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布所有维数的 Falconer 距离猜想证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 073 族。对 d≥2，声称 Hausdorff 维数大于 d/2 的紧集，其距离集具有正 Lebesgue 测度。",
+  "impact": "将分形维数与距离集大小联系起来。Lean 范围文档列出全维数结论。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "分形集合的距离集阈值",
+  "after": "维数 > d/2 即正测度（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Falconer-distance-conjecture-in-all-dimensions-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 073 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/073.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-hilbert-sixteenth",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布希尔伯特第十六问题的极限环统一界证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 143 族。声称实平面多项式向量场的孤立周期轨道数，有仅依赖次数的有限上界；五次 Liénard 系统的精确最大值为 2。",
+  "impact": "这里只涉及极限环统一有界部分，不称整个希尔伯特第十六问题已解决。Lean 文档仅覆盖五次 Liénard 系统的精确两环结论，不覆盖一般次数的统一界。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "按次数控制极限环数量",
+  "after": "统一有限界（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026/uniform-bounds-for-planar-polynomial-limit-cycles-September-24-2026.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 143 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/143.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-plane-coloring",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布欧氏平面不能用五种颜色正确着色证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 158 族。声称任意五色平面着色都存在距离为 1 的同色点对，无需可测性或连续性假设；结合七色上界，色数只能为 6 或 7。",
+  "impact": "推进 Hadwiger–Nelson 问题，但没有确定色数究竟是 6 还是 7。Lean 文档列出五色不可能与七色可行两端结论。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "平面单位距离图的色数",
+  "after": "声称 6 ≤ χ(R²) ≤ 7",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Euclidean-plane-is-not-five-colorable-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 158 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/158.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-erdos-reciprocal",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Erdős 倒数和猜想与等差数列界证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 159 族。声称每个倒数和发散的正整数集合，都含任意有限长度的非平凡等差数列；论文还给出无等差数列子集规模的定量上界。",
+  "impact": "Lean 文档覆盖倒数和推论，不覆盖论文的定量 Szemerédi 上界。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "稀疏整数集中的等差结构",
+  "after": "倒数和发散推出任意长数列（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Quasipolynomial-Bounds-for-Arithmetic-Progressions-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 159 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/159.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-sidorenko",
+  "domain": "math",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Sidorenko 猜想的反例证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 161 族。声称一个 35 顶点、66 边的连通二部图 H，在某有限宿主图 G 中满足 t(H,G)<t(K₂,G)^66，反驳 Sidorenko 猜想。",
+  "impact": "这里是同态密度，不是诱导子图频率。Lean 文档覆盖该有限图反例，未覆盖同族 forcing 猜想推论。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "二部图同态密度下界猜想",
+  "after": "固定二部图反例（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 161 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/161.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-integer-multiplication",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布整数乘法突破 n log n 位复杂度证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 109 族。声称在固定有限字母表、多带图灵机模型中，对所有长度 n，两个 n 位整数可用确定性最坏时间 O(n(log n)^(1−κ)) 相乘，κ=2^−182。",
+  "impact": "与此前精确复数 DFT 的算术模型不同，这是位复杂度声明；指数节省极小，不意味着实用速度改进。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "整数乘法 n log n 最优性猜想",
+  "after": "低于 n log n 的位复杂度（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 109 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-general-matching",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布一般图的近线性精确最大匹配证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 120 族。声称对任意简单无向图，以 (n+m)^(1+o(1)) word 时间找到最大基数匹配，成功率至少 2/3，时间界在每条计算路径成立。",
+  "impact": "是精确基数目标，算法仍随机；不能扩写成任意加权匹配或确定性近线性算法。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "一般图精确最大基数匹配",
+  "after": "随机化近线性时间（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Almost-Linear-Time-Maximum-Cardinality-Matching-in-Sparse-General-Graphs-September-24-2026/main.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 120 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-edit-distance",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布编辑距离的近线性近似方案证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 121 族。声称对固定有理 ε∈(0,1)，单位代价编辑距离可在期望 N^(1+o(1)) 时间内取得 (1+ε) 近似，成功率至少 2/3，N 为两串总长。",
+  "impact": "字母用多项式有界整数表示；不是近线性精确编辑距离，时间为期望界。Lean 文档列出该近似比、成功率与期望工作量范围。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "高精度编辑距离近似",
+  "after": "固定精度随机化近线性（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/An-Almost-Linear-Approximation-Scheme-for-Edit-Distance-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 121 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/121.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-three-machine-scheduling",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布三台相同机器上的单位任务最优调度证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 124 族。声称在三台相同并行机器上，任意无环前置约束的不可抢占单位长度任务，可以确定性多项式时间最小化完工时间并构造最优调度。",
+  "impact": "限制为三台机器和单位任务，不能推广至任意机器数、任务时长或带权调度。Lean 文档覆盖最优构造及截止时间可行性。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "三机单位任务前置约束调度",
+  "after": "确定性多项式时间（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-polynomial-time-algorithm-for-three-machine-unit-job-scheduling-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 124 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/124.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-shortest-superstring",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布最短公共超串的二倍近似证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 128 族。声称对显式编码的有限字符串族，存在确定性多项式时间算法，构造包含每条输入为连续子串的公共超串，长度至多最优值的两倍。",
+  "impact": "超串要求连续子串，不能与最短公共超序列混淆。运行时间按完整输入位长计，近似比按符号长度计；Lean 文档列出该结论。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "最短公共超串近似比",
+  "after": "确定性 2-近似（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Polynomial-Time-2-Approximation-for-Shortest-Common-Superstring-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 128 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/128.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "cp-2026-openai-finite-field-factorization",
+  "domain": "cp",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布素数有限域多项式的确定性分解证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 142 族。声称对二进制给定素数 p 上的任意非零稠密 n 次多项式，能以关于 (n+1)log p 的多项式位复杂度完成含重数的因式分解。",
+  "impact": "声明无需随机性、GRH、整数分解或原根 oracle；讨论的是素数域多项式分解，不是整数因数分解。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "有限域分解的无条件去随机化",
+  "after": "确定性多项式位复杂度（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Deterministic-Polynomial-Factorization-over-Prime-Fields-October-4-2026/Deterministic-Polynomial-Factorization-over-Prime-Fields.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 142 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-kerr-censorship",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Kerr 附近的局部强宇宙监督证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 264 族。声称在固定旋转次极端 Kerr 桥的加权光滑邻域内，一稠密 Gδ 类真空初值的最大整体双曲发展，不能向未来作连续非退化且弱联络局部平方可积的延拓。",
+  "impact": "限于双端渐近平坦初值、近 Kerr 邻域和指定延拓正则性；不是所有时空上的一般强宇宙监督。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "旋转黑洞附近的时空可延拓性",
+  "after": "近 Kerr 的泛型不可延拓（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Generic-Future-Inextendibility-with-Square-Integrable-Connection-Near-a-Fixed-Kerr-Spacetime-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 264 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-bose-condensation",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布稀薄硬球气体的正温度玻色凝聚证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 267 族。声称三维硬球气体在固定排斥距离和足够低固定密度下，存在与体积无关的正温度，使精确正则 Gibbs 态在热力学极限具有正凝聚比例；同族还有零温量子耗尽结果。",
+  "impact": "热力学极限与稀薄极限顺序重要。Lean 文档仅覆盖稀薄硬球气体的基态凝聚，不覆盖正温度凝聚或量子耗尽主张。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "相互作用玻色气体的严格凝聚",
+  "after": "正温度凝聚（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Bose-Einstein-condensation-at-positive-temperature-in-the-dilute-hard-sphere-gas-October-5-2026/positive-temperature-hard-spheres.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 267 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/267.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-bfss-bound-state",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布BFSS 模型的唯一阈值束缚态证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 270 族。声称未形变相对 SU(N) BFSS 模型对每个有限 N≥2 恰有一个可归一化零能态；另有 SU(2) 无穷多个正能束缚态的伴随声明。",
+  "impact": "这是指定 BFSS Hamiltonian 的谱理论声明，不是 M 理论的实验验证，也不自动处理大 N 极限。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "before": "矩阵量子力学的阈值束缚态猜想",
+  "after": "有限 N 唯一零能态（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-unique-threshold-bound-state-of-the-SU-N-BFSS-model-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 270 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  9: ["math-2026-openai-falconer", "math-2026-openai-hilbert-sixteenth", "math-2026-openai-plane-coloring", "math-2026-openai-erdos-reciprocal", "math-2026-openai-sidorenko", "cp-2026-openai-integer-multiplication", "cp-2026-openai-general-matching", "cp-2026-openai-edit-distance", "cp-2026-openai-three-machine-scheduling", "cp-2026-openai-shortest-superstring", "cp-2026-openai-finite-field-factorization", "physics-2026-openai-kerr-censorship", "physics-2026-openai-bose-condensation", "physics-2026-openai-bfss-bound-state"],
   8: ["physics-2026-openai-diluted-spin-glass", "physics-2026-openai-anderson", "physics-2026-openai-area-law", "physics-2026-openai-haldane-gap", "physics-2026-openai-laughlin-gap", "physics-2026-openai-heisenberg-magnetization", "physics-2026-openai-entropy-photon-number", "physics-2026-openai-vlasov-maxwell"],
   7: ["math-2026-openai-collection", "math-2026-openai-quasi-riemann", "math-2026-openai-hilbert-tenth-rationals", "math-2026-openai-bsd-low-corank", "math-2026-openai-hodge-cm-k3", "math-2026-openai-pi-exponent", "math-2026-openai-catalan", "math-2026-openai-chowla-two-point", "math-2026-openai-kakeya-3d-4d"],
   6: ["cp-2026-openai-ugc", "cp-2026-openai-logspace", "cp-2026-openai-matrix-nine-fourths", "cp-2026-openai-dft", "cp-2026-openai-subset-sum"],
