@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 12;
+const SEED_VERSION = 13;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -2543,9 +2543,325 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "algorithms-2026-openai-perfect-two-to-one",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布2-to-1 Games 的完美完全性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 105 族。声称对任意固定有理数 0 < δ < 1，将可满足的 2-to-1 游戏与最优值至多 δ 的游戏区分是 NP-hard；字母表仅依赖 δ，每个右侧标签在每条约束下恰有两个原像。",
+  "impact": "官方 Lean 文档覆盖从二元 3SAT 出发的确定性多项式归约、完全可满足的 yes 情形和显式无权约束。它是完美完全性的具体版本，不与现有 UGC 卡片合并为同一结果。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "2-to-1 Games 完美完全性猜想",
+  "after": "值 1 对值 ≤ δ 的 NP-hardness",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Perfect-completeness-for-2-to-1-games-September-23-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 105 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/105.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-three-colorable-hardness",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布三可染图的任意固定色数着色困难性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 106 族。声称对每个固定整数 c ≥ 3，即使承诺输入图三可染，找出 c 色正确着色仍为 NP-hard。更强的归约区分三可染图与最大独立集小于 δn 的图，0 < δ < 1/3 固定。",
+  "impact": "Lean 说明覆盖从 3SAT 到有限简单图的独立集间隙归约，运行时间包含完整邻接矩阵输出。NP-hard 是最坏情形复杂性结论，不表示每个具体三可染图都难。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "三可染承诺下的近似着色",
+  "after": "任意固定 c 色 NP-hard",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Hardness-of-finding-large-independent-sets-in-three-colorable-graphs-September-24-2026/Hardness-of-finding-large-independent-sets-in-three-colorable-graphs-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 106 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/106.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-permanent-border-cubic",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布permanent 边界行列式复杂度的三次下界证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 108 族。声称复数域 n×n permanent 的边界行列式复杂度为 Ω(n³)：即便允许仿射线性行列式表示的逐系数极限，矩阵规模仍须至少为三次量级。",
+  "impact": "与网站已有算术公式 n⁴/log n 下界是不同计算模型。Lean 说明覆盖 exact 与 border 行列式表示，论文的代数分支程序推论不在所选陈述内；这一多项式下界本身不证明 VP ≠ VNP。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "permanent–determinant 表示下界",
+  "after": "复数域 border complexity ≥ Ω(n³)",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 108 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/108.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-perfect-matching-fpras",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布一般图完美匹配计数的 FPRAS证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 113 族。声称对任意有限简单无向图给出完美匹配数量的全多项式随机近似方案；无完美匹配时必定返回零，否则以指定置信度获得相对误差估计。",
+  "impact": "官方 Lean 范围覆盖固定随机机、每条随机带上的多项式位运行时间及匹配熵界。它是随机近似计数，不是精确多项式计数；同族论文的全局锐面维数界不在所选形式陈述内。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "一般图完美匹配随机近似计数",
+  "after": "任意简单无向图 FPRAS",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-Fully-Polynomial-Randomized-Approximation-Scheme-for-Perfect-Matchings-in-General-Graphs-September-23-2026/main.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 113 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/113.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-noncommutative-pit",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布非交换公式黑盒恒等式测试证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 116 族。声称对有界大小的非交换公式构造统一矩阵命中点，并给出有理公式的多项式大小命中列表；目录还列出正特征的统一构造。",
+  "impact": "Lean 文档的单点结论限于零特征的无除法公式，未单独断言该结论的位构造时间和矩阵维数界；有理公式列表另覆盖多项式时间与输出长度。不能推广为一般交换电路 PIT，也不据此断言正特征论文已形式化。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "非交换公式的去随机化",
+  "after": "矩阵命中点 / 有理命中列表",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026/One-Rational-Matrix-Hitting-Point-for-Noncommutative-Formulas-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 116 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/116.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-uniform-sparsest-cut",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Uniform Sparsest Cut 的常数近似困难性与 SDP 间隙证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 117 族。声称任意固定常数因子近似 Uniform Sparsest Cut 均为 NP-hard；伴随结果构造 Goemans–Linial SDP 整性间隙 Ω(√log n/(log log n)³)。",
+  "impact": "Lean 说明仅覆盖一列实例规模上的 SDP 整性间隙，不覆盖 NP-hardness，也不是对每个规模的统一间隙下界。整性间隙限制特定松弛，不能单独等同一般算法困难性。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "均匀稀疏割近似与松弛缺口",
+  "after": "常数近似 NP-hard（论文）/ SDP 间隙",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Constant-factor-hardness-of-uniform-sparsest-cut-September-24-2026/Constant-factor-hardness-of-uniform-sparsest-cut-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 117 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/117.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-bin-packing-mirup",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布装箱 MIRUP 反例与无界配置 LP 加性间隙证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 118 族。声称整数装箱最优值与配置 LP 值之间可有任意大的加性差距，反驳 Modified Integer Round-Up Conjecture；任意固定加性误差的近似也是 NP-hard。",
+  "impact": "官方 Lean 范围覆盖每个固定整数 c 的反例及 B 与 B+c 间的困难性。结论讨论加性误差与指定配置 LP，不表示不存在乘法近似方案。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "配置 LP 的统一加性界猜想",
+  "after": "无界加性间隙与困难性",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Additive-hardness-and-unbounded-configuration-gaps-in-bin-packing-September-24-2026/Additive-hardness-and-unbounded-configuration-gaps-in-bin-packing-September-24-2026.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 118 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/118.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-metric-kmedian-threshold",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Metric k-median 的 1 + 2/e 近似阈值证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 125 族。声称对有限有理度量、指定候选设施的 metric k-median，任意固定 ε > 0 均有确定性多项式时间 (1 + 2/e + ε) 近似，且输出至多 k 个设施。",
+  "impact": "Lean 说明覆盖上述算法及在 P ≠ NP 下近似因子下确界恰为 1 + 2/e。下确界不等于存在精确达到端点的算法；固定 ε 的复杂度不自动意味着对 ε 也全多项式。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "Metric k-median 近似比缺口",
+  "after": "阈值下确界 1 + 2/e（条件性）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Approximation-Threshold-for-Metric-k-Median-September-24-2026/main.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 125 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/125.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-sensitivity-superquadratic",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布敏感度与块敏感度的超二次分离证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 132 族。声称构造全定义布尔函数，使块敏感度 bs(f) ≥ s(f)^α，某个固定 α > 2，并且 bs(f) 无界；从而反驳统一二次界的加强猜想。",
+  "impact": "Lean 说明覆盖二次比值无界及固定超二次指数构造。反驳的是二次加强版，不否定黄皓已证明的原始敏感度猜想所断言的多项式关系。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "块敏感度是否受敏感度二次界控制",
+  "after": "超二次分离（不否定原猜想）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-superquadratic-separation-between-sensitivity-and-block-sensitivity-September-25-2026/paper.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 132 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 范围说明（本站未编译）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/132.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-etr-counting-hierarchy",
+  "domain": "algorithms",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布实数存在理论属于计数层级证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 141 族。声称实数存在理论 ETR 属于计数层级；更一般地，带存在–全称量词的实数语句可在该层级某个固定层判定，即使整数多项式由算术电路给出。",
+  "impact": "这是复杂性上界，不等同 ETR 属于 P 或 NP，也不声称解决任意量词交替的完整实数理论。本次未取得第 141 族 Lean 范围文档，不标为已形式核验。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "before": "实数判定的复杂性定位",
+  "after": "ETR / ∃∀ 实数语句的固定计数层上界",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Existential-universal-real-sentences-in-the-counting-hierarchy-October-4-2026/etr-counting-hierarchy.pdf",
+      "type": "证明手稿"
+    },
+    {
+      "title": "官方成果目录：第 141 族",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  13: ["algorithms-2026-openai-perfect-two-to-one", "algorithms-2026-openai-three-colorable-hardness", "algorithms-2026-openai-permanent-border-cubic", "algorithms-2026-openai-perfect-matching-fpras", "algorithms-2026-openai-noncommutative-pit", "algorithms-2026-openai-uniform-sparsest-cut", "algorithms-2026-openai-bin-packing-mirup", "algorithms-2026-openai-metric-kmedian-threshold", "algorithms-2026-openai-sensitivity-superquadratic", "algorithms-2026-openai-etr-counting-hierarchy"],
   12: ["math-2026-erdos-728", "math-2026-gauss-sphere-packing", "math-2026-anderson-quasi-complete", "math-2026-alphaproof-nexus-research", "math-2026-cycle-double-cover", "math-2026-sendov-conjecture", "algorithms-2026-zero-order-oracle-bound", "algorithms-2026-goemans-cost-counterexample", "physics-2026-single-minus-gluon", "physics-2026-maxwell-counterexample", "math-2026-august-high-dimensional-packing", "math-2026-august-metric-code-bounds", "math-2026-august-nonsofic-group", "math-2026-august-connes-rigidity", "algorithms-2026-august-permanent-formula-bound", "algorithms-2026-august-quantum-parallel-repetition", "algorithms-2026-august-gap-cvp-hardness", "math-2026-august-ehrhart-volume", "math-2026-august-multicolor-triangle-ramsey", "math-2026-august-extremal-compactness-degeneracy"],
   11: ["math-2026-koethe-counterexample", "math-2026-smale-mean-value", "math-2026-critical-percolation", "math-2026-gromov-volume-growth", "algorithms-2026-strong-pr", "physics-2026-smooth-forced-euler", "physics-2026-smooth-forced-ipm", "physics-2026-pinn-euler-profile"],
   9: ["math-2026-openai-falconer", "math-2026-openai-hilbert-sixteenth", "math-2026-openai-plane-coloring", "math-2026-openai-erdos-reciprocal", "math-2026-openai-sidorenko", "cp-2026-openai-integer-multiplication", "cp-2026-openai-general-matching", "cp-2026-openai-edit-distance", "cp-2026-openai-three-machine-scheduling", "cp-2026-openai-shortest-superstring", "cp-2026-openai-finite-field-factorization", "physics-2026-openai-kerr-censorship", "physics-2026-openai-bose-condensation", "physics-2026-openai-bfss-bound-state"],
