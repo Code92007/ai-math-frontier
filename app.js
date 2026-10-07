@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 4;
+const SEED_VERSION = 5;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -619,9 +619,91 @@ const SEED_EVENTS = [
       }
     ]
   },
+  {
+    "id": "cp-2026-truly-subquadratic-3sum",
+    "domain": "cp",
+    "date": "2026-10-05",
+    "title": "Claude 发现真正次二次 3SUM 算法",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Josh Alman / Virginia Vassilevska Williams / Anthropic",
+    "model": "Claude 内部研究模型（未披露具体版本）",
+    "summary": "多项式大小整数输入获得确定性 O(n^1.9992) 算法；实数版本为 Las Vegas 期望 O(n^1.998)。核心发现归于 Claude，人类作者随后整理、加强和扩展。",
+    "impact": "固定常数的指数改进反驳 3SUM 假设；主结果附 Lean 形式化。仍为预印本，渐近突破不代表已有实用竞赛实现。",
+    "before": "二次界仅削去次多项式因子",
+    "after": "整数 O(n^1.9992)；实数期望 O(n^1.998)",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP",
+        "url": "https://arxiv.org/abs/2610.06783",
+        "type": "作者预印本"
+      },
+      {
+        "title": "主定理 Lean 形式化与核验范围",
+        "url": "https://github.com/anthropics/formal-math/tree/main/3sum-apsp",
+        "type": "形式化源码"
+      }
+    ]
+  },
+  {
+    "id": "cp-2026-minplus-convolution",
+    "domain": "cp",
+    "date": "2026-10-05",
+    "title": "min-plus 卷积获得真正次二次复杂度",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Josh Alman / Virginia Vassilevska Williams / Anthropic",
+    "model": "Claude 内部研究模型（未披露具体版本）",
+    "summary": "同篇论文经已有归约，将一般整数序列的 min-plus 卷积推进到 O(n^(2−δ))，δ>0 为常数，并带来背包等问题的加速。",
+    "impact": "卷积假设被反驳，区别于单调或近凸特例；矩阵乘法的指数不能直接套给卷积。公开形式化覆盖主定理，卷积推论的完整形式化范围须单独核对。",
+    "before": "接近二次的上界",
+    "after": "O(n^(2−δ))，固定 δ>0",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP",
+        "url": "https://arxiv.org/abs/2610.06783",
+        "type": "作者预印本"
+      },
+      {
+        "title": "主定理 Lean 形式化与核验范围",
+        "url": "https://github.com/anthropics/formal-math/tree/main/3sum-apsp",
+        "type": "形式化源码"
+      }
+    ]
+  },
+  {
+    "id": "cp-2026-truly-subcubic-apsp",
+    "domain": "cp",
+    "date": "2026-10-05",
+    "title": "APSP 与 min-plus 矩阵乘法突破真正次三次界",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Josh Alman / Virginia Vassilevska Williams / Anthropic",
+    "model": "Claude 内部研究模型（未披露具体版本）",
+    "summary": "多项式有界整数权重获得确定性 O(n^2.9995) 算法；实数版本为 Las Vegas 期望 O(n^2.998)。",
+    "impact": "薄矩阵稀疏输出算法经归约加速多个问题，反驳 APSP 假设；SETH 和 OV 假设不因此被推翻。",
+    "before": "三次界仅削去次多项式因子",
+    "after": "整数 O(n^2.9995)；实数期望 O(n^2.998)",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Truly Subquadratic 3SUM and Truly Subcubic APSP",
+        "url": "https://arxiv.org/abs/2610.06783",
+        "type": "作者预印本"
+      },
+      {
+        "title": "主定理 Lean 形式化与核验范围",
+        "url": "https://github.com/anthropics/formal-math/tree/main/3sum-apsp",
+        "type": "形式化源码"
+      }
+    ]
+  },
 ];
 
 const SEED_MIGRATIONS = {
+  5: ["cp-2026-truly-subquadratic-3sum", "cp-2026-minplus-convolution", "cp-2026-truly-subcubic-apsp"],
   2: ["math-2026-jacobian-counterexample"],
   3: ["math-2026-prime-gaps-186"],
   4: ["math-2026-frontiermath-erdos", "math-2026-erdos-sos", "math-2026-amp-low-degree", "math-2026-planar-universal-points", "math-2026-erdos-sos-digraphs", "math-2026-liouville-goldbach", "math-2026-poincare-formalization", "math-2026-openai-hundred-problems", "physics-2026-nine-loop-amplitude", "biology-2026-art-enzyme"],
