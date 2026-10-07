@@ -59,3 +59,5 @@ python3 -m http.server 4173
 ## OpenAI 公开手稿精选
 
 新增一条集合总览和八条数学代表结果，详见 [代表性结果整理](OPENAI_MATH_2026-10-06.md)。均标为待审阅，保留 BSD、霍奇、Kakeya 等范围限制和 Lean 覆盖边界；同步更新霍奇说明。种子版本 7 为旧浏览器增量补入，保留已有本地编辑。
+
+物理界补入 OpenAI 公开集合中的八项代表理论声明：稀疏自旋玻璃、Anderson 模型、二维面积律、Haldane 能隙、Laughlin 能隙、量子铁磁体、熵光子数不等式和 Vlasov–Maxwell 方程。全部归 `physics` 并标为待审阅；种子版本 8 增量补入，保留本地编辑。

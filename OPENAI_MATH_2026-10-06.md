@@ -68,3 +68,20 @@
 此前已收录的 UGC、L = RL = BPL、矩阵乘法、DFT 与 Subset Sum 属于同一公开集合，不重复新增。
 
 选择依据：问题辨识度、跨领域代表性、结论可清楚描述、能明确区分一般问题与特例。此表不是官方排名，也未穷尽全部重要结果。
+
+## 物理界代表结果
+
+以下八项按应用主题归入物理界，均为理论证明声明、待审阅。动理学方程虽在原目录的偏微分方程栏目，本档案按等离子体物理主题归类。
+
+| 家族 | 结果 | 声明与核验范围 |
+| --- | --- | --- |
+| 221 | [稀疏自旋玻璃的 Mézard–Parisi 公式](https://github.com/openai/math/blob/main/preprints/The-Mezard-Parisi-formula-for-diluted-spin-glasses-September-23-2026/paper.pdf) | 声称在满足 Panchenko–Talagrand 分解、独立性、可积性和正性条件的稀疏偶数阶 Ising 模型中，极限自由能等于有限深度层级试探泛函的下确界。 统计物理中将腔方法预测转为严格定理的代表，不能推广至任意自旋玻璃。Lean 范围文档列出上述模型类下的变分等式。 |
+| 261 | [Anderson 模型的局域化与离域化](https://github.com/openai/math/blob/main/preprints/Pure-Point-Spectrum-for-the-Two-Dimensional-Anderson-Model-at-Every-Positive-Disorder-September-23-2026/paper.pdf) | 声称对独立均匀格点势的 Anderson 模型，二维任意正无序强度下几乎必然为纯点谱；固定 d≥3 时，足够弱无序在某固定开区间内具有纯绝对连续谱且谱权重非零。 关联无序介质中的量子输运。Lean 文档仅识别二维算子的几乎必然谱集合，不证明纯点谱类型，也不覆盖高维离域化。 |
+| 265 | [二维有能隙量子系统的面积律](https://github.com/openai/math/blob/main/preprints/A-two-dimensional-area-law-from-a-global-spectral-gap-September-24-2026/paper.pdf) | 声称对有限方格子诱导区域上的有限程 Hamiltonian，仅在统一的全系统谱隙及局域相互作用界等条件下，唯一基态满足纠缠熵面积律。 说明基态纠缠随边界而非体积增长；同族另有方格子基态的多项式键维 PEPS 近似声明。适用对象限于论文模型与假设；本次未找到对应 Lean 范围文档。 |
+| 268 | [自旋 1 Heisenberg 链的 Haldane 能隙](https://github.com/openai/math/blob/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/paper.pdf) | 声称纯反铁磁自旋 1 Heisenberg 链在偶数长度周期环上，谱隙随系统增长仍有统一正下界。 凝聚态量子自旋链的代表问题；奇数开链的伴随结果另带端点场 h=3/5，不能混为无边界条件的一般结论。本次未找到对应 Lean 范围文档。 |
+| 269 | [Laughlin 能隙与弱标量无序稳定性](https://github.com/openai/math/blob/main/preprints/Uniform-Stability-of-the-Spherical-Laughlin-Gap-October-5-2026/uniform-stability-spherical-laughlin-gap.pdf) | 声称在球面、填充率 1/3 的费米子完整 V₁ 相互作用模型中存在统一 Laughlin 谱隙，并在足够弱的最低 Landau 能级投影标量单体势下保持有隙。 关联分数量子霍尔态的稳定性。Lean 范围包含未扰动能隙与 Fock 空间不等式，未包含投影单体势下的稳定性或扰动后基态唯一性；不等同于所有相互作用模型均已解决。 |
+| 271 | [量子 Heisenberg 铁磁体的自发磁化与 Bloch 定律](https://github.com/openai/math/blob/main/preprints/Blochs-Law-for-Finite-Range-Heisenberg-Ferromagnets-in-Three-Dimensions-October-5-2026/bloch-law-heisenberg.pdf) | 声称三维有限程铁磁耦合模型满足带精确系数的 Bloch T^(3/2) 定律；同族还声称 d≥3 最近邻模型在任意正量子自旋下存在低温自发磁化。 热力学极限先于零场导数和低温极限。Lean 文档覆盖最近邻模型的低温自发磁化及无限体积动力学，不列 Bloch 定律或晶格修正。 |
+| 273 | [玻色量子输入的熵光子数不等式](https://github.com/openai/math/blob/main/preprints/The-entropy-photon-number-inequality-September-24-2026/paper.pdf) | 声称两路独立、有限能量、有限模数的玻色输入经过分束器混合后，输出熵光子数不小于输入的透射率加权平均；每路内部允许模间纠缠。 量子光学与通信理论的代表不等式。Lean 范围覆盖该不等式，不包含论文中的热衰减信道最小输出熵与广播容量推论。 |
+| 362 | [三维相对论 Vlasov–Maxwell 方程的大数据全局光滑性](https://github.com/openai/math/blob/main/preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/paper.pdf) | 声称三维单物种相对论 Vlasov–Maxwell 系统对允许的大初值具有全局存在唯一性，解在每个有限时间区间保持光滑。 描述带电粒子分布与电磁场的耦合。初始粒子密度要求紧支撑，场要求有限能量和各阶导数有界；不能推广为任意物种或任意初值。本次未找到对应 Lean 范围文档。 |
+
+已列 Lean 文档：[221](https://github.com/openai/math/blob/main/lean/docs/221.md)、[261](https://github.com/openai/math/blob/main/lean/docs/261.md)、[269](https://github.com/openai/math/blob/main/lean/docs/269.md)、[271](https://github.com/openai/math/blob/main/lean/docs/271.md)、[273](https://github.com/openai/math/blob/main/lean/docs/273.md)。未独立编译或审计，不将局部形式化扩写为整篇论文已验证。

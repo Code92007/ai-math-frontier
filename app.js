@@ -14,7 +14,7 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 7;
+const SEED_VERSION = 8;
 const SEED_EVENTS = [
   {
     id: "math-2026-gemini-aletheia",
@@ -1138,9 +1138,256 @@ const SEED_EVENTS = [
     }
   ]
 },
+{
+  "id": "physics-2026-openai-diluted-spin-glass",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布稀疏自旋玻璃的 Mézard–Parisi 公式证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 221 族。声称在满足 Panchenko–Talagrand 分解、独立性、可积性和正性条件的稀疏偶数阶 Ising 模型中，极限自由能等于有限深度层级试探泛函的下确界。",
+  "impact": "统计物理中将腔方法预测转为严格定理的代表，不能推广至任意自旋玻璃。Lean 范围文档列出上述模型类下的变分等式。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "稀疏无序系统的自由能公式",
+  "after": "层级腔方法公式（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-Mezard-Parisi-formula-for-diluted-spin-glasses-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 221 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/221.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-anderson",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Anderson 模型的局域化与离域化证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 261 族。声称对独立均匀格点势的 Anderson 模型，二维任意正无序强度下几乎必然为纯点谱；固定 d≥3 时，足够弱无序在某固定开区间内具有纯绝对连续谱且谱权重非零。",
+  "impact": "关联无序介质中的量子输运。Lean 文档仅识别二维算子的几乎必然谱集合，不证明纯点谱类型，也不覆盖高维离域化。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "二维 / 高维无序系统的谱类型",
+  "after": "纯点谱 / 弱无序绝对连续谱（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Pure-Point-Spectrum-for-the-Two-Dimensional-Anderson-Model-at-Every-Positive-Disorder-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 261 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/261.md",
+      "type": "形式化说明"
+    },
+    {
+      "title": "高维弱无序绝对连续谱论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Absolutely-Continuous-Spectrum-for-Weak-Disorder-Anderson-Models-in-Dimensions-at-Least-Three-September-23-2026/paper.pdf",
+      "type": "预印本"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-area-law",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布二维有能隙量子系统的面积律证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 265 族。声称对有限方格子诱导区域上的有限程 Hamiltonian，仅在统一的全系统谱隙及局域相互作用界等条件下，唯一基态满足纠缠熵面积律。",
+  "impact": "说明基态纠缠随边界而非体积增长；同族另有方格子基态的多项式键维 PEPS 近似声明。适用对象限于论文模型与假设；本次未找到对应 Lean 范围文档。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "二维有隙系统的纠缠控制",
+  "after": "唯一基态面积律（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/A-two-dimensional-area-law-from-a-global-spectral-gap-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 265 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-haldane-gap",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布自旋 1 Heisenberg 链的 Haldane 能隙证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 268 族。声称纯反铁磁自旋 1 Heisenberg 链在偶数长度周期环上，谱隙随系统增长仍有统一正下界。",
+  "impact": "凝聚态量子自旋链的代表问题；奇数开链的伴随结果另带端点场 h=3/5，不能混为无边界条件的一般结论。本次未找到对应 Lean 范围文档。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "纯自旋 1 链的统一能隙问题",
+  "after": "周期偶数链统一正谱隙（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-periodic-spin-one-Haldane-gap-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 268 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-laughlin-gap",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布Laughlin 能隙与弱标量无序稳定性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 269 族。声称在球面、填充率 1/3 的费米子完整 V₁ 相互作用模型中存在统一 Laughlin 谱隙，并在足够弱的最低 Landau 能级投影标量单体势下保持有隙。",
+  "impact": "关联分数量子霍尔态的稳定性。Lean 范围包含未扰动能隙与 Fock 空间不等式，未包含投影单体势下的稳定性或扰动后基态唯一性；不等同于所有相互作用模型均已解决。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "分数量子霍尔模型的统一能隙",
+  "after": "球面 V₁ 能隙与稳定性（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Uniform-Stability-of-the-Spherical-Laughlin-Gap-October-5-2026/uniform-stability-spherical-laughlin-gap.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 269 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/269.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-heisenberg-magnetization",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布量子 Heisenberg 铁磁体的自发磁化与 Bloch 定律证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 271 族。声称三维有限程铁磁耦合模型满足带精确系数的 Bloch T^(3/2) 定律；同族还声称 d≥3 最近邻模型在任意正量子自旋下存在低温自发磁化。",
+  "impact": "热力学极限先于零场导数和低温极限。Lean 文档覆盖最近邻模型的低温自发磁化及无限体积动力学，不列 Bloch 定律或晶格修正。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "量子铁磁有序的严格论证",
+  "after": "自发磁化 / Bloch 定律（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Blochs-Law-for-Finite-Range-Heisenberg-Ferromagnets-in-Three-Dimensions-October-5-2026/bloch-law-heisenberg.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 271 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/271.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-entropy-photon-number",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布玻色量子输入的熵光子数不等式证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 273 族。声称两路独立、有限能量、有限模数的玻色输入经过分束器混合后，输出熵光子数不小于输入的透射率加权平均；每路内部允许模间纠缠。",
+  "impact": "量子光学与通信理论的代表不等式。Lean 范围覆盖该不等式，不包含论文中的热衰减信道最小输出熵与广播容量推论。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "量子光学中的熵不等式",
+  "after": "熵光子数下界（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-entropy-photon-number-inequality-September-24-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 273 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    },
+    {
+      "title": "Lean 形式化范围（未独立复核）",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/273.md",
+      "type": "形式化说明"
+    }
+  ]
+},
+{
+  "id": "physics-2026-openai-vlasov-maxwell",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "OpenAI 发布三维相对论 Vlasov–Maxwell 方程的大数据全局光滑性证明声明",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部前沿模型",
+  "summary": "目录第 362 族。声称三维单物种相对论 Vlasov–Maxwell 系统对允许的大初值具有全局存在唯一性，解在每个有限时间区间保持光滑。",
+  "impact": "描述带电粒子分布与电磁场的耦合。初始粒子密度要求紧支撑，场要求有限能量和各阶导数有界；不能推广为任意物种或任意初值。本次未找到对应 Lean 范围文档。 本次未独立验证数学证明或编译 Lean；这是理论声明，不是实验发现。",
+  "before": "等离子体动理学方程的大初值问题",
+  "after": "单物种全局光滑解（声明）",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文",
+      "url": "https://github.com/openai/math/blob/main/preprints/Global-classical-solutions-of-the-three-dimensional-relativistic-Vlasov-Maxwell-system-September-23-2026/paper.pdf",
+      "type": "预印本"
+    },
+    {
+      "title": "第 362 族及伴随手稿目录",
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "type": "官方目录"
+    }
+  ]
+},
 ];
 
 const SEED_MIGRATIONS = {
+  8: ["physics-2026-openai-diluted-spin-glass", "physics-2026-openai-anderson", "physics-2026-openai-area-law", "physics-2026-openai-haldane-gap", "physics-2026-openai-laughlin-gap", "physics-2026-openai-heisenberg-magnetization", "physics-2026-openai-entropy-photon-number", "physics-2026-openai-vlasov-maxwell"],
   7: ["math-2026-openai-collection", "math-2026-openai-quasi-riemann", "math-2026-openai-hilbert-tenth-rationals", "math-2026-openai-bsd-low-corank", "math-2026-openai-hodge-cm-k3", "math-2026-openai-pi-exponent", "math-2026-openai-catalan", "math-2026-openai-chowla-two-point", "math-2026-openai-kakeya-3d-4d"],
   6: ["cp-2026-openai-ugc", "cp-2026-openai-logspace", "cp-2026-openai-matrix-nine-fourths", "cp-2026-openai-dft", "cp-2026-openai-subset-sum"],
   5: ["cp-2026-truly-subquadratic-3sum", "cp-2026-minplus-convolution", "cp-2026-truly-subcubic-apsp"],
