@@ -14,8 +14,29 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 14;
+const SEED_VERSION = 15;
 const SEED_EVENTS = [
+  {
+    id: "algorithms-2026-openai-subexponential-sat",
+    domain: "algorithms",
+    date: "2026-10-27",
+    title: "OpenAI 发布 3-SAT 次指数算法，声称反驳 ETH",
+    status: "review",
+    evidenceLevel: "reported",
+    actor: "OpenAI",
+    model: "OpenAI 内部模型（具体型号未公开）",
+    summary: "《The Exponential Time Hypothesis Is False》声称：对每个固定 k≥2，在确定性次指数时间、输入规模的多项式空间内精确计算任意 k-CNF 的满足赋值数（#k-SAT）；判断计数是否大于零即可求解 3-SAT，从而反驳指数时间假设 ETH。",
+    impact: "10 月 25 日修订稿定理 1.1 给出 (n+m)^{O_k(1)}·2^{O_k(n log log n / √log n)} 位操作上界；固定子句密度 m≤Dn 时，指数进一步降为 O_{k,D}(n/√log n)。官方 Lean 说明覆盖较弱的 (L+1)^{O_k(1)}·2^{O_k(n(log log n)²/√log n)} 时间与多项式空间，L 是规范编码位长。该结果不解决 P vs NP，也不能经一般多项式归约直接推出所有 NP 问题都有次指数算法。OpenAI 宣布由 Impagliazzo、Paturi、Williams 牵头组织核验与解释；本站未独立复核证明或编译 Lean，保留待审阅。日期按北京时间公开仓库发布记录记为 10 月 27 日，官方文章标注 10 月 26 日。",
+    before: "ETH：3-SAT 需 2^Ω(n) 时间（假设）",
+    after: "poly(n,m)·2^o(n) 时间 / 多项式空间（声明）",
+    featured: true,
+    sources: [
+      { title: "OpenAI 官方发布：与学术界共同理解新成果", url: "https://openai.com/index/building-scientific-understanding-with-academic-communities/", type: "官方发布 · 2026-10-26" },
+      { title: "The Exponential Time Hypothesis Is False", url: "https://github.com/openai/math/blob/main/preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/paper.pdf", type: "证明手稿 · 2026-10-25 修订" },
+      { title: "Lean 形式化范围：精确计数、SAT 与多项式空间", url: "https://github.com/openai/math/blob/main/lean/docs/378.md", type: "形式化说明 · 本站未编译" },
+      { title: "SubexponentialSAT.lean 比较器定理陈述", url: "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SubexponentialSAT.lean", type: "形式化目标陈述" },
+    ],
+  },
   {
     id: "math-2026-gemini-aletheia",
     domain: "math",
@@ -3186,6 +3207,7 @@ const SEED_EVENTS = [
 ];
 
 const SEED_MIGRATIONS = {
+  15: ["algorithms-2026-openai-subexponential-sat"],
   14: ["math-2026-openai-goldfeld", "math-2026-openai-artin-primitive-roots", "math-2026-openai-mahler-volume-product", "math-2026-openai-hadwiger-counterexample", "math-2026-openai-kaplansky-zero-divisors", "math-2026-openai-thompson-nonamenable", "math-2026-openai-hilbert-smith", "physics-2026-openai-spacetime-penrose", "physics-2026-openai-coulomb-ionization", "physics-2026-openai-mub-dimension-six"],
   13: ["algorithms-2026-openai-perfect-two-to-one", "algorithms-2026-openai-three-colorable-hardness", "algorithms-2026-openai-permanent-border-cubic", "algorithms-2026-openai-perfect-matching-fpras", "algorithms-2026-openai-noncommutative-pit", "algorithms-2026-openai-uniform-sparsest-cut", "algorithms-2026-openai-bin-packing-mirup", "algorithms-2026-openai-metric-kmedian-threshold", "algorithms-2026-openai-sensitivity-superquadratic", "algorithms-2026-openai-etr-counting-hierarchy"],
   12: ["math-2026-erdos-728", "math-2026-gauss-sphere-packing", "math-2026-anderson-quasi-complete", "math-2026-alphaproof-nexus-research", "math-2026-cycle-double-cover", "math-2026-sendov-conjecture", "algorithms-2026-zero-order-oracle-bound", "algorithms-2026-goemans-cost-counterexample", "physics-2026-single-minus-gluon", "physics-2026-maxwell-counterexample", "math-2026-august-high-dimensional-packing", "math-2026-august-metric-code-bounds", "math-2026-august-nonsofic-group", "math-2026-august-connes-rigidity", "algorithms-2026-august-permanent-formula-bound", "algorithms-2026-august-quantum-parallel-repetition", "algorithms-2026-august-gap-cvp-hardness", "math-2026-august-ehrhart-volume", "math-2026-august-multicolor-triangle-ramsey", "math-2026-august-extremal-compactness-degeneracy"],
