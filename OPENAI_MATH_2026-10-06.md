@@ -2,6 +2,8 @@
 
 核对日期：2026-10-07。以下是公开证明声明的精选，不是独立数学审稿。全部按“待审阅 / 机构或作者发布”收录。
 
+2026-10-27 更正：第 032 族的 K3 相关三篇手稿已于 10 月 7 日撤回，CM 阿贝尔簇条目未撤回，并于 10 月 26 日新增 Lean 材料。下文相应条目已修正，其余内容及集合数量保留原核对时点。新增的全维局部光滑 / Kakeya 声明另见 [10 月 7—27 日查漏记录](RECENT_AI_PAPERS_2026-10-07_2026-10-27.md)。
+
 官方集合包含 722 份手稿、372 个结果家族；一个家族可能有主结果、推论、伴随证明与替代证明。模型为未发布内部前沿模型，不推断为 Astra 或其他公开型号。
 
 [官方发布](https://openai.com/index/sharing-ai-progress-in-mathematics/) · [生成流程与核验说明](https://github.com/openai/math)
@@ -11,7 +13,7 @@
 | 003 | [准黎曼假设：固定无零半平面](https://github.com/openai/math/blob/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf) | 声称 ζ 与所有 Dirichlet L 函数在 Re(s)>7/8 无零（排除 s=1 的极点）。 |
 | 004 | [有理数域上的希尔伯特第十问题](https://github.com/openai/math/blob/main/preprints/Hilberts-tenth-problem-over-the-rational-numbers-September-24-2026/main.pdf) | 声称不存在通用算法，能判定任意整系数多元多项式是否有有理数零点，变量个数属于输入。 |
 | 002 | [BSD：低 Selmer 余秩下的完整公式](https://github.com/openai/math/blob/main/preprints/Exact-Birch-Swinnerton-Dyer-Formula-from-Low-Selmer-Corank-October-3-2026/exact-bsd-low-selmer-corank.pdf) | 声称对有理数域上、某个素数 q 的 q 幂 Selmer 群余秩为 0 或 1 的椭圆曲线，证明完整 BSD 首项公式及 Tate–Shafarevich 群有限性。 |
-| 032 | [霍奇猜想：CM 阿贝尔簇与 K3 乘积特例](https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-September-30-2026/paper.pdf) | 声称证明所有复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想；同族另有射影复 K3 曲面任意有限乘积的证明声明。 |
+| 032 | [霍奇猜想：CM 阿贝尔簇特例](https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-October-6-2026/paper.pdf) | 声称证明所有复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想，10 月 26 日补充 Lean。原 K3 曲面乘积及相关手稿已于 10 月 7 日撤回。 |
 | 017 | [π 的无理性指数恰为 2](https://github.com/openai/math/blob/main/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/paper.pdf) | 声称 π 的无理性指数为 2：任意 ε>0，在充分大的分母 q 下，每个有理数 p/q 与 π 的距离至少为 q^(−2−ε)。 |
 | 005 | [Catalan 常数的无理性](https://github.com/openai/math/blob/main/preprints/Catalans-constant-is-irrational-September-24-2026/paper.pdf) | 声称 Catalan 常数 G=Σ(j≥0)(−1)^j/(2j+1)^2 为无理数。 |
 | 007 | [二点 Chowla：普通平均下的消去](https://github.com/openai/math/blob/main/preprints/Ordinary-two-point-correlations-of-multiplicative-functions-September-24-2026/final.pdf) | 声称 Liouville 函数在固定非成比例仿射形式对上的相关和为 O(X/(log X)^c)，c>0 为绝对常数；并给出带明确非伪装性条件的修正二元 Elliott 结论。 |
@@ -35,11 +37,11 @@
 
 本次核对的家族目录未列 Lean 链接；不据此断言其他位置不存在形式化。
 
-## 032 · 霍奇猜想：CM 阿贝尔簇与 K3 乘积特例
+## 032 · 霍奇猜想：CM 特例补充形式化，K3 相关声明撤回
 
-一般光滑复射影代数簇上的霍奇猜想不由这些特例解决。官方说明 CM 结果的生成流程属于常规评估流程的例外。当前家族目录未列 Lean 链接。
+一般光滑复射影代数簇上的霍奇猜想不由 CM 特例解决。官方说明 CM 结果的生成流程属于常规评估流程的例外。[10 月 7 日撤稿记录](https://github.com/openai/math/blob/main/history.md) 指出分裂阿贝尔八维簇的 Weil 类手稿中，一个符号错误使稳定化—迹消去论证失效，并影响两篇依赖手稿；撤回名单为该文、K3 的 Kuga–Satake 对应，以及 K3 曲面乘积的有理霍奇猜想。
 
-本次核对的家族目录未列 Lean 链接；不据此断言其他位置不存在形式化。
+CM 阿贝尔簇条目未列入撤稿名单。[10 月 26 日新增的 Lean 032 范围说明](https://github.com/openai/math/blob/main/lean/docs/032.md) 覆盖带所述复乘数据的复阿贝尔簇在任意维数与余维的有理霍奇类代数性，不包含论文中 Tate 猜想和标准猜想的推论。本站核对范围与更新记录，未独立编译或审计。
 
 ## 017 · π 的无理性指数恰为 2
 

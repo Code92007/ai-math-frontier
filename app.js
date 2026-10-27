@@ -14,8 +14,303 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 15;
+const SEED_VERSION = 16;
 const SEED_EVENTS = [
+  {
+    "id": "math-2026-openai-local-smoothing-all-dimensions",
+    "domain": "math",
+    "date": "2026-10-27",
+    "title": "OpenAI 发布全维局部光滑、Kakeya 与限制估计证明声明",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 内部模型（具体型号未公开）",
+    "summary": "论文声称证明任意空间维数 n≥2 的欧氏波方程局部光滑猜想，并推出全维 Kakeya 极大函数与满 Hausdorff 维数结论，以及猜想范围内部的 Fourier 限制估计。它把此前档案中的三维／四维 Kakeya 声明推进到全维。",
+    "impact": "官方 Lean 079 说明列出半波算子的 s=max(0,(n−1)/2−n/p)+ε 正则性估计（ε>0；p=2 可取 s=0）、球面延拓、Bochner–Riesz、Kakeya 与 Stein 平方函数结论。不能把严格范围内估计写成全部端点已解决。稿件日期为 10 月 25 日，发布提交按北京时间为 10 月 27 日，官网标注 10 月 26 日。本站核对论文和形式化范围，未独立复核证明或编译 Lean。",
+    "before": "局部光滑与 Kakeya 的维数限制",
+    "after": "全维结果及严格范围估计（声明）",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Local smoothing for the Euclidean wave equation",
+        "url": "https://github.com/openai/math/blob/main/preprints/Local-smoothing-for-the-Euclidean-wave-equation-October-25-2026/paper.pdf",
+        "type": "证明手稿"
+      },
+      {
+        "title": "Lean 079：局部光滑及推论的形式化范围",
+        "url": "https://github.com/openai/math/blob/main/lean/docs/079.md",
+        "type": "形式化说明 · 本站未编译"
+      },
+      {
+        "title": "OpenAI 官方发布与学术核验安排",
+        "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+        "type": "官方发布"
+      }
+    ]
+  },
+  {
+    "id": "physics-2026-openai-qcd-existence",
+    "domain": "physics",
+    "date": "2026-10-26",
+    "title": "OpenAI 公告 QCD 与 Yang–Mills 存在性进展，证明材料待公开",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI / David Gross 牵头的外部研究组",
+    "model": "OpenAI 内部模型（具体型号未公开）",
+    "summary": "OpenAI 宣布获得四维含规范场与费米子的相互作用量子场论存在性结果，涉及 QCD 和标准模型的一种统一完备化；纯 Yang–Mills 存在性作为子问题。外部研究组将负责理解与撰写。",
+    "impact": "本条记录重大研究公告，尚不是可公开阅读的完整论文。官方表示物理组暂缓公开 AI 产物，且只报告完成 Yang–Mills 存在性的 Lean 形式化；不能据此宣称 QCD 全部机检或 Yang–Mills 质量间隙千禧年问题已解决。Gross、Douglas、Jaffe、Klebanov、Nekrasov 参与组织研究不等于已经共同确认结论。日期采用官网 10 月 26 日公告日，内部发现与形式化日期另计。",
+    "before": "四维相互作用量子场论的严格构造",
+    "after": "存在性公告；公开材料与审阅待完成",
+    "featured": true,
+    "sources": [
+      {
+        "title": "OpenAI：QCD 与标准模型完备化的存在性公告",
+        "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+        "type": "官方公告 · 材料暂未公开"
+      },
+      {
+        "title": "Clay：Yang–Mills 存在性与质量间隙问题",
+        "url": "https://www.claymath.org/millennium/yang-mills-the-maths-gap/",
+        "type": "原问题范围"
+      }
+    ]
+  },
+  {
+    "id": "biology-2026-claude-scorpion-binders",
+    "domain": "biology",
+    "date": "2026-10-20",
+    "title": "Claude 设计的靶向蝎毒素蛋白结合体获得实验支持",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Anthropic / Adaptyv Bio / Twist Bioscience 等",
+    "model": "Claude Science 内部研究模型",
+    "summary": "技术报告公布 AI 辅助设计的 211 个蛋白候选的实验评估：17 个达到作者的结合体标准，覆盖四种蝎神经毒素。模型在初始提示和四轮人类追问下完成主要设计工作，人类与实验室完成筛选和测试。",
+    "impact": "这是从计算设计走向实际结合实验的进展。17 个达标候选中有 2 个仅在一家实验室检测，不能统称全部获两家独立复现；多毒素设计没有达到同时结合多个靶标的标准。报告尚未验证功能性毒素中和或体内疗效，不能称为已研制出抗毒药物。技术报告及实验数据已公开，本站未重做实验。",
+    "before": "AI 生成的蛋白候选",
+    "after": "211 个实验评估 / 17 个结合达标",
+    "featured": false,
+    "sources": [
+      {
+        "title": "De novo design of protein binders against scorpion toxins with Claude",
+        "url": "https://www-cdn.anthropic.com/31ac578806cffd8b3d92d8affe6edc4c04d502e1.pdf",
+        "type": "技术报告 · 2026-10-20"
+      },
+      {
+        "title": "Anthropic：研究流程与实验限制",
+        "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+        "type": "官方研究发布"
+      },
+      {
+        "title": "211 个候选的公开实验数据",
+        "url": "https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design",
+        "type": "作者数据"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-brennan-human-refinement",
+    "domain": "math",
+    "date": "2026-10-16",
+    "title": "数学家简化并加强 AI 的 Brennan 猜想证明",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Ilia Binder / Oleg Ivrii / Istvan Prause / Stanislav Smirnov",
+    "model": "OpenAI 内部模型原始结果；人类核验与加强",
+    "summary": "四位数学家在核对 OpenAI 的 Brennan 与 Kraetzer 手稿时，去掉大量冗余论证，给出更短且更强的普适积分平均谱结果。论文建立 B_b(t)≤t²/4（−2≤t≤2），并报告在内部除 t=0 外的严格不等式。",
+    "impact": "这条记录的是 10 月 16 日公开的人类后续论文，体现 AI 产物经专家理解后形成更强数学结果。作者明确部分成员用 AI 辅助理解，但本文写作未用 AI；不能写成模型独立完成该简化证明。文中完整展开非严格界，严格界给出权重扰动说明。本站核对首投论文与作者分工，未独立审稿；不把已公开的 10 月 6 日原始成果重复计为新发现。",
+    "before": "AI 长篇证明与 t=−1 的反例",
+    "after": "更短证明 / 更广的严格谱界",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Brennan's Conjecture and the Universal Integral Means Spectrum",
+        "url": "https://arxiv.org/abs/2610.23853",
+        "type": "人类后续预印本 · 2026-10-16"
+      },
+      {
+        "title": "论文全文：结果与 AI / 人类分工",
+        "url": "https://arxiv.org/pdf/2610.23853",
+        "type": "原始论文"
+      }
+    ]
+  },
+  {
+    "id": "biology-2026-distributed-reasoning-atlas",
+    "domain": "biology",
+    "date": "2026-10-16",
+    "title": "GPT-Rosalind 多代理分析脑细胞数据，形成生物学推理图谱",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI / PerturbAI / Scripps Research",
+    "model": "GPT-Rosalind 分布式研究代理",
+    "summary": "预印本将数千个代理分配给小鼠全脑 CRISPR Perturb-seq 数据中的不同扰动任务，结合文献形成推理图谱。作者报告系统复现原分析结论、预测留出扰动效应，并提出值得后续实验检验的新联系。",
+    "impact": "论文采用留出评估和盲评专家比较，支持的是解释与研究线索的质量。官方后续文章报告分析耗时 32 分钟，人工耗时为团队估算，并非与人类对照实验得出的固定提速倍数。神经退行性疾病相关机制仍需实验验证，不能写成已发现疗法。日期采用 bioRxiv 首发 10 月 16 日，官网介绍为 10 月 21 日；框架与分析资料已公开。",
+    "before": "大规模扰动实验的解释瓶颈",
+    "after": "并行推理图谱 / 留出预测与实验线索",
+    "featured": false,
+    "sources": [
+      {
+        "title": "Distributed AI agents enable comprehensive discovery of biological insights at scale",
+        "url": "https://www.biorxiv.org/content/10.64898/2026.10.15.759436v1",
+        "type": "预印本 · 2026-10-16"
+      },
+      {
+        "title": "OpenAI：生物学分布式推理研究",
+        "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+        "type": "官方发布 · 2026-10-21"
+      },
+      {
+        "title": "作者公开框架与分析资料",
+        "url": "https://github.com/jinlabneurogenomics/distributed_agent",
+        "type": "源码与研究产物"
+      }
+    ]
+  },
+  {
+    "id": "algorithms-2026-claude-quantum-circuits",
+    "domain": "algorithms",
+    "date": "2026-10-15",
+    "title": "Claude 在八类量子电路任务中改进门数与量子比特权衡",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Andi Gu / Alek Kemeny / Susanne Yelin / Mikhail Lukin",
+    "model": "Claude Mythos 5",
+    "summary": "论文用独立评估器引导模型搜索量子电路：八项任务中七项同时降低 Toffoli 门数和量子比特数，第八项通过新的可逆模逆架构改善二者权衡。研究覆盖化学、优化、模拟与数论中的计算原语。",
+    "impact": "原文区分七项同时改善与第八项 Pareto 权衡，不能写成八项都全面降低资源。官方举例中一个椭圆曲线方案以约 12% 更多量子比特换取 17 倍更少门；Reed–Solomon 解码约省 12 倍门，允许约万分之一的失败率。资源估算与评估器验证不等于在真实容错量子硬件上实现整体应用提速；Lean 覆盖特定 divsteps 论证，不自动覆盖全部电路。日期采用 10 月 15 日论文首投，官方介绍为 10 月 16 日。",
+    "before": "已有可逆电路的门数 / 空间权衡",
+    "after": "7 项双指标改善 / 1 项新权衡",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Discovering state-of-the-art quantum circuits with large language models",
+        "url": "https://arxiv.org/abs/2610.22367",
+        "type": "预印本 · 2026-10-15"
+      },
+      {
+        "title": "Anthropic：量子电路设计与验证范围",
+        "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits",
+        "type": "官方研究发布"
+      }
+    ]
+  },
+  {
+    "id": "algorithms-2026-external-memory-integer-sorting",
+    "domain": "algorithms",
+    "date": "2026-10-14",
+    "title": "AI 辅助外存整数排序突破部分参数区间的比较排序 I/O 界",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "Baochun Li / Zongpeng Li / Sirui Liu",
+    "model": "OpenAI ChatGPT / Codex（论文未统一指定型号）",
+    "summary": "论文构造无向网络多重单播猜想的有限反例，并利用其线性结构给出更快的确定性外存整数排序。在部分参数区间，整数运算可突破经典比较排序的 I/O 上界，回应 1988 年提出的问题。",
+    "impact": "10 月 17 日 v2 对 N 个 Θ(log N) 位整数、2B≤M≤N 给出 O((N/B)[1+log N/((log(M/B))^(1−ε)(log M)^ε)]) 次块传输，ε=1.5×10^−5。M 为内存字数、B 为块字数；不是所有参数范围都改进，也不是一般 CPU 时间下界被推翻。作者披露 AI 实质参与构造、证明和 Lean；形式化声明针对论文指定的外存模型，内存内运算不计 I/O。本站未独立编译。事件日期采用 10 月 14 日首投，复杂度引用 v2。",
+    "before": "外存整数排序长期未超越比较界",
+    "after": "部分参数范围更少 I/O / 作者报告 Lean",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Undirected Network Coding and Faster External-Memory Integer Sorting",
+        "url": "https://arxiv.org/abs/2610.20079",
+        "type": "预印本 · 10 月 14 日首投"
+      },
+      {
+        "title": "v2 全文：模型、改进指数与 AI 方法",
+        "url": "https://arxiv.org/pdf/2610.20079v2",
+        "type": "修订稿 · 2026-10-17"
+      },
+      {
+        "title": "作者的 coded-sorting-lean 形式化仓库",
+        "url": "https://github.com/rtyu-1/coded-sorting-lean",
+        "type": "形式化源码 · 本站未编译"
+      }
+    ]
+  },
+  {
+    "id": "algorithms-2026-two-level-poset",
+    "domain": "algorithms",
+    "date": "2026-10-14",
+    "title": "GPT-6 Astra 辅助解决两层偏序博弈的 PSPACE 完全性",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "Kengo Hashimoto",
+    "model": "GPT-6 Astra",
+    "summary": "作者给出从正 CNF 上 Avoid True 博弈到两层偏序博弈的多项式时间归约，证明即使偏序高度至多为 2，判定胜负仍为 PSPACE-complete，解决延续十余年的复杂度问题。",
+    "impact": "论文致谢明确主定理证明是在与 GPT-6 Astra 的会话中得到，随后由作者公开成文；不能据此推断无人参与或存在完整形式化。该结果完善组合博弈的困难性分类，属于算法与复杂度研究，不是算法竞赛成绩。本站核对论文和 AI 归属，未独立验证完整归约。",
+    "before": "高度 3 已知困难，高度 2 未决",
+    "after": "高度 ≤2 仍 PSPACE-complete（论文）",
+    "featured": false,
+    "sources": [
+      {
+        "title": "The Two-Level Poset Game is PSPACE-Complete",
+        "url": "https://arxiv.org/abs/2610.19558",
+        "type": "预印本 · 2026-10-14"
+      },
+      {
+        "title": "论文全文与 GPT-6 Astra 致谢",
+        "url": "https://arxiv.org/pdf/2610.19558",
+        "type": "原始论文"
+      }
+    ]
+  },
+  {
+    "id": "physics-2026-penrose-maximally-parameterized",
+    "domain": "physics",
+    "date": "2026-10-14",
+    "title": "Claude 辅助推进最大参数化初始数据的 Penrose 不等式",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Hubert Bray / Tuan Dolmen / Marcus Khuri / David Schmidt",
+    "model": "Claude（具体型号未注明）",
+    "summary": "论文在 n≥3 维、主导能量条件下，对具有指定“最大参数化”形式的渐近平坦初始数据证明时空 Penrose 不等式。新的 Schoen–Yau 恒等式将问题转为具有非负标量曲率的比较几何。",
+    "impact": "结论还依赖视界处的非退化条件与渐近控制；具有相同局部自由度不等于已经覆盖所有初始数据。作者称 Claude 帮助代数验证并提出有价值的数学建议，但关键早期恒等式由人类获得、论文由人类撰写，AI 帮助并非决定性。一般退化 PDE 的存在理论仍待建立；本条独立于此前 OpenAI 的更广泛 Penrose 声明，不能把后者视为已经由此文验证。",
+    "before": "一般时空 Penrose 猜想的构造障碍",
+    "after": "明确受限初始数据类的证明",
+    "featured": false,
+    "sources": [
+      {
+        "title": "Proof of the Penrose Conjecture for Maximally Parameterized Initial Data Sets",
+        "url": "https://arxiv.org/abs/2610.20559",
+        "type": "预印本 · 2026-10-14"
+      },
+      {
+        "title": "论文全文：定理条件及附录 C 的 AI 分工",
+        "url": "https://arxiv.org/pdf/2610.20559",
+        "type": "原始论文"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-diophantine-certificates",
+    "domain": "math",
+    "date": "2026-10-12",
+    "title": "人机协作解决 209 个小型丢番图方程并公开 Lean 证书",
+    "status": "progress",
+    "evidenceLevel": "reported",
+    "actor": "Bogdan Grechuk / Eugene Go",
+    "model": "ChatGPT 6 Astra Pro / Claude Opus 5.5",
+    "summary": "论文用互反律与显式恒等式证明整数解不存在，解决所考察 211 个此前抵抗已知方法的二元方程中的 209 个，并报告这些证明已形式化。最初 30 个小型开放方程中，25 个由较初等的方法解决，另 5 个需要更深方法。",
+    "impact": "模型先找到关键恒等式，人类提炼方法后再指导模型处理其他方程；Astra 生成部分证明与 Lean 证书，Claude 辅助检查。作者核对了形式陈述，部分案例需要多轮人类指导。范围是论文定义的大小 h≤35 与长度 l≤12 的二元整系数方程目录，仍有两个所列例外，不能外推到任意丢番图方程的可判定性。本站未独立编译这些证书。",
+    "before": "小型二元方程目录中的未决案例",
+    "after": "209 个无整数解证明 / Lean 证书",
+    "featured": false,
+    "sources": [
+      {
+        "title": "Certifying non-existence of integer points on curves",
+        "url": "https://arxiv.org/abs/2610.18916",
+        "type": "预印本 · 2026-10-12"
+      },
+      {
+        "title": "论文全文：目录范围与人机分工",
+        "url": "https://arxiv.org/pdf/2610.18916",
+        "type": "原始论文"
+      },
+      {
+        "title": "作者的丢番图证书与 Lean 项目",
+        "url": "https://github.com/II-eugene-II/diophantine-certificates",
+        "type": "形式化与证书"
+      }
+    ]
+  },
   {
     id: "algorithms-2026-openai-subexponential-sat",
     domain: "algorithms",
@@ -1013,26 +1308,31 @@ const SEED_EVENTS = [
   "id": "math-2026-openai-hodge-cm-k3",
   "domain": "math",
   "date": "2026-10-06",
-  "title": "OpenAI 发布霍奇猜想：CM 阿贝尔簇与 K3 乘积特例证明声明",
+  "title": "OpenAI 的 CM 霍奇猜想声明补充 Lean；K3 相关手稿已撤回",
   "status": "review",
   "evidenceLevel": "reported",
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
-  "summary": "目录第 032 族。声称证明所有复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想；同族另有射影复 K3 曲面任意有限乘积的证明声明。",
-  "impact": "一般光滑复射影代数簇上的霍奇猜想不由这些特例解决。官方说明 CM 结果的生成流程属于常规评估流程的例外。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+  "summary": "第 032 族仍保留复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想证明声明，并于 10 月 26 日补充 Lean 材料。此前同族的 K3 曲面乘积结论已因依赖论证中的符号错误于 10 月 7 日撤回。",
+  "impact": "官方历史记录同时撤回分裂阿贝尔八维簇的 Weil 类、K3 的 Kuga–Satake 对应及 K3 曲面乘积三篇手稿；不能继续将 K3 部分列作有效进展。CM 阿贝尔簇条目未在撤回名单中，Lean 032 的范围为有明确复乘数据的复阿贝尔簇全部有理霍奇类的代数性，不包含论文的 Tate 与标准猜想推论，也不解决一般霍奇猜想。保留 10 月 6 日首发日期，10 月 27 日核对更正；本站未独立验证证明或编译 Lean。",
   "before": "霍奇猜想的重要特殊类别",
-  "after": "CM / K3 乘积特例（声明）",
+  "after": "CM 特例补 Lean / K3 相关声明撤回",
   "featured": false,
   "sources": [
     {
-      "title": "原始论文",
-      "url": "https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-September-30-2026/paper.pdf",
+      "title": "CM 阿贝尔簇有理霍奇猜想：现行手稿",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-October-6-2026/paper.pdf",
       "type": "预印本"
     },
     {
-      "title": "第 032 族及伴随手稿目录",
-      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
-      "type": "官方目录"
+      "title": "官方历史：10 月 7 日撤稿与 10 月 26 日新增形式化",
+      "url": "https://github.com/openai/math/blob/main/history.md",
+      "type": "撤稿与更新记录"
+    },
+    {
+      "title": "Lean 032：CM 阿贝尔簇的形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/032.md",
+      "type": "形式化说明 · 本站未编译"
     }
   ]
 },
@@ -3207,6 +3507,7 @@ const SEED_EVENTS = [
 ];
 
 const SEED_MIGRATIONS = {
+  16: ["math-2026-openai-local-smoothing-all-dimensions", "physics-2026-openai-qcd-existence", "biology-2026-claude-scorpion-binders", "math-2026-brennan-human-refinement", "biology-2026-distributed-reasoning-atlas", "algorithms-2026-claude-quantum-circuits", "algorithms-2026-external-memory-integer-sorting", "algorithms-2026-two-level-poset", "physics-2026-penrose-maximally-parameterized", "math-2026-diophantine-certificates"],
   15: ["algorithms-2026-openai-subexponential-sat"],
   14: ["math-2026-openai-goldfeld", "math-2026-openai-artin-primitive-roots", "math-2026-openai-mahler-volume-product", "math-2026-openai-hadwiger-counterexample", "math-2026-openai-kaplansky-zero-divisors", "math-2026-openai-thompson-nonamenable", "math-2026-openai-hilbert-smith", "physics-2026-openai-spacetime-penrose", "physics-2026-openai-coulomb-ionization", "physics-2026-openai-mub-dimension-six"],
   13: ["algorithms-2026-openai-perfect-two-to-one", "algorithms-2026-openai-three-colorable-hardness", "algorithms-2026-openai-permanent-border-cubic", "algorithms-2026-openai-perfect-matching-fpras", "algorithms-2026-openai-noncommutative-pit", "algorithms-2026-openai-uniform-sparsest-cut", "algorithms-2026-openai-bin-packing-mirup", "algorithms-2026-openai-metric-kmedian-threshold", "algorithms-2026-openai-sensitivity-superquadratic", "algorithms-2026-openai-etr-counting-hierarchy"],
@@ -3233,6 +3534,47 @@ function migrateAlgorithmDomain(event) {
   return previousDomain && event.domain === previousDomain
     ? { ...event, domain: "algorithms" }
     : event;
+}
+
+// Apply factual corrections only to untouched seeds; preserve edits and deletions.
+const SEED_REVISIONS = {
+  16: [
+    {
+      "id": "math-2026-openai-hodge-cm-k3",
+      "domain": "math",
+      "date": "2026-10-06",
+      "title": "OpenAI 发布霍奇猜想：CM 阿贝尔簇与 K3 乘积特例证明声明",
+      "status": "review",
+      "evidenceLevel": "reported",
+      "actor": "OpenAI",
+      "model": "OpenAI 未发布内部前沿模型",
+      "summary": "目录第 032 族。声称证明所有复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想；同族另有射影复 K3 曲面任意有限乘积的证明声明。",
+      "impact": "一般光滑复射影代数簇上的霍奇猜想不由这些特例解决。官方说明 CM 结果的生成流程属于常规评估流程的例外。当前家族目录未列 Lean 链接。 本次核对发布与范围，未独立验证数学证明或编译 Lean。",
+      "before": "霍奇猜想的重要特殊类别",
+      "after": "CM / K3 乘积特例（声明）",
+      "featured": false,
+      "sources": [
+        {
+          "title": "原始论文",
+          "url": "https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-September-30-2026/paper.pdf",
+          "type": "预印本"
+        },
+        {
+          "title": "第 032 族及伴随手稿目录",
+          "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+          "type": "官方目录"
+        }
+      ]
+    }
+  ],
+};
+
+function reviseSeedEvent(event, previous) {
+  if (!event || event.origin !== "seed" || event.editedAt) return event;
+  if (!Object.keys(previous).every((key) =>
+    JSON.stringify(event[key]) === JSON.stringify(previous[key]))) return event;
+  const replacement = SEED_EVENTS.find((seed) => seed.id === previous.id);
+  return replacement ? { ...event, ...replacement } : event;
 }
 
 const state = {
@@ -3354,6 +3696,18 @@ async function ensureSeedData() {
         if (migrated !== request.result) store.put(migrated);
       };
     }
+  }
+  if (currentVersion > 0) {
+    Object.entries(SEED_REVISIONS)
+      .filter(([version]) => Number(version) > currentVersion && Number(version) <= SEED_VERSION)
+      .flatMap(([, previousSeeds]) => previousSeeds)
+      .forEach((previous) => {
+        const request = store.get(previous.id);
+        request.onsuccess = () => {
+          const revised = reviseSeedEvent(request.result, previous);
+          if (revised !== request.result) store.put(revised);
+        };
+      });
   }
   transaction.objectStore("meta").put({ key: "seed-version", value: SEED_VERSION });
   await transactionPromise(transaction);
