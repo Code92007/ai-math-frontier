@@ -230,6 +230,8 @@ a { color: inherit; }
 .research-note h2 { font-family: Georgia, "Songti SC", serif; font-size: 26px; }
 .research-note p { max-width: 900px; line-height: 1.8; }
 .research-note a { color: var(--cp); text-decoration: underline; }
+.latest-update { border-top: 0; }
+.latest-update h1 { max-width: 900px; margin-block: 14px 20px; font-family: Georgia, "Songti SC", serif; font-size: clamp(28px, 4vw, 42px); line-height: 1.35; font-weight: 500; }
 .method-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 90px; padding-block: 62px; }
 .method-grid ol { list-style: none; margin: 0; padding: 0; counter-reset: method; border-top: 1px solid var(--ink); }
 .method-grid li { counter-increment: method; display: grid; grid-template-columns: 34px 150px 1fr; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }

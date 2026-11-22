@@ -14,8 +14,379 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 16;
+const SEED_VERSION = 17;
 const SEED_EVENTS = [
+{
+  "id": "math-2026-alpoge-claude-riemann",
+  "domain": "math",
+  "date": "2026-11-20",
+  "title": "Alpöge 与 Claude 公布黎曼猜想证明，Lean／Mathlib 社区确认机检",
+  "status": "formalized",
+  "evidenceLevel": "verified",
+  "actor": "Levent Alpöge / Lean 与 Mathlib 社区",
+  "model": "Claude 内部研究模型（未公开具体版本）",
+  "summary": "Alpöge 于 11 月 20 日公布与 Claude 合作得到的黎曼猜想及 Dirichlet L 函数广义黎曼猜想证明。11 月 21 日，Lean／Mathlib 社区联合声明确认黎曼猜想的命题与形式化证明正确；已检查 Mathlib 原有定义、编译、命题一致性及多个内核对导出证明的验证。",
+  "impact": "这已超出本站 8 月的 67.2% 比例下界和 10 月的准黎曼无零半平面记录。MIT 的核验页另列出 Dirichlet L 函数相关命题的检查状态；不能把 Dirichlet 范围扩写为所有自守 L 函数。约 1700 万行 Lean 的思想解释与简化仍在进行。截至 11 月 22 日本站核对时，克雷页面仍列 Unsolved，未宣布授奖。本站引用外部机检结论，未在本地重建该大型证明。",
+  "before": "部分零点比例 / 较窄无零区域",
+  "after": "RH 形式化获社区确认 / Dirichlet GRH",
+  "featured": true,
+  "sources": [
+    {
+      "title": "作者四页公告与原始证明下载入口",
+      "url": "https://alpo.ge/remark.pdf",
+      "type": "作者公告 · 2026-11-20"
+    },
+    {
+      "title": "Lean／Mathlib 联合声明：四项检查及确认",
+      "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+      "type": "独立社区核验 · 2026-11-21"
+    },
+    {
+      "title": "Andrew Sutherland（MIT）：五项命题的核验日志",
+      "url": "https://math.mit.edu/~drew/grh/",
+      "type": "独立检查记录 · 各工具状态分列"
+    },
+    {
+      "title": "克雷数学研究所：黎曼猜想页面",
+      "url": "https://www.claymath.org/millennium/riemann-hypothesis/",
+      "type": "官方问题与奖项状态"
+    }
+  ]
+},
+{
+  "id": "physics-2026-unforced-navier-stokes",
+  "domain": "physics",
+  "date": "2026-11-20",
+  "title": "Alpöge／Buckmaster 发布无外力 Navier–Stokes 爆破证明声明，关键证书待公开",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Levent Alpöge / Tristan Buckmaster",
+  "model": "LLM 辅助研究与 Lean 形式化（型号未统一公开）",
+  "summary": "作者发布三维无外力 Navier–Stokes 方程有限时爆破手稿及 Lean 工程，讨论全空间与周期情形。这直接研究由初始运动自行形成奇点的黏性流体，区别于此前档案中的光滑外力驱动结果。",
+  "impact": "公开 README 明确：Lean 证明从自相似剖面或满足条件的证书推出结论；关键证书数据尚未收录，其 Arb／FLINT 区间运算验证也不在仓库或形式化中。故当前公开材料尚未闭合完整核验链，不能写成无条件结果已获完整机检。论文与形式化的表述、证明路径及覆盖范围亦有差异。日期采用 11 月 20 日公开公告；本站未重建证明或执行数值验证。",
+  "before": "已收录的有外力爆破",
+  "after": "无外力爆破声明 / 数值证书待公开",
+  "featured": true,
+  "sources": [
+    {
+      "title": "作者仓库：论文、形式化及未公开材料说明",
+      "url": "https://github.com/tristanbuckmaster/navier-stokes",
+      "type": "原始研究仓库"
+    },
+    {
+      "title": "Lean README：条件命题、证书与论文的对应范围",
+      "url": "https://github.com/tristanbuckmaster/navier-stokes/blob/main/lean/README.md",
+      "type": "形式化范围 · 本站未编译"
+    },
+    {
+      "title": "Terence Tao：三项新结果及理解程度",
+      "url": "https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/",
+      "type": "专家说明 · 2026-11-20"
+    }
+  ]
+},
+{
+  "id": "physics-2026-unforced-euler-torus",
+  "domain": "physics",
+  "date": "2026-11-20",
+  "title": "Alpöge、Buckmaster、Coiculescu 公布无外力三维 Euler 奇点构造",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Levent Alpöge / Tristan Buckmaster / Matei P. Coiculescu",
+  "model": "AI 辅助证明、写作与 Lean 形式化",
+  "summary": "三位作者公布三维无外力不可压 Euler 方程有限时奇点形成的论文与 Lean 形式化。公开工程提供论文结果与 Lean 定理的对应账本，以支持逐项追溯。它研究无黏性流体，并非同日 Navier–Stokes 声明的数值证书。",
+  "impact": "Tao 将此项描述为已有可供人类阅读的证明，仍需后续审阅。作者仓库称主定理仅依赖 Lean 的三个标准公理，并列明辅助终端光滑性说明及 Beale–Kato–Majda 引用的对应例外。本站记录的是本次新证明路线，不据此宣称这是首个无外力 Euler 证明，也不将作者自述写成本地已完成机检。日期采用 11 月 20 日公告。",
+  "before": "有外力 Euler 及其他先前证明路线",
+  "after": "无外力 Euler 新构造 / 论文与 Lean 对照",
+  "featured": true,
+  "sources": [
+    {
+      "title": "作者仓库：论文、主定理与形式化对应账本",
+      "url": "https://github.com/mcoiculescu/EulerBlowupPublic",
+      "type": "论文与 Lean · 本站未编译"
+    },
+    {
+      "title": "Terence Tao：无外力 Euler 与 Navier–Stokes 的区别",
+      "url": "https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/",
+      "type": "专家说明 · 2026-11-20"
+    }
+  ]
+},
+{
+  "id": "biology-2026-alphagenome2",
+  "domain": "biology",
+  "date": "2026-11-11",
+  "title": "AlphaGenome 2 将 DNA 变异效应预测推进到细胞类型与状态",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Google DeepMind / AlphaGenome 团队",
+  "model": "AlphaGenome 2",
+  "summary": "Google DeepMind 发布 AlphaGenome 2：在百万碱基序列之外输入特定细胞条件，利用超过一亿个单细胞图谱学习调控效应。官方报告在 TenK10K 的 28 类免疫细胞评估中，变异识别指标由 16% 提升到 30%，方向性基因效应指标由 23% 提升到 43%。",
+  "impact": "这些数字对应指定数据集、比较基线与评估设置，不能泛化为所有遗传病的诊断准确率。IBD／ETS2 案例是对已有实验发现的计算复现；新预测仍需实验验证。新增 DNA 甲基化等输出与新细胞状态泛化能力属于研究工具进展，未证明治疗效果。日期采用 11 月 11 日官方发布，附同期预印本；本站核对官方材料，未复训模型。",
+  "before": "组织平均层面的序列效应预测",
+  "after": "细胞条件化预测 / 指定评估指标改善",
+  "featured": true,
+  "sources": [
+    {
+      "title": "AlphaGenome 2：模型、评估数据与研究范围",
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "type": "官方研究发布 · 2026-11-11"
+    },
+    {
+      "title": "官方链接的同期 bioRxiv 预印本",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.11.11.765857",
+      "type": "预印本 · 本站未取得全文"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-alphaproof-code-signal",
+  "domain": "algorithms",
+  "date": "2026-11-10",
+  "title": "AlphaProof Code 将 Signal 核心密码代码的安全验证推进到机器码层",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "Google DeepMind / Signal 研究合作",
+  "model": "AlphaProof Code / Gemini Carbon 代理",
+  "summary": "DeepMind 报告以人类审查安全规范、AI 代理生成 Lean 证明的方式，验证 Signal 协议核心实现的关键安全性质，深入到编译后的机器码。团队公开验证产物，并通过重新植入两个已修复漏洞，检验系统能否证明有缺陷版本不安全。",
+  "impact": "这是实现与规格之间的形式化验证进展。结论取决于所选代码、机器模型、密码学假设及安全规格；不能扩写成 Signal 整个应用、设备与运行环境绝无漏洞。官方报告约四周及六百多万行 Lean，属于团队方法与产出规模，不能视为与人工严格对照的效率实验。本站核对官方说明和产物入口，未重建全部证明。",
+  "before": "协议设计层或局部实现的验证",
+  "after": "选定核心实现的机器码安全性质",
+  "featured": true,
+  "sources": [
+    {
+      "title": "AlphaProof Code：方法、Signal 范围与漏洞对照",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "type": "官方发布 · 2026-11-10"
+    },
+    {
+      "title": "验证项目：技术论文与形式化产物入口",
+      "url": "https://google-deepmind.github.io/code-verification/",
+      "type": "官方项目与核验范围"
+    }
+  ]
+},
+{
+  "id": "physics-2026-claude-hawking-page",
+  "domain": "physics",
+  "date": "2026-11-07",
+  "title": "Claude 计算弱耦合 Hawking–Page 对应相变，报告一阶转变",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic / 参与核查的物理学家",
+  "model": "Claude 内部研究模型",
+  "summary": "论文在 S³ 上的 N=4 超 Yang–Mills 理论中计算 Polyakov 环有效作用的三圈四次项，得到负系数 b≈−1.48×10⁻³λ²，从而报告弱耦合退禁闭转变仍为一阶。这补上了连接弱耦合理论与 Hawking–Page 黑洞相变的一项长期计算。",
+  "impact": "研究限定于特定大 N 理论与弱耦合展开，不能外推到真实宇宙中的黑洞形成。来源称物理学家检查已知特例，另一次 Claude 计算用不同方法得到相同结果；这不等于独立实验验证。日期采用 Hexagon 11 月 7 日首发，Anthropic 11 月 17 日集中介绍；本站未独立重算三圈展开。",
+  "before": "弱耦合相变阶数所需系数未算出",
+  "after": "三圈四次项为负 / 一阶转变（报告）",
+  "featured": true,
+  "sources": [
+    {
+      "title": "The Hawking-Page transition at weak coupling",
+      "url": "https://hexagonmath.org/2611.00175v1",
+      "type": "原始预印本 · 2026-11-07"
+    },
+    {
+      "title": "Anthropic：两项黑洞理论结果及研究流程",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+      "type": "官方介绍 · 2026-11-17"
+    }
+  ]
+},
+{
+  "id": "physics-2026-claude-modular-bootstrap",
+  "domain": "physics",
+  "date": "2026-11-07",
+  "title": "Claude 给出无自旋模 bootstrap 在大中心荷下的最优斜率",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic / 核查论文的物理学家",
+  "model": "Claude 内部研究模型 / Claude Opus 5.5",
+  "summary": "预印本在特定二维幺正紧致共形场论中，给出无自旋模 bootstrap 的最优渐近斜率 Λ=12π²/(π²+4 asinh²1)≈9.1266，并证明指定线性泛函类的限制。官方说明报告相关结果已于 9 月在 Lean 中形式化，论文由 Claude 在物理学家指导与核查下完成。",
+  "impact": "条件包含 c>1、除 Virasoro 代数外无额外守恒流，并仅使用零角势处的模 S 不变性。该数值限制这一简化 bootstrap 方法，不能写成所有量子引力理论的最终质量界；次阶修正系数仍有猜想。日期采用 11 月 7 日预印本首发，11 月 17 日为机构介绍日。本站核对来源，未编译相关 Lean。",
+  "before": "最优斜率仅知介于 8.503 与 12",
+  "after": "指定 bootstrap 的最优斜率 ≈9.1266",
+  "featured": true,
+  "sources": [
+    {
+      "title": "The spinless modular bootstrap at large central charge",
+      "url": "https://hexagonmath.org/2611.00174v1",
+      "type": "原始预印本 · 2026-11-07"
+    },
+    {
+      "title": "Anthropic：研究分工与形式化说明",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+      "type": "官方介绍 · 2026-11-17"
+    }
+  ]
+},
+{
+  "id": "biology-2026-claude-vault-structure",
+  "domain": "biology",
+  "date": "2026-11-04",
+  "title": "Claude 辅助解析噬菌体来源 vault 颗粒的三维结构",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic 生物研究团队 / Leonard Rome 顾问",
+  "model": "Claude Science / Claude Code",
+  "summary": "团队报告以冷冻电镜解析噬菌体来源 L05 vault 蛋白壳：96 个蛋白亚基组装成颗粒，区别于哺乳动物的 78 亚基结构。Claude 在人类指导下参与序列搜索、构建设计、纯化流程优化与显微数据处理，研究还通过改变重复片段扩大颗粒。",
+  "impact": "来源蛋白此前已有序列层面的发现；本次进展在于组装和实验结构。噬菌体感染细菌，其蛋白壳在原核细胞背景研究，不能误写成首次发现细菌或人体 vault。生物学功能仍未知，递送用途仍是可能方向。机构报告纯化约 90 分钟、34 小时得到初模，人工所需周数为估计。日期采用 11 月 4 日公告；本站未重做实验。",
+  "before": "原核／噬菌体同源序列线索",
+  "after": "L05 蛋白壳组装与冷冻电镜结构",
+  "featured": false,
+  "sources": [
+    {
+      "title": "Investigating vault particles with Claude",
+      "url": "https://www.anthropic.com/research/investigating-vault-particles-with-claude",
+      "type": "官方实验研究发布 · 2026-11-04"
+    }
+  ]
+},
+{
+  "id": "biology-2026-claude-drug-development",
+  "domain": "biology",
+  "date": "2026-10-27",
+  "title": "Claude 药物研发合作公布 CAR-T 元件与抗体优化的早期实验结果",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic / Generate Biomedicines / BigHat / Divergence 等",
+  "model": "Claude / Claude Code（合作项目型号未统一公开）",
+  "summary": "Anthropic 公布六家合作机构的阶段进展。Generate 团队用 Claude 设计约缩短 70% 的 CAR-T 遗传元件，报告细胞实验受体表达等指标改善；BigHat 约十周测试 1010 个抗体片段变体，在结合、热稳定性与聚集速度方面取得项目内改善。",
+  "impact": "这些是不同项目、不同指标的实验及工作流成果，不能把改善倍数拼成同一种药的疗效。机构明确整体仍处早期、多数为临床前；尚不足以证明对患者有效或已有药物获批。卡片采用 10 月 27 日合作公告日，不把此前数月的实验都当成当天完成。来源含各合作方技术报告入口；本站未复现实验。",
+  "before": "分子候选与研发流程瓶颈",
+  "after": "细胞实验 / 抗体候选性质优化",
+  "featured": false,
+  "sources": [
+    {
+      "title": "Early progress on accelerating drug development with Claude",
+      "url": "https://www.anthropic.com/research/early-progress-drug-development",
+      "type": "官方汇总与合作方技术报告 · 2026-10-27"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-anthropic-subexponential-sat",
+  "domain": "algorithms",
+  "date": "2026-10-27",
+  "title": "Anthropic 公布 Claude 的次指数 #3-SAT 算法与 ETH 反证形式化",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Anthropic / Claude",
+  "model": "Claude 内部研究模型（未公开具体版本）",
+  "summary": "继本站已收录的 OpenAI ETH 声明，Anthropic 发布另一条确定性计数算法路线：固定 k 时，#k-SAT 的时间界为 2^{O(n log log n / √log n)}。官方工程提供 Mathlib 图灵机上的主结果、ETH 为假的命题及 Lean 证明，并列出 Comparator 和独立内核的检查流程。",
+  "impact": "固定 k 的次指数界不等于多项式时间，不能宣称 P=NP，也不意味着当前 SAT 实例可以实用提速。纸面与形式化的机器编码及陈述差异见附录 E／PaperIndex；本站未重建 Lean。稿件日期为 10 月 26 日，公开仓库发布按北京时间为 10 月 27 日，与站内 OpenAI 条目保持一致。本条区分研究路线，不把同一 ETH 命题统计为两个不同开放问题。",
+  "before": "3-SAT 的指数时间假设",
+  "after": "Claude 的另一条次指数计数路线",
+  "featured": true,
+  "sources": [
+    {
+      "title": "官方 eth 目录：论文、形式化与复查流程",
+      "url": "https://github.com/anthropics/formal-math/tree/main/eth",
+      "type": "官方研究产物"
+    },
+    {
+      "title": "A 2^{o(n)} Time Algorithm for 3-SAT",
+      "url": "https://hexagonmath.org/pdf/2610.00577",
+      "type": "原始论文 · 稿件日期 2026-10-26"
+    },
+    {
+      "title": "MainResults：Mathlib 图灵机上的具体命题",
+      "url": "https://github.com/anthropics/formal-math/blob/main/eth/MainResults.lean",
+      "type": "形式化命题 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "physics-2026-craig-chiral-lattice",
+  "domain": "physics",
+  "date": "2026-10-06",
+  "title": "Craig 与 GPT-6 Astra 提出标准模型的候选手征格点定义",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Nathaniel Craig / GPT-6 Astra / 外部格点理论专家",
+  "model": "GPT-6 Astra",
+  "summary": "Craig 的预印本提出四维欧氏格点上、包含标准模型的一类非阿贝尔手征规范理论的规范不变 overlap 费米子测度。11 月 15 日作者详述与 Astra 的协作：人类提出逐级细化格点的策略，模型推进构造、收敛论证及详细证明，外部专家参与提问和检查。",
+  "impact": "这是有限格距与可容许规范场条件下的候选定义。作者明确有限格距的反射正性、实用模拟及连续极限仍需研究，不能写成完整连续时空标准模型或 Yang–Mills 质量间隙已解决。与本站 QCD 存在性公告属于不同研究产物。日期采用 10 月 6 日预印本首发，11 月 15 日为后续作者说明；附录有形式化材料说明，本站未独立编译。",
+  "before": "手征理论的格点费米子测度难题",
+  "after": "有限格距的候选定义 / 后续审阅",
+  "featured": true,
+  "sources": [
+    {
+      "title": "A gauge-invariant measure for lattice chiral fermions",
+      "url": "https://arxiv.org/abs/2610.09093",
+      "type": "原始预印本 · 2026-10-06"
+    },
+    {
+      "title": "Craig：A step toward defining the Standard Model on a lattice",
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model/",
+      "type": "作者研究说明 · 2026-11-15"
+    }
+  ]
+},
+{
+  "id": "math-2026-kls-dimension-free",
+  "domain": "math",
+  "date": "2026-10-04",
+  "title": "KLS 猜想出现无维度界证明，人类指导 AI 搜索并形成多条证明路线",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Zhao Song / Xinzhi Zhang / Pierre Bizeul / Boaz Klartag / Joseph Lehec 等",
+  "model": "人类指导的 AI 代理 / ChatGPT（未统一公开型号）",
+  "summary": "Song／Zhang 的 10 月 4 日修订稿把各向同性对数凹测度的 KLS 常数改进为普适 O(1) 界；Bizeul／Klartag／Lehec 同日给出建立在其新判据上的证明。微软后续说明区分约百条 AI 辅助搜索轨迹与人类完成的递归策略、误差控制及数学判断。",
+  "impact": "首版 10 月 1 日的迭代对数界仍依赖维度，完整无维度结论采用 10 月 4 日日期；机构介绍为 10 月 21 日。另有第三方 KLS500 Lean 项目，不能与尚待公开的作者精简版形式化混为一谈。本站核对论文、分工和形式化入口，未独立审稿或编译，不把多个证明路线统计成多个猜想。",
+  "before": "KLS 常数的维度依赖",
+  "after": "普适 O(1) 界 / 多条证明路线",
+  "featured": true,
+  "sources": [
+    {
+      "title": "Song／Zhang：An O(1) Bound for the KLS Constant（v2）",
+      "url": "https://arxiv.org/abs/2610.01447v2",
+      "type": "无维度界修订稿 · 2026-10-04"
+    },
+    {
+      "title": "Bizeul／Klartag／Lehec：KLS 猜想的证明",
+      "url": "https://arxiv.org/abs/2610.05474",
+      "type": "另一证明路线 · 2026-10-04"
+    },
+    {
+      "title": "微软研究院：人类与 AI 分工及后续形式化",
+      "url": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/",
+      "type": "作者所属机构说明 · 2026-10-21"
+    },
+    {
+      "title": "KLS500：第三方 Lean 形式化",
+      "url": "https://github.com/HongruZhao/KLS500",
+      "type": "公开形式化 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "physics-2026-landreman-grad-equilibria",
+  "domain": "physics",
+  "date": "2026-09-22",
+  "title": "Landreman 与 GPT-6 Astra Pro 给出 Grad 猜想的显式磁平衡反例",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "Matt Landreman / 马里兰大学",
+  "model": "GPT-6 Astra Pro",
+  "summary": "论文构造非轴对称、光滑且有精确嵌套环面磁面的三维 MHD 平衡，所有场由初等函数显式给出。一族旋转变换恒为 ι=2，另一族具有磁剪切。作者说明解由 GPT-6 Astra Pro 辅助发现，全部方程由本人手工确认。",
+  "impact": "这些精确解为磁平衡存在性与数值程序提供基准；并不证明实际等离子体稳定性、工程可实现性或聚变发电成功。论文保留特定离散对称性，并承认其他场周期、非整数常旋转变换及精确准对称等问题仍待研究。日期采用 9 月 22 日首发，9 月 28 日修订；不覆盖前一天另一组作者的反例路线，本站未重做代数核查。",
+  "before": "非对称环面磁平衡的精确构造困难",
+  "after": "两族显式解析反例 / 数值核查基准",
+  "featured": true,
+  "sources": [
+    {
+      "title": "Analytic toroidal 3D MHD equilibria and steady Euler flows with invariant surfaces",
+      "url": "https://arxiv.org/abs/2609.26742",
+      "type": "原始预印本 · 2026-09-22"
+    },
+    {
+      "title": "论文全文：解的条件、AI 分工与未解扩展",
+      "url": "https://arxiv.org/html/2609.26742v2",
+      "type": "作者原文 · 2026-09-28 修订"
+    }
+  ]
+},
   {
     "id": "math-2026-openai-local-smoothing-all-dimensions",
     "domain": "math",
@@ -443,23 +814,27 @@ const SEED_EVENTS = [
     ],
   },
   {
-    id: "math-2026-riemann-bound",
-    domain: "math",
-    date: "2026-08-10",
-    title: "Claude 将黎曼猜想相关无条件下界从 41.6% 推到 67.2%",
-    status: "progress",
-    evidenceLevel: "verified",
-    actor: "Anthropic / 专家数学家",
-    model: "Claude 未发布研究版本",
-    summary: "Claude 没有证明黎曼猜想，但在尝试中把位于临界线上的非平凡零点比例下界从 41.6% 提升至 67.2%。两位 Anthropic 数学家检查了论文，并给出 Lean 形式化。",
-    impact: "它展示了“失败的宏大目标”也可能副产出真正的新数学，长程多代理搜索与自动反驳开始形成研究方法。",
-    before: "41.6%",
-    after: "67.2%",
-    featured: true,
-    sources: [
-      { title: "Learning more about Claude's mathematical capabilities", url: "https://www.anthropic.com/research/riemann-zeta", type: "官方研究 + Lean" },
-    ],
-  },
+  "id": "math-2026-riemann-bound",
+  "domain": "math",
+  "date": "2026-08-10",
+  "title": "Claude 将黎曼猜想相关无条件下界从 41.6% 推到 67.2%",
+  "status": "progress",
+  "evidenceLevel": "verified",
+  "actor": "Anthropic / 专家数学家",
+  "model": "Claude 未发布研究版本",
+  "summary": "2026 年 8 月这项工作尚未证明黎曼猜想，而是把位于临界线上的非平凡零点比例下界从 41.6% 提升至 67.2%。两位 Anthropic 数学家检查论文，并提供 Lean 形式化。后续 11 月 20 日的完整证明及 21 日社区核验另列新事件。",
+  "impact": "这是一项独立的历史阶段成果，比例改进不代表“猜想已解决 67.2%”。截至 11 月 22 日，档案已补入 Alpöge／Claude 的完整 RH 形式化与社区确认，不能用本条 8 月的未解决状态描述最新进展。",
+  "before": "41.6%",
+  "after": "67.2%",
+  "featured": true,
+  "sources": [
+    {
+      "title": "Learning more about Claude's mathematical capabilities",
+      "url": "https://www.anthropic.com/research/riemann-zeta",
+      "type": "官方研究 + Lean"
+    }
+  ]
+},
   {
     id: "math-2026-astra-launch",
     domain: "math",
@@ -1314,7 +1689,7 @@ const SEED_EVENTS = [
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
   "summary": "第 032 族仍保留复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想证明声明，并于 10 月 26 日补充 Lean 材料。此前同族的 K3 曲面乘积结论已因依赖论证中的符号错误于 10 月 7 日撤回。",
-  "impact": "官方历史记录同时撤回分裂阿贝尔八维簇的 Weil 类、K3 的 Kuga–Satake 对应及 K3 曲面乘积三篇手稿；不能继续将 K3 部分列作有效进展。CM 阿贝尔簇条目未在撤回名单中，Lean 032 的范围为有明确复乘数据的复阿贝尔簇全部有理霍奇类的代数性，不包含论文的 Tate 与标准猜想推论，也不解决一般霍奇猜想。保留 10 月 6 日首发日期，10 月 27 日核对更正；本站未独立验证证明或编译 Lean。",
+  "impact": "官方历史记录同时撤回分裂阿贝尔八维簇的 Weil 类、K3 的 Kuga–Satake 对应及 K3 曲面乘积三篇手稿；不能继续将 K3 部分列作有效进展。CM 阿贝尔簇条目未在撤回名单中，Lean 032 的范围为有明确复乘数据的复阿贝尔簇全部有理霍奇类的代数性，不包含论文的 Tate 与标准猜想推论，也不解决一般霍奇猜想。保留 10 月 6 日首发日期，11 月 22 日再次核对；官方另于 10 月 29 日修正 CM 形式化 Comparator 中命名空间分歧；本站未独立验证证明或编译 Lean。",
   "before": "霍奇猜想的重要特殊类别",
   "after": "CM 特例补 Lean / K3 相关声明撤回",
   "featured": false,
@@ -1325,7 +1700,7 @@ const SEED_EVENTS = [
       "type": "预印本"
     },
     {
-      "title": "官方历史：10 月 7 日撤稿与 10 月 26 日新增形式化",
+      "title": "官方历史：K3 撤稿、CM 新增形式化及 10 月 29 日比较配置修正",
       "url": "https://github.com/openai/math/blob/main/history.md",
       "type": "撤稿与更新记录"
     },
@@ -3507,6 +3882,7 @@ const SEED_EVENTS = [
 ];
 
 const SEED_MIGRATIONS = {
+  17: ["math-2026-alpoge-claude-riemann", "physics-2026-unforced-navier-stokes", "physics-2026-unforced-euler-torus", "biology-2026-alphagenome2", "algorithms-2026-alphaproof-code-signal", "physics-2026-claude-hawking-page", "physics-2026-claude-modular-bootstrap", "biology-2026-claude-vault-structure", "biology-2026-claude-drug-development", "algorithms-2026-anthropic-subexponential-sat", "physics-2026-craig-chiral-lattice", "math-2026-kls-dimension-free", "physics-2026-landreman-grad-equilibria"],
   16: ["math-2026-openai-local-smoothing-all-dimensions", "physics-2026-openai-qcd-existence", "biology-2026-claude-scorpion-binders", "math-2026-brennan-human-refinement", "biology-2026-distributed-reasoning-atlas", "algorithms-2026-claude-quantum-circuits", "algorithms-2026-external-memory-integer-sorting", "algorithms-2026-two-level-poset", "physics-2026-penrose-maximally-parameterized", "math-2026-diophantine-certificates"],
   15: ["algorithms-2026-openai-subexponential-sat"],
   14: ["math-2026-openai-goldfeld", "math-2026-openai-artin-primitive-roots", "math-2026-openai-mahler-volume-product", "math-2026-openai-hadwiger-counterexample", "math-2026-openai-kaplansky-zero-divisors", "math-2026-openai-thompson-nonamenable", "math-2026-openai-hilbert-smith", "physics-2026-openai-spacetime-penrose", "physics-2026-openai-coulomb-ionization", "physics-2026-openai-mub-dimension-six"],
@@ -3538,6 +3914,62 @@ function migrateAlgorithmDomain(event) {
 
 // Apply factual corrections only to untouched seeds; preserve edits and deletions.
 const SEED_REVISIONS = {
+  17: [
+  {
+    "id": "math-2026-riemann-bound",
+    "domain": "math",
+    "date": "2026-08-10",
+    "title": "Claude 将黎曼猜想相关无条件下界从 41.6% 推到 67.2%",
+    "status": "progress",
+    "evidenceLevel": "verified",
+    "actor": "Anthropic / 专家数学家",
+    "model": "Claude 未发布研究版本",
+    "summary": "Claude 没有证明黎曼猜想，但在尝试中把位于临界线上的非平凡零点比例下界从 41.6% 提升至 67.2%。两位 Anthropic 数学家检查了论文，并给出 Lean 形式化。",
+    "impact": "它展示了“失败的宏大目标”也可能副产出真正的新数学，长程多代理搜索与自动反驳开始形成研究方法。",
+    "before": "41.6%",
+    "after": "67.2%",
+    "featured": true,
+    "sources": [
+      {
+        "title": "Learning more about Claude's mathematical capabilities",
+        "url": "https://www.anthropic.com/research/riemann-zeta",
+        "type": "官方研究 + Lean"
+      }
+    ]
+  },
+  {
+    "id": "math-2026-openai-hodge-cm-k3",
+    "domain": "math",
+    "date": "2026-10-06",
+    "title": "OpenAI 的 CM 霍奇猜想声明补充 Lean；K3 相关手稿已撤回",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 未发布内部前沿模型",
+    "summary": "第 032 族仍保留复 CM 阿贝尔簇在任意维数、余维的有理霍奇猜想证明声明，并于 10 月 26 日补充 Lean 材料。此前同族的 K3 曲面乘积结论已因依赖论证中的符号错误于 10 月 7 日撤回。",
+    "impact": "官方历史记录同时撤回分裂阿贝尔八维簇的 Weil 类、K3 的 Kuga–Satake 对应及 K3 曲面乘积三篇手稿；不能继续将 K3 部分列作有效进展。CM 阿贝尔簇条目未在撤回名单中，Lean 032 的范围为有明确复乘数据的复阿贝尔簇全部有理霍奇类的代数性，不包含论文的 Tate 与标准猜想推论，也不解决一般霍奇猜想。保留 10 月 6 日首发日期，10 月 27 日核对更正；本站未独立验证证明或编译 Lean。",
+    "before": "霍奇猜想的重要特殊类别",
+    "after": "CM 特例补 Lean / K3 相关声明撤回",
+    "featured": false,
+    "sources": [
+      {
+        "title": "CM 阿贝尔簇有理霍奇猜想：现行手稿",
+        "url": "https://github.com/openai/math/blob/main/preprints/The-rational-Hodge-conjecture-for-CM-abelian-varieties-October-6-2026/paper.pdf",
+        "type": "预印本"
+      },
+      {
+        "title": "官方历史：10 月 7 日撤稿与 10 月 26 日新增形式化",
+        "url": "https://github.com/openai/math/blob/main/history.md",
+        "type": "撤稿与更新记录"
+      },
+      {
+        "title": "Lean 032：CM 阿贝尔簇的形式化范围",
+        "url": "https://github.com/openai/math/blob/main/lean/docs/032.md",
+        "type": "形式化说明 · 本站未编译"
+      }
+    ]
+  }
+],
   16: [
     {
       "id": "math-2026-openai-hodge-cm-k3",
