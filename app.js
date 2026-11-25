@@ -14,8 +14,348 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 17;
+const SEED_VERSION = 18;
 const SEED_EVENTS = [
+{
+  "id": "algorithms-2026-openai-matrix-exact-exponent",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 发布任意域矩阵乘法指数 ω = 9/4 的证明与 Lean",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "继十月的 9/4 上界后，本篇给出匹配下界，确定每个域上的方阵乘法算术指数 ω = 9/4。论文还给出各 n ≥ 2 的有限规模界：至少需要 ⌈n^(9/4)/2⌉ 个非标量乘法或除法门。",
+  "impact": "官方 Lean 范围覆盖无除法、要求形式多项式恒等式的模型中的精确指数，并列出允许除法时指数不变、对偶指数 α = 1/2 及矩形指数公式；逐个 n 的上述门数下界尚未形式化。ω 是渐近指数的下确界，上界为每个 ε > 0 的 O(n^(9/4+ε))，不能写成已经取得 Θ(n^(9/4)) 算法或实际运行时间。本站核对源码入口与范围，未独立编译 Lean。",
+  "before": "十月：复数域 ω ≤ 9/4",
+  "after": "任意域 ω = 9/4 / 匹配下界",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：The matrix multiplication exponent is nine fourths",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    },
+    {
+      "title": "Lean 证明源码入口",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/LinearAlgebra/SpectralBooks/ExactExponent.lean",
+      "type": "公开形式化源码"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-strongly-polynomial-lp",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 发布强多项式线性规划算法，回答 Smale 第九问题",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "论文给出确定性强多项式线性规划算法：任意实系数输入的运算步数仅多项式依赖变量数与约束数；有理输入时，中间数的位长多项式依赖输入总位长。以此回答 Smale 第九问题，并报告凸二次规划与均值收益博弈应用。",
+  "impact": "Lean 覆盖至少一个变量和约束的有理线性规划，在固定有理 RAM 程序上给出可行性、最优化、步数及位长界，并输出可行点、不可行证书、等值原始／对偶最优解或改进射线。形式化范围未扩展为任意实系数及全部伴随应用。强多项式指算术步数不依赖系数位长，实际位运算仍须读取和处理输入。与多项式 Hirsch 猜想反例不矛盾，算法不必逐边走遍多面体。本站未独立编译 Lean。",
+  "before": "一般线性规划已有依赖输入位长的多项式算法",
+  "after": "强多项式 LP / 有理数据核心附 Lean",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：Strongly polynomial linear programming",
+      "url": "https://github.com/openai/math/blob/main/preprints/Strongly-polynomial-linear-programming-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Strongly-polynomial-linear-programming-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 380：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/380.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-polynomial-hirsch-counterexample",
+  "domain": "math",
+  "date": "2026-11-24",
+  "title": "OpenAI 给出简单多面体超多项式直径，反驳多项式 Hirsch 猜想",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "对每个充分大的面数 n，论文构造恰有 n 个面的有界简单有理多面体，其维数为 n^o(1)，边图直径最终超过 n 的任意固定次幂。结果反驳多项式 Hirsch 猜想；甚至允许每步跨越指定次多项式维数的面，仍可有超多项式距离。",
+  "impact": "这里的 n 是余维一面的数量，直径按多面体边图的最短路计算。Lean 范围覆盖反例、低维面跨越距离及带指定目标值差的顶点分离；它不说明所有线性规划算法都要超多项式时间。经典线性 Hirsch 界与本篇反驳的多项式版本须区分。本站核对作者说明与 Lean 范围，未独立编译。",
+  "before": "是否存在统一的多项式面数直径上界",
+  "after": "有界简单有理多面体的超多项式直径",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：Superpolynomial graph diameter of simple polytopes",
+      "url": "https://github.com/openai/math/blob/main/preprints/Superpolynomial-graph-diameter-of-simple-polytopes-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Superpolynomial-graph-diameter-of-simple-polytopes-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 380：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/380.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-fixed-petal-sunflower",
+  "domain": "math",
+  "date": "2026-11-24",
+  "title": "OpenAI 发布固定花瓣数向日葵猜想的指数界证明",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "对每个固定 r ≥ 3，论文证明超过 B_r^k 个互异、大小至多 k 的集合必含 r 瓣向日葵，即选出 r 个集合，其两两交集完全相同。底数只依赖 r，满足 log B_r = O((log r)^4 (log log(2r))^(5/2))，解决 Erdős–Rado 固定花瓣数猜想。",
+  "impact": "Lean 给出对每个 r 存在常数 C_r，使超过 C_r^k 个互异 k 元集必含向日葵；不包含论文对底数随 r 变化的显式定量控制。不能把固定 r 的指数界写成与花瓣数无关的统一底数。论文使用同批张量几何框架。本站核对公开命题与范围，未独立编译 Lean。",
+  "before": "固定 r 时是否有仅以 k 为指数的常底数界",
+  "after": "固定 r 的 C_r^k 阈值 / 核心附 Lean",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：An exponential bound for sunflowers",
+      "url": "https://github.com/openai/math/blob/main/preprints/An-exponential-bound-for-sunflowers-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/An-exponential-bound-for-sunflowers-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-valiant-strict-hierarchy",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 将 VP ≠ VNP 加强为 Valiant 算术层级的完整严格分离",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "在每个域上，论文证明 VF ⊊ VBP ⊊ VP ⊊ VNP：算术公式、代数分支程序、算术电路及 VNP 逐级严格分离。见证分别来自路径、完全二叉树和方格上的状态和；n×n 方格的电路下界为 n^(Ω((log n)^(1/12)))。",
+  "impact": "这篇涵盖 11 月 23 日 VP ≠ VNP 的核心分离结论，不应重复统计为又解决一次同一猜想。各类的变量数和总次数均多项式受限。Lean 覆盖三个 exact 类的严格包含，并排除方格族的多项式规模 degree-component border 电路；论文的显式方格定量界尚未形式化。这里讨论形式多项式计算，P vs NP 的布尔判定问题仍须另证。本站未独立编译 Lean。",
+  "before": "VP 与 VNP 的分离 / 各算术模型的能力比较",
+  "after": "每个域上 VF ⊊ VBP ⊊ VP ⊊ VNP",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：Paths trees and grids separate Valiants hierarchy",
+      "url": "https://github.com/openai/math/blob/main/preprints/Paths-trees-and-grids-separate-Valiants-hierarchy-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Paths-trees-and-grids-separate-Valiants-hierarchy-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-hamiltonian-permanent-lower-bounds",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 加强 Hamiltonian cycle 与 permanent 的一般算术电路下界",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "对充分大阶数 N，有向 Hamiltonian cycle 多项式在每个域上的电路门数至少为 exp(c(log N)^2/(log log N)^2)。permanent 在特征不为 2 的域上具有同一下界；c > 0 为绝对常数，阈值仅依赖域的特征。论文允许仅逼近次数 N 分量的系数。",
+  "impact": "定量界加强了 11 月 23 日的 exp(Ω((log N)^(5/4)))，且针对一般算术电路。Lean 覆盖 exact 电路最终超过每个固定多项式的结论；更强的显式定量 border 下界尚未形式化。特征 2 下 permanent 等于 determinant，不能扩写为所有域的 permanent 下界。也不能把算术电路下界直接换成布尔 Hamiltonian 判定的时间下界。本站未独立编译 Lean。",
+  "before": "11 月 23 日：exp(Ω((log N)^(5/4)))",
+  "after": "更强定量下界 / exact 超多项式结论附 Lean",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：Circuit lower bounds for Hamiltonian cycle and the permanent",
+      "url": "https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-fourier-log-exponent",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 确定有限 Fourier 变换的对数指数为 1/2",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "N 阶有限阿贝尔群的精确 Fourier 变换在二元线性门模型中具有 N(log N)^(1/2+o(1)) 的复杂度：下界 Ω(N√log N)，且每个 ε > 0 均有 Oε(N(log N)^(1/2+ε)) 上界。正、逆变换和混合批处理均适用；底域须含所需单位根且 N 可逆。",
+  "impact": "Lean 覆盖单个及批量变换的上下界，包括每个 N ≥ 2 的复数 DFT，较十月所列子序列形式化范围更强。论文另给形式多项式乘法相同指数；其上界已列形式化，下界及批量乘法下界未形式化。精确域运算与不受限权重的门模型不直接等于浮点 FFT、NTT 或位复杂度；指数下确界为 1/2 也不等于已取得 O(N√log N) 的端点上界。本站未独立编译 Lean。",
+  "before": "十月：精确 DFT 的微小对数幂节省",
+  "after": "对数指数 1/2 / 全长度与批量上下界",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：The logarithmic exponent of finite Fourier transforms",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-finite-Fourier-transforms-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-finite-Fourier-transforms-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-integer-log-exponent",
+  "domain": "algorithms",
+  "date": "2026-11-24",
+  "title": "OpenAI 给出 n(log n)^(1/2+o(1)) 整数乘法及 Weak ETH 条件下界",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "一台固定的确定性多带图灵机能在 n(1+log n)^(1/2+o(1)) 最坏时间、O(n) 访问空间内，写出两个 n 位整数的完整乘积。在按变量数定义的 Weak ETH 下，任何精确确定性乘法器的最坏时间为 Ω(n√log n)，从而最优对数指数的下确界为 1/2。",
+  "impact": "算法上界无条件；匹配下界依赖 Weak ETH，即排除固定 η > 0 时 2^(O(v^(1−η)))·L^O(1) 的确定性 3-SAT 算法。它弱于标准 ETH，与此前 2^(v/(log v)^(1/2+o(1))) 的次指数算法不矛盾。Lean 覆盖统一乘法上界和条件下界；论文的精确整数除法、平方根推广未形式化，O(n√log n) 端点是否可达亦未解决。本站未独立编译 Lean。",
+  "before": "十月：低于 n log n 的极小幂次节省",
+  "after": "近平方根对数开销 / 最优性依赖 Weak ETH",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：The logarithmic exponent of integer multiplication on tapes",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-integer-multiplication-on-tapes-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-integer-multiplication-on-tapes-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "math-2026-openai-euclidean-tensor-geometry",
+  "domain": "math",
+  "date": "2026-11-24",
+  "title": "OpenAI 建立张量渐近谱的欧氏几何框架",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "论文对任意域、指标位于实 Hilbert 空间的张量建立几何价格：两处共享一个比特的成本等于欧氏距离，多处共享的价格等于其凸包经归一化的平均宽度；三点时为三角形半周长。框架把张量网络的通信几何转化为复杂度与组合界。",
+  "impact": "这是第 379 族七篇手稿的共同工具，支撑同批矩阵乘法、算术层级与向日葵结果，不应与应用合计为多个互不相关的猜想解决。Lean 说明涵盖有限维欧氏空间的价格构造，以及 CAT(0) 空间凸欧氏图中在对角价格联合凸条件下的平均宽度识别；无限维实 Hilbert 推广未形式化。本站未独立编译 Lean。",
+  "before": "渐近张量复杂度的几何价格与网络比较",
+  "after": "共享比特价格由凸包平均宽度刻画",
+  "featured": false,
+  "sources": [
+    {
+      "title": "原始论文：Euclidean geometry in the asymptotic spectrum of tensors",
+      "url": "https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-24"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Euclidean-geometry-in-the-asymptotic-spectrum-of-tensors-November-24-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    }
+  ]
+},
+{
+  "id": "algorithms-2026-openai-vp-vnp-separation",
+  "domain": "algorithms",
+  "date": "2026-11-23",
+  "title": "OpenAI 发布每个域上 VP ≠ VNP 的证明与 Lean",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI",
+  "model": "OpenAI 未发布内部模型（官方未披露具体版本）",
+  "summary": "OpenAI 于 11 月 23 日公开 VP ≠ VNP 的证明，官方记录结果于 11 月 6 日获得。论文构造显式 VNP 多项式族，在每个域上给出 exp(Ω((log n)^(5/4))) 的 border 算术电路下界，并转移到有向 Hamiltonian cycle；permanent 推论限于特征不为 2 的域。",
+  "impact": "核心是非一致、形式多项式的代数复杂度分离，不能据此写成 P ≠ NP 已被证明。公开 Lean 入口陈述 exact VP 与 VNP 在每个域不同；11 月 24 日算术层级与完整多项式下界两篇涵盖并加强了这项工作，原手稿保留。Scott Aaronson 11 月 24 日介绍了 OpenAI 与 Anthropic 的两份证明及所附 Lean，但本站未独立编译或审计整个证明依赖。",
+  "before": "Valiant 的 VP vs VNP 长期开放问题",
+  "after": "每个域 VP ≠ VNP / exact 分离附 Lean",
+  "featured": true,
+  "sources": [
+    {
+      "title": "原始论文：VP and VNP are different",
+      "url": "https://github.com/openai/math/blob/main/preprints/VP-and-VNP-are-different-November-23-2026/paper.pdf",
+      "type": "证明手稿 · 2026-11-23"
+    },
+    {
+      "title": "作者说明与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/VP-and-VNP-are-different-November-23-2026/README.md",
+      "type": "结论及后续关系"
+    },
+    {
+      "title": "Lean 379：实际形式化范围",
+      "url": "https://github.com/openai/math/blob/main/lean/docs/379.md",
+      "type": "作者报告 · 本站未编译"
+    },
+    {
+      "title": "Lean 证明源码入口",
+      "url": "https://github.com/openai/math/blob/main/lean/OAI/Computability/VPVNP/ClassSeparation.lean",
+      "type": "公开形式化源码"
+    },
+    {
+      "title": "官方发布历史：11 月 23 日与 24 日",
+      "url": "https://github.com/openai/math/blob/main/history.md",
+      "type": "发布日期与成果关联"
+    },
+    {
+      "title": "Scott Aaronson 对两份 VP ≠ VNP 证明的介绍",
+      "url": "https://scottaaronson.blog/?p=10362",
+      "type": "专家说明 · 2026-11-24"
+    }
+  ]
+},
 {
   "id": "math-2026-alpoge-claude-riemann",
   "domain": "math",
@@ -1470,7 +1810,7 @@ const SEED_EVENTS = [
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
   "summary": "目录第 107 族声称复数域上的矩阵乘法指数 ω≤9/4，即对每个 ε>0，可用 Oε(n^(9/4+ε)) 次算术运算完成方阵乘法。",
-  "impact": "不能直接把 2.25 界推广到任意有限域或位复杂度，也不代表已有竞赛实用实现。Lean 范围说明包含复数域 9/4 界；本次未独立编译或审计。",
+  "impact": "不能直接把 2.25 界推广到任意有限域或位复杂度，也不代表已有竞赛实用实现。Lean 范围说明包含复数域 9/4 界；本次未独立编译或审计。 这是十月的上界记录。11 月 24 日另有任意域 ω = 9/4 的匹配下界与形式化记录；最新结论已单列。",
   "before": "降低一般矩阵乘法的渐近算术指数是长期研究目标。",
   "after": "复数域 ω ≤ 9/4（声明）",
   "featured": false,
@@ -1494,6 +1834,11 @@ const SEED_EVENTS = [
       "title": "Lean 形式化范围（未独立复核）",
       "url": "https://github.com/openai/math/blob/main/lean/docs/107.md",
       "type": "形式化说明"
+    },
+    {
+      "title": "11 月 24 日后续结果与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/README.md",
+      "type": "后续进展 · 原始日期保留"
     }
   ]
 },
@@ -1507,7 +1852,7 @@ const SEED_EVENTS = [
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
   "summary": "目录第 130 族声称对所有长度 n，确定性精确 DFT 可用 O(n(log n)^(1−δ)) 次运算，δ=10^−13。模型允许精确复数运算、不受限系数和给定单位根，并计入标量准备与对数长度索引。",
-  "impact": "这是特定算术模型的渐近结果，不能直接等同于浮点 FFT、NTT 或位运算加速。Lean 范围仅覆盖无界长度子序列上的任意小归一化电路成本，不覆盖所有长度的显式幂次节省；未独立验证。",
+  "impact": "这是特定算术模型的渐近结果，不能直接等同于浮点 FFT、NTT 或位运算加速。Lean 范围仅覆盖无界长度子序列上的任意小归一化电路成本，不覆盖所有长度的显式幂次节省；未独立验证。 这是十月发布时的结果及核验范围。11 月 24 日新稿将对数指数确定为 1/2，官方 Lean 已列全长度与批量变换上下界，最新进展另列新事件。",
   "before": "经典 FFT 在常见模型中使用 O(n log n) 次运算。",
   "after": "O(n(log n)^(1−10^−13))（声明）",
   "featured": false,
@@ -1531,6 +1876,11 @@ const SEED_EVENTS = [
       "title": "Lean 形式化范围（未独立复核）",
       "url": "https://github.com/openai/math/blob/main/lean/docs/130.md",
       "type": "形式化说明"
+    },
+    {
+      "title": "11 月 24 日后续结果与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-finite-Fourier-transforms-November-24-2026/README.md",
+      "type": "后续进展 · 原始日期保留"
     }
   ]
 },
@@ -2250,7 +2600,7 @@ const SEED_EVENTS = [
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
   "summary": "目录第 109 族。声称在固定有限字母表、多带图灵机模型中，对所有长度 n，两个 n 位整数可用确定性最坏时间 O(n(log n)^(1−κ)) 相乘，κ=2^−182。",
-  "impact": "与此前精确复数 DFT 的算术模型不同，这是位复杂度声明；指数节省极小，不意味着实用速度改进。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+  "impact": "与此前精确复数 DFT 的算术模型不同，这是位复杂度声明；指数节省极小，不意味着实用速度改进。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。 这是十月发布时的上界及范围记录。11 月 24 日新稿将统一上界加强至 n(1+log n)^(1/2+o(1))，并附乘法上界与 Weak ETH 条件下界的 Lean 材料，另列新事件。",
   "before": "整数乘法 n log n 最优性猜想",
   "after": "低于 n log n 的位复杂度（声明）",
   "featured": false,
@@ -2264,6 +2614,11 @@ const SEED_EVENTS = [
       "title": "第 109 族及伴随手稿目录",
       "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
       "type": "官方目录"
+    },
+    {
+      "title": "11 月 24 日后续结果与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-logarithmic-exponent-of-integer-multiplication-on-tapes-November-24-2026/README.md",
+      "type": "后续进展 · 原始日期保留"
     }
   ]
 },
@@ -3313,7 +3668,7 @@ const SEED_EVENTS = [
   "actor": "OpenAI",
   "model": "OpenAI 未发布内部前沿模型",
   "summary": "目录第 108 族。声称复数域 n×n permanent 的边界行列式复杂度为 Ω(n³)：即便允许仿射线性行列式表示的逐系数极限，矩阵规模仍须至少为三次量级。",
-  "impact": "与网站已有算术公式 n⁴/log n 下界是不同计算模型。Lean 说明覆盖 exact 与 border 行列式表示，论文的代数分支程序推论不在所选陈述内；这一多项式下界本身不证明 VP ≠ VNP。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+  "impact": "与网站已有算术公式 n⁴/log n 下界是不同计算模型。Lean 说明覆盖 exact 与 border 行列式表示，论文的代数分支程序推论不在所选陈述内；这一多项式下界本身不证明 VP ≠ VNP。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。 这是十月的行列式表示下界。11 月 23 日 VP ≠ VNP、24 日一般算术电路的更强超多项式下界及所选 Lean 结论另列新事件；不能用本条历史阶段描述最新边界。",
   "before": "permanent–determinant 表示下界",
   "after": "复数域 border complexity ≥ Ω(n³)",
   "featured": false,
@@ -3332,6 +3687,11 @@ const SEED_EVENTS = [
       "title": "Lean 范围说明（本站未编译）",
       "url": "https://github.com/openai/math/blob/main/lean/docs/108.md",
       "type": "形式化说明"
+    },
+    {
+      "title": "11 月 24 日后续结果与证明入口",
+      "url": "https://github.com/openai/math/blob/main/preprints/Circuit-lower-bounds-for-Hamiltonian-cycle-and-the-permanent-November-24-2026/README.md",
+      "type": "后续进展 · 原始日期保留"
     }
   ]
 },
@@ -3882,6 +4242,7 @@ const SEED_EVENTS = [
 ];
 
 const SEED_MIGRATIONS = {
+  18: ["algorithms-2026-openai-matrix-exact-exponent", "algorithms-2026-openai-strongly-polynomial-lp", "math-2026-openai-polynomial-hirsch-counterexample", "math-2026-openai-fixed-petal-sunflower", "algorithms-2026-openai-valiant-strict-hierarchy", "algorithms-2026-openai-hamiltonian-permanent-lower-bounds", "algorithms-2026-openai-fourier-log-exponent", "algorithms-2026-openai-integer-log-exponent", "math-2026-openai-euclidean-tensor-geometry", "algorithms-2026-openai-vp-vnp-separation"],
   17: ["math-2026-alpoge-claude-riemann", "physics-2026-unforced-navier-stokes", "physics-2026-unforced-euler-torus", "biology-2026-alphagenome2", "algorithms-2026-alphaproof-code-signal", "physics-2026-claude-hawking-page", "physics-2026-claude-modular-bootstrap", "biology-2026-claude-vault-structure", "biology-2026-claude-drug-development", "algorithms-2026-anthropic-subexponential-sat", "physics-2026-craig-chiral-lattice", "math-2026-kls-dimension-free", "physics-2026-landreman-grad-equilibria"],
   16: ["math-2026-openai-local-smoothing-all-dimensions", "physics-2026-openai-qcd-existence", "biology-2026-claude-scorpion-binders", "math-2026-brennan-human-refinement", "biology-2026-distributed-reasoning-atlas", "algorithms-2026-claude-quantum-circuits", "algorithms-2026-external-memory-integer-sorting", "algorithms-2026-two-level-poset", "physics-2026-penrose-maximally-parameterized", "math-2026-diophantine-certificates"],
   15: ["algorithms-2026-openai-subexponential-sat"],
@@ -3914,6 +4275,141 @@ function migrateAlgorithmDomain(event) {
 
 // Apply factual corrections only to untouched seeds; preserve edits and deletions.
 const SEED_REVISIONS = {
+  18: [
+  {
+    "id": "cp-2026-openai-matrix-nine-fourths",
+    "domain": "algorithms",
+    "date": "2026-10-06",
+    "title": "OpenAI 声称复数矩阵乘法指数 ω ≤ 2.25",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 未发布内部前沿模型",
+    "summary": "目录第 107 族声称复数域上的矩阵乘法指数 ω≤9/4，即对每个 ε>0，可用 Oε(n^(9/4+ε)) 次算术运算完成方阵乘法。",
+    "impact": "不能直接把 2.25 界推广到任意有限域或位复杂度，也不代表已有竞赛实用实现。Lean 范围说明包含复数域 9/4 界；本次未独立编译或审计。",
+    "before": "降低一般矩阵乘法的渐近算术指数是长期研究目标。",
+    "after": "复数域 ω ≤ 9/4（声明）",
+    "featured": false,
+    "sources": [
+      {
+        "title": "OpenAI 2026-10-06 官方发布",
+        "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+        "type": "官方发布"
+      },
+      {
+        "title": "原始论文",
+        "url": "https://github.com/openai/math/blob/main/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/paper.pdf",
+        "type": "预印本"
+      },
+      {
+        "title": "成果目录与发布说明",
+        "url": "https://github.com/openai/math",
+        "type": "官方仓库"
+      },
+      {
+        "title": "Lean 形式化范围（未独立复核）",
+        "url": "https://github.com/openai/math/blob/main/lean/docs/107.md",
+        "type": "形式化说明"
+      }
+    ]
+  },
+  {
+    "id": "cp-2026-openai-dft",
+    "domain": "algorithms",
+    "date": "2026-10-06",
+    "title": "OpenAI 声称精确 DFT 突破 n log n 运算界",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 未发布内部前沿模型",
+    "summary": "目录第 130 族声称对所有长度 n，确定性精确 DFT 可用 O(n(log n)^(1−δ)) 次运算，δ=10^−13。模型允许精确复数运算、不受限系数和给定单位根，并计入标量准备与对数长度索引。",
+    "impact": "这是特定算术模型的渐近结果，不能直接等同于浮点 FFT、NTT 或位运算加速。Lean 范围仅覆盖无界长度子序列上的任意小归一化电路成本，不覆盖所有长度的显式幂次节省；未独立验证。",
+    "before": "经典 FFT 在常见模型中使用 O(n log n) 次运算。",
+    "after": "O(n(log n)^(1−10^−13))（声明）",
+    "featured": false,
+    "sources": [
+      {
+        "title": "OpenAI 2026-10-06 官方发布",
+        "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+        "type": "官方发布"
+      },
+      {
+        "title": "原始论文",
+        "url": "https://github.com/openai/math/blob/main/preprints/An-explicit-power-saving-for-the-exact-discrete-Fourier-transform-September-25-2026/main.pdf",
+        "type": "预印本"
+      },
+      {
+        "title": "成果目录与发布说明",
+        "url": "https://github.com/openai/math",
+        "type": "官方仓库"
+      },
+      {
+        "title": "Lean 形式化范围（未独立复核）",
+        "url": "https://github.com/openai/math/blob/main/lean/docs/130.md",
+        "type": "形式化说明"
+      }
+    ]
+  },
+  {
+    "id": "cp-2026-openai-integer-multiplication",
+    "domain": "algorithms",
+    "date": "2026-10-06",
+    "title": "OpenAI 发布整数乘法突破 n log n 位复杂度证明声明",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 未发布内部前沿模型",
+    "summary": "目录第 109 族。声称在固定有限字母表、多带图灵机模型中，对所有长度 n，两个 n 位整数可用确定性最坏时间 O(n(log n)^(1−κ)) 相乘，κ=2^−182。",
+    "impact": "与此前精确复数 DFT 的算术模型不同，这是位复杂度声明；指数节省极小，不意味着实用速度改进。本次未取得对应 Lean 范围文档。 本次仅核对公开来源与范围，未独立验证证明或编译 Lean。",
+    "before": "整数乘法 n log n 最优性猜想",
+    "after": "低于 n log n 的位复杂度（声明）",
+    "featured": false,
+    "sources": [
+      {
+        "title": "原始论文",
+        "url": "https://github.com/openai/math/blob/main/preprints/Integer-multiplication-below-n-log-n-September-23-2026/paper.pdf",
+        "type": "预印本"
+      },
+      {
+        "title": "第 109 族及伴随手稿目录",
+        "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "type": "官方目录"
+      }
+    ]
+  },
+  {
+    "id": "algorithms-2026-openai-permanent-border-cubic",
+    "domain": "algorithms",
+    "date": "2026-10-06",
+    "title": "OpenAI 发布permanent 边界行列式复杂度的三次下界证明声明",
+    "status": "review",
+    "evidenceLevel": "reported",
+    "actor": "OpenAI",
+    "model": "OpenAI 未发布内部前沿模型",
+    "summary": "目录第 108 族。声称复数域 n×n permanent 的边界行列式复杂度为 Ω(n³)：即便允许仿射线性行列式表示的逐系数极限，矩阵规模仍须至少为三次量级。",
+    "impact": "与网站已有算术公式 n⁴/log n 下界是不同计算模型。Lean 说明覆盖 exact 与 border 行列式表示，论文的代数分支程序推论不在所选陈述内；这一多项式下界本身不证明 VP ≠ VNP。 本站仅核对公开来源及形式化范围，未独立复核证明或编译 Lean。",
+    "before": "permanent–determinant 表示下界",
+    "after": "复数域 border complexity ≥ Ω(n³)",
+    "featured": false,
+    "sources": [
+      {
+        "title": "原始论文",
+        "url": "https://github.com/openai/math/blob/main/preprints/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026/A-cubic-lower-bound-for-border-determinantal-complexity-of-the-permanent-September-24-2026.pdf",
+        "type": "证明手稿"
+      },
+      {
+        "title": "官方成果目录：第 108 族",
+        "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "type": "官方目录"
+      },
+      {
+        "title": "Lean 范围说明（本站未编译）",
+        "url": "https://github.com/openai/math/blob/main/lean/docs/108.md",
+        "type": "形式化说明"
+      }
+    ]
+  }
+],
   17: [
   {
     "id": "math-2026-riemann-bound",

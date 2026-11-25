@@ -53,21 +53,22 @@ test("a corrected seed is unchanged on a repeated migration", () => {
   assert.equal(reviseSeedEvent(revised, previous), revised);
 });
 
-test("version 17 updates both historical snapshots and preserves local changes", () => {
-  assert.equal(SEED_REVISIONS[17].length, 2);
-  for (const snapshot of SEED_REVISIONS[17]) {
-    const original = { ...structuredClone(snapshot), origin: "seed" };
-    const latest = SEED_EVENTS.find((event) => event.id === snapshot.id);
-    const revised = reviseSeedEvent(original, snapshot);
-    assert.equal(JSON.stringify({ ...revised, origin: undefined }), JSON.stringify(latest));
-    assert.equal(revised.date, snapshot.date);
-    const edited = { ...original, summary: "我的研究备注" };
-    assert.equal(reviseSeedEvent(edited, snapshot), edited);
-    const timestamped = { ...original, editedAt: "2026-11-01T00:00:00Z" };
-    assert.equal(reviseSeedEvent(timestamped, snapshot), timestamped);
-    assert.equal(reviseSeedEvent(undefined, snapshot), undefined);
-  }
-});
+for (const [version, snapshots] of Object.entries(SEED_REVISIONS)) {
+  test(`version ${version} updates historical snapshots and preserves local changes`, () => {
+    for (const snapshot of snapshots) {
+      const original = { ...structuredClone(snapshot), origin: "seed" };
+      const latest = SEED_EVENTS.find((event) => event.id === snapshot.id);
+      const revised = reviseSeedEvent(original, snapshot);
+      assert.equal(JSON.stringify({ ...revised, origin: undefined }), JSON.stringify(latest));
+      assert.equal(revised.date, snapshot.date);
+      const edited = { ...original, summary: "我的研究备注" };
+      assert.equal(reviseSeedEvent(edited, snapshot), edited);
+      const timestamped = { ...original, editedAt: "2026-11-01T00:00:00Z" };
+      assert.equal(reviseSeedEvent(timestamped, snapshot), timestamped);
+      assert.equal(reviseSeedEvent(undefined, snapshot), undefined);
+    }
+  });
+}
 
 test("a browser skipping version 16 receives the latest Hodge correction", () => {
   let current = seed();
