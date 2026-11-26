@@ -14,8 +14,199 @@ const EVIDENCE = {
   community: "社区整理 / 复现",
 };
 
-const SEED_VERSION = 18;
+const SEED_VERSION = 19;
 const SEED_EVENTS = [
+{
+  "id": "physics-2026-chandrasekaran-null-cone-gravity",
+  "domain": "physics",
+  "date": "2026-11-25",
+  "title": "Chandrasekaran 与 GPT-6 Astra 协作提出光锥上的量子引力方案",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Venkatesa Chandrasekaran（Stanford）",
+  "model": "GPT-6 Astra",
+  "summary": "新预印本提出四维 Lorentz 时空中真空广义相对论的背景无关量子化：在相交光锥上求解约束，构造可观测量代数、Hilbert 空间与路径积分。论文报告有限的引力子对振幅、有界因果菱形的有限维状态空间，并导出黑洞面积熵及一圈半经典 Einstein 方程。",
+  "impact": "致谢明确说，若干计算和证明由作者与 GPT-6 Astra 数月往返协作得到，总用量约 4 亿 tokens；未逐项披露 AI 贡献。四维部分限于真空引力，恢复已知结果属于论文内部一致性检查。尚无可据以标为已核验的独立复核材料或完整形式化，不宜写成量子引力已获公认解决。不同起始态表示是否等价留待研究。日期采用 arXiv 11 月 25 日（UTC）首投，北京时间为 26 日；截图稿面日期为 23 日。",
+  "before": "四维非微扰量子引力与有限区域状态计数",
+  "after": "光锥代数量子化方案 / 新预印本待审阅",
+  "featured": true,
+  "sources": [
+    { "title": "原始预印本与提交历史：arXiv:2611.34924", "url": "https://arxiv.org/abs/2611.34924", "type": "作者发布 · 2026-11-25 UTC" },
+    { "title": "论文全文：构造、适用范围与 Astra 协作致谢", "url": "https://arxiv.org/html/2611.34924v1", "type": "正文、脚注 20 与致谢" }
+  ]
+},
+{
+  "id": "algorithms-2026-cogentic-integer-factorization",
+  "domain": "algorithms",
+  "date": "2026-11-25",
+  "title": "Cogentic 声称无条件整数分解达到 L_N[1/3, 105] 期望时间",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "手稿给出经典多带图灵机上的零错误 Las Vegas 算法，声称对任意二进制整数 N ≥ 2，在最坏输入的期望时间 L_N[1/3, 105] 内输出完整素因数分解，工作空间 L_N[1/3, 40]，不依赖未证数论假设。",
+  "impact": "L_N[α,c] 表示 exp((c+o(1))(ln N)^α(ln ln N)^(1−α)) 量级；按输入位长仍是次指数，不能写成多项式分解或实际破解 RSA。README 称由 Cogentic 在初始提示后无人干预地产出，并称已完成 Lean，但证明文件待后续发布；本站未取得可重建的形式化，按作者声明收录。",
+  "before": "严格保证与数域筛启发式复杂度存在差距",
+  "after": "无条件 L_N[1/3, 105] / 声明待审阅",
+  "featured": true,
+  "sources": [
+    { "title": "作者说明、复杂度与 Lean 待发布状态", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/integer_factorization/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "Unconditional Integer Factorization 原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/integer_factorization/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "algorithms-2026-cogentic-deterministic-factoring",
+  "domain": "algorithms",
+  "date": "2026-11-25",
+  "title": "Cogentic 提出确定性次指数分解与二次非剩余构造",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "手稿声称，对任意合数 N ≥ 4，可无条件、确定性地在 O(exp(3(ln N)^(3/4))) 位操作内找到非平凡因子；另给出在 exp(O(√ln p · ln ln p)) 时间内寻找奇素数 p 模二次非剩余的算法。",
+  "impact": "这是与随机 L_N[1/3] 手稿不同的确定性保证，不能混用两篇的时间界；主定理直接输出一个非平凡因子，完整分解可递归处理。它仍非输入位长的多项式算法，也未展示实用密码攻击。作者称初始提示后由 Cogentic 产出，完整 Lean 尚待发布，本站未独立复核证明。",
+  "before": "不依赖 GRH 的确定性一般整数分解",
+  "after": "O(exp(3(ln N)^(3/4))) 因子搜索声明",
+  "featured": false,
+  "sources": [
+    { "title": "作者说明：因子搜索、阶分裂与非剩余的不同界", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/deterministic_factoring_l34/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "确定性分解与二次非剩余原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/deterministic_factoring_l34/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "algorithms-2026-cogentic-discrete-logarithm",
+  "domain": "algorithms",
+  "date": "2026-11-25",
+  "title": "Cogentic 声称固定特征有限域离散对数达到次准多项式时间",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "手稿给出有限域 F_(p^n) 乘法群中的无条件零错误 Las Vegas 算法。对每个固定素数 p、n 趋于无穷，最坏期望位复杂度为 exp(((2+o(1))/ln ln ln n)(ln n)^2)，即 (pn)^(o(log n))；也能给出目标不在生成子群中的证书。",
+  "impact": "固定或足够小的特征是关键范围，不能推广为任意大素数域或椭圆曲线离散对数的同等改进；次准多项式也不等于多项式时间。README 披露初始提示后的自主生成流程，并称 Lean 已完成但待发布，本站未独立编译或验证。",
+  "before": "小特征有限域离散对数的准多项式尺度",
+  "after": "固定 p 的 (pn)^(o(log n)) 声明",
+  "featured": false,
+  "sources": [
+    { "title": "作者说明：固定特征及 p 随 n 变化的条件", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/discrete_logarithm/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "固定特征离散对数原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/discrete_logarithm/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "algorithms-2026-cogentic-one-fifth-nash",
+  "domain": "algorithms",
+  "date": "2026-11-25",
+  "title": "Cogentic 提出多项式时间的 1/5 近似 Nash 均衡算法",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "手稿提出确定性 MaximinKiteNE 算法：对收益在 [0,1] 内的有理双矩阵博弈，按总二进制编码长度 L 的多项式时间输出有理混合策略，使任一玩家单方面改变策略的最大收益增量不超过 1/5。",
+  "impact": "“Exact”指准确达到 1/5 的加性误差界，不是精确 Nash 均衡；也不是误差任意趋零的 PTAS。作者对比既有 1/3+δ 和近期约 0.30954+δ 的界。初始提示后由 Cogentic 产出及 Lean 已完成均属作者报告，形式化文件待公开，本站未独立审查算法证明。",
+  "before": "作者所列近期约 0.30954+δ 加性误差",
+  "after": "准确达到 0.2 的加性误差 / 待审阅",
+  "featured": true,
+  "sources": [
+    { "title": "作者说明：收益归一化、位复杂度与误差界", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/bimatrix_nash_equilibrium/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "1/5 近似 Nash 均衡原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/bimatrix_nash_equilibrium/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "algorithms-2026-cogentic-logrank-barrier",
+  "domain": "algorithms",
+  "date": "2026-11-25",
+  "title": "Cogentic 声称突破 log-rank 猜想的平方根指数障碍",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "对实数秩为 r 的布尔矩阵，手稿声称确定性双人通信复杂度 Dcc(M) ≤ C′r^(1/2−ε)，其中 ε=5×10^−6、C′=750×2^38，改进 Lovett 的 O(√r log r) 界；并给出相应单色矩形密度保证。",
+  "impact": "这是将 r 的幂指数降到严格小于 1/2 的进展声明，仍远于 log-rank 猜想要求的 poly(log r)，不能写成猜想已解决。常数很大，不代表实际通信协议普遍可用。作者称由 Cogentic 自主产出，Lean 待后续公开；本站未独立核验。",
+  "before": "O(√r log r) 通信复杂度上界",
+  "after": "O(r^(1/2−0.000005)) 声明",
+  "featured": true,
+  "sources": [
+    { "title": "作者说明：指数、常数与形式化发布状态", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/logrank_conjecture/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "Breaking the Square-Root Barrier 原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/logrank_conjecture/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "math-2026-cogentic-linear-edge-reconstruction",
+  "domain": "math",
+  "date": "2026-11-25",
+  "title": "Cogentic 声称将一般简单图的边重构保证推进至线性边数",
+  "status": "review",
+  "evidenceLevel": "reported",
+  "actor": "Google Research / Google DeepMind",
+  "model": "Cogentic / Gemini 4",
+  "summary": "手稿声称，任意 n ≥ 4 个顶点、m ≥ 1000n 条边的有限简单无向图，都由其所有删去一条边所得无标号子图的多重集唯一确定（至同构）；推论覆盖最小度至少 2000 的简单图。",
+  "impact": "相对于作者列出的 m > n log₂n 通用密度条件，新的保证在足够大的 n 下将阈值降到线性。它只覆盖指定密度，不能称为完全解决 Harary 边重构猜想，也不等于顶点重构猜想。README 称初始提示后由 Cogentic 产出，完整 Lean 待公开，本站未独立验证。",
+  "before": "通用密度条件 m > n log₂n",
+  "after": "m ≥ 1000n 的边重构声明",
+  "featured": false,
+  "sources": [
+    { "title": "作者说明：线性密度与最小度范围", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/edge_reconstruction/README.md", "type": "原始研究说明 · 2026-11-25" },
+    { "title": "线性密度边重构原始手稿", "url": "https://github.com/google-research/google-research/blob/master/cogentic_research_papers/edge_reconstruction/paper.pdf", "type": "公开证明手稿" }
+  ]
+},
+{
+  "id": "math-2026-riemann-shorter-proof-verified",
+  "domain": "math",
+  "date": "2026-11-25",
+  "title": "RH／Dirichlet GRH 证明缩至约 7.6 万行，MIT 完成两版机检",
+  "status": "formalized",
+  "evidenceLevel": "verified",
+  "actor": "lsernau / Anthropic / Andrew Sutherland（MIT）",
+  "model": "Claude（仓库未披露具体版本）",
+  "summary": "基于 Alpöge／Claude 原证明，团队发布约 30 万行的可读版和约 7.6 万行的紧凑版，保留相同的 RH 与 Dirichlet L 函数五个命题。Sutherland 的 11 月 26 日核验页报告两版通过编译、命题比较、公理检查与多个内核验证。",
+  "impact": "这是原证明的缩简与验证进展，不是另一项独立 RH 证明，也未扩大为所有 L 函数的 GRH。核验针对仓库 commit 72fead10；紧凑版在两台机器完成 paranoid 全链检查，可读版全链在较大机器通过，较小机器因 lean4lean 内存需求中止该次检查。仓库仍称无人通读、没有配套论文；本站引用外部核验，未本地重建。",
+  "before": "原始约 1700 万行 Lean 证明",
+  "after": "约 7.6 万行紧凑版 / 两版通过外部机检",
+  "featured": true,
+  "sources": [
+    { "title": "作者仓库：两种版本、来源与阅读状态", "url": "https://github.com/lsernau/grh-lean", "type": "原始缩简证明 · 2026-11-25" },
+    { "title": "MIT：两版完整核验记录及机器差异", "url": "https://math.mit.edu/~drew/shortgrh/", "type": "外部机检 · 更新于 2026-11-26" }
+  ]
+},
+{
+  "id": "biology-2026-openai-gpt6-protein-binders",
+  "domain": "biology",
+  "date": "2026-11-24",
+  "title": "GPT-6.2 设计蛋白骨架，Onava 实验在五个靶点检出结合",
+  "status": "progress",
+  "evidenceLevel": "reported",
+  "actor": "OpenAI Life Science Team / Onava",
+  "model": "预发布 GPT-6.2 / GPT-6 系列内部研究模型",
+  "summary": "OpenAI 报告通用模型用推理与代码生成蛋白结构和序列。Onava 对基于 GPT-6.2 骨架的 322 个 minibinder 进行实验，35 个显示目标结合（10.9%），覆盖全部五个靶点。实验流程使用 SolubleMPNN 提供序列，并用专用模型筛选候选。",
+  "impact": "进展是通用模型生成的骨架进入湿实验并得到结合信号，不是完全摆脱专用模型的端到端设计。序列重设计实验与新骨架实验分开统计；内部模型的计算评测也不能当作 GPT-6.2 的实验命中率。结合不等于功能、疗效或安全性已验证，全文结构预测仍明显落后于专用模型。日期采用官方 11 月 24 日发布；本站未复做实验。",
+  "before": "通用语言模型的计算设计能力",
+  "after": "35/322 实验结合 / 五个靶点均有命中",
+  "featured": true,
+  "sources": [
+    { "title": "官方研究说明：实验分工、命中率与局限", "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/", "type": "机构及合作实验室报告 · 2026-11-24" },
+    { "title": "GPT-6 as a Universal Foundation Model for Protein Biology", "url": "https://cdn.openai.com/pdf/gpt-6-a-universal-foundation-model-for-protein-biology.pdf", "type": "原始研究预印本" }
+  ]
+},
+{
+  "id": "algorithms-2026-gemini-verified-quantum-programs",
+  "domain": "algorithms",
+  "date": "2026-11-06",
+  "title": "Gemini 4 与 Lean 优化量子程序，降低聚变及分子模拟资源需求",
+  "status": "formalized",
+  "evidenceLevel": "reported",
+  "actor": "Google DeepMind / Google Quantum AI",
+  "model": "Gemini 4 智能体团队",
+  "summary": "团队在 Lean 量子程序库中搜索并验证算法的正确性与成本，报告聚变模拟资源成本降低约 11.8 倍、光化学约 8 倍、P450 药物代谢模拟约 2.5 倍；另改进特定并行搜索与量子算术实现，并公开规格、证明和程序库。",
+  "impact": "这些是对指定基线的量子电路资源估算，尚非量子硬件上的聚变或药物实验；特定 Grover 实现的改进也不改变一般无结构搜索的渐近下界。归算法研究，避免与物理应用重复计数。日期采用 arXiv 11 月 6 日首投，16 日修订、23 日官方介绍；本站核对公开材料与源码入口，未独立重建 Lean。",
+  "before": "指定量子科学模拟电路的既有资源估算",
+  "after": "约 11.8× / 8× / 2.5× 资源改善",
+  "featured": false,
+  "sources": [
+    { "title": "原始论文与版本：Discovering formally verified quantum programs with AI", "url": "https://arxiv.org/abs/2611.09822", "type": "首投 2026-11-06 · v3 11-16" },
+    { "title": "官方说明：成本口径与科学应用", "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/", "type": "研究介绍 · 2026-11-23" },
+    { "title": "Formal Quantum Computation：Lean 库、规格与证明", "url": "https://github.com/google-deepmind/formal-quantum-computation", "type": "公开研究代码" }
+  ]
+},
 {
   "id": "algorithms-2026-openai-matrix-exact-exponent",
   "domain": "algorithms",
@@ -366,7 +557,7 @@ const SEED_EVENTS = [
   "actor": "Levent Alpöge / Lean 与 Mathlib 社区",
   "model": "Claude 内部研究模型（未公开具体版本）",
   "summary": "Alpöge 于 11 月 20 日公布与 Claude 合作得到的黎曼猜想及 Dirichlet L 函数广义黎曼猜想证明。11 月 21 日，Lean／Mathlib 社区联合声明确认黎曼猜想的命题与形式化证明正确；已检查 Mathlib 原有定义、编译、命题一致性及多个内核对导出证明的验证。",
-  "impact": "这已超出本站 8 月的 67.2% 比例下界和 10 月的准黎曼无零半平面记录。MIT 的核验页另列出 Dirichlet L 函数相关命题的检查状态；不能把 Dirichlet 范围扩写为所有自守 L 函数。约 1700 万行 Lean 的思想解释与简化仍在进行。截至 11 月 22 日本站核对时，克雷页面仍列 Unsolved，未宣布授奖。本站引用外部机检结论，未在本地重建该大型证明。",
+  "impact": "这已超出本站 8 月的 67.2% 比例下界和 10 月的准黎曼无零半平面记录。MIT 的核验页另列出 Dirichlet L 函数相关命题的检查状态；不能把 Dirichlet 范围扩写为所有自守 L 函数。11 月 25 日团队另发布约 30 万行可读版与 7.6 万行紧凑版，26 日 MIT 报告两版均完成外部机检；这是本证明的缩简，另有后续卡片记录，不代表数学家已通读。截至 11 月 22 日本站核对时，克雷页面仍列 Unsolved，未宣布授奖。本站引用外部机检结论，未在本地重建该大型证明。",
   "before": "部分零点比例 / 较窄无零区域",
   "after": "RH 形式化获社区确认 / Dirichlet GRH",
   "featured": true,
@@ -390,6 +581,11 @@ const SEED_EVENTS = [
       "title": "克雷数学研究所：黎曼猜想页面",
       "url": "https://www.claymath.org/millennium/riemann-hypothesis/",
       "type": "官方问题与奖项状态"
+    },
+    {
+      "title": "后续：较短证明两版的 MIT 核验",
+      "url": "https://math.mit.edu/~drew/shortgrh/",
+      "type": "外部机检 · 2026-11-26"
     }
   ]
 },
@@ -4242,6 +4438,7 @@ const SEED_EVENTS = [
 ];
 
 const SEED_MIGRATIONS = {
+  19: ["physics-2026-chandrasekaran-null-cone-gravity", "algorithms-2026-cogentic-integer-factorization", "algorithms-2026-cogentic-deterministic-factoring", "algorithms-2026-cogentic-discrete-logarithm", "algorithms-2026-cogentic-one-fifth-nash", "algorithms-2026-cogentic-logrank-barrier", "math-2026-cogentic-linear-edge-reconstruction", "math-2026-riemann-shorter-proof-verified", "biology-2026-openai-gpt6-protein-binders", "algorithms-2026-gemini-verified-quantum-programs"],
   18: ["algorithms-2026-openai-matrix-exact-exponent", "algorithms-2026-openai-strongly-polynomial-lp", "math-2026-openai-polynomial-hirsch-counterexample", "math-2026-openai-fixed-petal-sunflower", "algorithms-2026-openai-valiant-strict-hierarchy", "algorithms-2026-openai-hamiltonian-permanent-lower-bounds", "algorithms-2026-openai-fourier-log-exponent", "algorithms-2026-openai-integer-log-exponent", "math-2026-openai-euclidean-tensor-geometry", "algorithms-2026-openai-vp-vnp-separation"],
   17: ["math-2026-alpoge-claude-riemann", "physics-2026-unforced-navier-stokes", "physics-2026-unforced-euler-torus", "biology-2026-alphagenome2", "algorithms-2026-alphaproof-code-signal", "physics-2026-claude-hawking-page", "physics-2026-claude-modular-bootstrap", "biology-2026-claude-vault-structure", "biology-2026-claude-drug-development", "algorithms-2026-anthropic-subexponential-sat", "physics-2026-craig-chiral-lattice", "math-2026-kls-dimension-free", "physics-2026-landreman-grad-equilibria"],
   16: ["math-2026-openai-local-smoothing-all-dimensions", "physics-2026-openai-qcd-existence", "biology-2026-claude-scorpion-binders", "math-2026-brennan-human-refinement", "biology-2026-distributed-reasoning-atlas", "algorithms-2026-claude-quantum-circuits", "algorithms-2026-external-memory-integer-sorting", "algorithms-2026-two-level-poset", "physics-2026-penrose-maximally-parameterized", "math-2026-diophantine-certificates"],
@@ -4275,6 +4472,45 @@ function migrateAlgorithmDomain(event) {
 
 // Apply factual corrections only to untouched seeds; preserve edits and deletions.
 const SEED_REVISIONS = {
+  19: [
+    {
+      "id": "math-2026-alpoge-claude-riemann",
+      "domain": "math",
+      "date": "2026-11-20",
+      "title": "Alpöge 与 Claude 公布黎曼猜想证明，Lean／Mathlib 社区确认机检",
+      "status": "formalized",
+      "evidenceLevel": "verified",
+      "actor": "Levent Alpöge / Lean 与 Mathlib 社区",
+      "model": "Claude 内部研究模型（未公开具体版本）",
+      "summary": "Alpöge 于 11 月 20 日公布与 Claude 合作得到的黎曼猜想及 Dirichlet L 函数广义黎曼猜想证明。11 月 21 日，Lean／Mathlib 社区联合声明确认黎曼猜想的命题与形式化证明正确；已检查 Mathlib 原有定义、编译、命题一致性及多个内核对导出证明的验证。",
+      "impact": "这已超出本站 8 月的 67.2% 比例下界和 10 月的准黎曼无零半平面记录。MIT 的核验页另列出 Dirichlet L 函数相关命题的检查状态；不能把 Dirichlet 范围扩写为所有自守 L 函数。约 1700 万行 Lean 的思想解释与简化仍在进行。截至 11 月 22 日本站核对时，克雷页面仍列 Unsolved，未宣布授奖。本站引用外部机检结论，未在本地重建该大型证明。",
+      "before": "部分零点比例 / 较窄无零区域",
+      "after": "RH 形式化获社区确认 / Dirichlet GRH",
+      "featured": true,
+      "sources": [
+        {
+          "title": "作者四页公告与原始证明下载入口",
+          "url": "https://alpo.ge/remark.pdf",
+          "type": "作者公告 · 2026-11-20"
+        },
+        {
+          "title": "Lean／Mathlib 联合声明：四项检查及确认",
+          "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+          "type": "独立社区核验 · 2026-11-21"
+        },
+        {
+          "title": "Andrew Sutherland（MIT）：五项命题的核验日志",
+          "url": "https://math.mit.edu/~drew/grh/",
+          "type": "独立检查记录 · 各工具状态分列"
+        },
+        {
+          "title": "克雷数学研究所：黎曼猜想页面",
+          "url": "https://www.claymath.org/millennium/riemann-hypothesis/",
+          "type": "官方问题与奖项状态"
+        }
+      ]
+    }
+  ],
   18: [
   {
     "id": "cp-2026-openai-matrix-nine-fourths",
